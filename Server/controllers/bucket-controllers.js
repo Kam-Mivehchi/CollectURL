@@ -7,7 +7,7 @@ module.exports = {
 
    async getAllBuckets(req, res) {
       try {
-         const data = await Bucket.find().select('-__v')
+         const data = await Bucket.find().populate('lists').select('-__v')
          res.status(200).json(data)
 
       } catch (err) {
@@ -27,7 +27,7 @@ module.exports = {
    },
    async getBucketById(req, res) {
       try {
-         const data = await Bucket.findOne({ _id: req.params.bucketId })
+         const data = await Bucket.findOne({ _id: req.params.bucketId }).populate('lists').select('-__v')
          res.status(200).json(data)
 
       } catch (err) {

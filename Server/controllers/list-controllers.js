@@ -18,9 +18,17 @@ module.exports = {
    async newList(req, res) {
       try {
          const data = await List.create(req.body)
+         console.log(data)
+         await Bucket.findOneAndUpdate({ bucketName: data.bucket },
+            { $addToSet: { lists: data._id } },
+            { runValidators: true, new: true }
+         )
+
          res.status(200).json(data)
 
       } catch (err) {
+         console.log(err)
+
          res.status(500).json(err)
 
       }

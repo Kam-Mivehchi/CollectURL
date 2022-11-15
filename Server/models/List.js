@@ -17,7 +17,12 @@ const listSchema = new Schema(
          default: "Local User"
          // required: true,
       },
-      listItems: [itemSchema]
+      bucket: {
+         type: Schema.Types.String,
+         ref: 'Bucket',
+         default: "Free Thoughts"
+      },
+      listItems: [itemSchema],
    },
    {
       toJSON: {
