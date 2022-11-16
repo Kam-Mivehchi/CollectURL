@@ -5,8 +5,8 @@ import Library from './components/Library.js'
 // import { Container } from './components/styles/Container.styled'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
-
-
+import { Routes, Route } from 'react-router-dom'
+import ListView from './components/ListView';
 const theme = {
   colors: {
     header: '#ebfbff',
@@ -25,6 +25,11 @@ const theme = {
 
   },
   mobile: '768px',
+  borders: {
+    inner: '.75rem',
+    outer: '1.25rem',
+    input: '.25rem'
+  }
 }
 
 function App() {
@@ -35,8 +40,12 @@ function App() {
       <>
         {/* Navigation  */}
         <Header />
+        <Routes>
+          <Route path="/" element={<Library />} />
+          <Route path="lists/:listId" element={<ListView />} />
+        </Routes>
         {/* workspace needs to have top bar to create the lists and the list library  */}
-        <Library />
+        {/* <Library /> */}
       </>
     </ThemeProvider>
   );

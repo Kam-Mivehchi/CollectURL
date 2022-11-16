@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Bucket, AddList, ListRow, Card } from './styles/Library.styles'
 
 
+
 const BucketRow = ({ lists, bucket }) => {
    const [userBucket, setUserBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
@@ -33,21 +34,27 @@ const BucketRow = ({ lists, bucket }) => {
          <AddList> + </AddList>
          <ListRow>
             {/* {console.log("bucketData", bucketData.lists)} */}
+
+
             {userBucket.lists.map((el, index) => {
                return (
-                  <Card key={index}>
-                     <h2 className=" font-bold flex ">{el.listName}</h2>
-                     <ol className="list-decimal p-4 ">
-                        {el.listItems.map((item, index) => {
+                  <a href={`/lists/${el.id}`}>
 
-                           return <li key={index}>{item.itemName}</li>
-                        })}
+                     <Card key={index} id={el.id} >
+                        <h2 className=" font-bold flex ">{el.listName}</h2>
+                        <ol className="list-decimal p-4 ">
+                           {el.listItems.map((item, index) => {
 
-                     </ol>
+                              return <li key={index}>{item.itemName}</li>
+                           })}
 
-                  </Card>
+                        </ol>
+
+                     </Card>
+                  </a>
                )
             })}
+
          </ListRow>
       </Bucket>
    )

@@ -69,9 +69,27 @@ background-color:${({ theme }) => theme.colors.newListButtonBackground};
 export const Card = styled.article`
 background-color:white;
 padding:1.5em;
-border-radius:1em;
-min-width:min(45%,20rem);
-
+border-radius:.5em;
+min-width:33vw;
+height:25vh;
 color:${({ theme }) => theme.colors.cardText};
 background-color:${({ theme }) => theme.colors.cardBackground};
+position:relative;
+h2{
+ 
+font-size:.75em;
+}
+ol{
+  max-height:50%;
+  width:100%;
+   overflow-y:scroll;
+   overflow-x:hidden;
+   position:absolute;
+font-size:.5em;
+
+}
+
+@media (min-width: 768px) {
+min-width:20vw; 
+  }
 `

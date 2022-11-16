@@ -9,7 +9,7 @@ const itemSchema = new Schema(
       },
       itemName: {
          type: String,
-         required: true,
+         // required: true,
       },
       url: {
          type: String,
