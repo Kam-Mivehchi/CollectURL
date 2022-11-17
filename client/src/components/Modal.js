@@ -54,7 +54,7 @@ const Modal = ({ toggle, buckets }) => {
       e.preventDefault();
       try {
          setShowModal(false)
-         const response = await axios.post('http://localhost:3001/api/lists/', data)
+         const response = await axios.post('http://localhost:3001/api/lists/', data);
 
          console.log(response)
 

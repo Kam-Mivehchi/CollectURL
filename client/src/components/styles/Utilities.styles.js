@@ -5,8 +5,8 @@ background-color:${({ theme }) => theme.colors.CenteredContainer || 'black'};
 min-width:100vw;
 display:grid;
 place-items:center;
-border-radius:${({ theme }) => theme.borders.outer};
-min-height:85vh;
+// border-radius:${({ theme }) => theme.borders.outer};
+min-height:100vh;
 `
 export const Input = styled.input`
 background-color:${({ bg }) => bg || 'white'};

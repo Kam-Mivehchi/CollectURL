@@ -86,11 +86,28 @@ module.exports = {
 
       }
    },
+
    async removeList(req, res) {
       try {
          const data = await List.findOneAndDelete(
             { _id: req.params.listId },
 
+         )
+
+         res.status(200).json(data)
+
+
+      } catch (err) {
+         res.status(500).json(err)
+
+      }
+   },
+   async updateList(req, res) {
+      try {
+         const data = await List.findOneAndUpdate(
+            { _id: req.params.listId },
+            { $set: req.body },
+            { runValidators: true, new: true }
          )
 
          res.status(200).json(data)

@@ -42,6 +42,7 @@ module.exports = {
             { $addToSet: { lists: req.body } },
             { runValidators: true, new: true }
          )
+         res.status(200).json(data)
 
       } catch (err) {
          res.status(500).json(err)

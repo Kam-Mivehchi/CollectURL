@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import Modal from './Modal.js'
 import { Main, ControlBar, GridBox } from './styles/Library.styles.js'
-
+import ListView from './ListView.js'
 const Library = () => {
    const [buckets, setBuckets] = useState([])
 

@@ -29,15 +29,12 @@ const BucketRow = ({ lists, bucket }) => {
 
 
    return (
-      <Bucket className="">
+      <Bucket className="" >
          <h3>{userBucket.bucketName}</h3>
          <AddList> + </AddList>
-         <ListRow>
+         <ListRow total={userBucket.length}>
             {/* {console.log("bucketData", bucketData.lists)} */}
-
-
             {userBucket.lists.map((el, index) => {
-               console.log(el)
                return (
                   <a href={`/lists/${el._id}`}>
 

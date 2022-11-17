@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, redirect } from 'react-router-dom';
 import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
 import { CenteredContainer, Input, TextArea } from "./styles/Utilities.styles"
@@ -19,17 +19,39 @@ const ListView = ({ Title }) => {
 
    const updateList = async (listId) => {
       try {
-         let changeTitle = await axios.put(`http://localhost:3001/api/lists/${listId}`)
+         let changeTitle = await axios.put(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}`, listData)
          console.log("make api call to update list", changeTitle)
 
       } catch (error) {
          console.error(error)
       }
    }
-   const newListItem = async (listId) => {
+   const removeList = async (listId) => {
       try {
-         let newList = await axios.post(`http://localhost:3001/api/lists/${listId}/items`)
+         let changeTitle = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}`)
+         console.log("make api call to update list", changeTitle)
+         return redirect("/")
+
+      } catch (error) {
+         console.error(error)
+      }
+   }
+   const newListItem = async () => {
+      try {
+         let newList = await axios.post(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items`, listItem)
          console.log("make api call to create new list item", newList)
+         getListData()
+
+         return newList
+      } catch (error) {
+         console.error(error)
+      }
+   }
+   const removeListItem = async (itemId) => {
+      try {
+         let newList = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items/${itemId}`)
+         console.log("make api call to create new list item", newList)
+         getListData()
          return newList
       } catch (error) {
          console.error(error)
@@ -62,7 +84,8 @@ const ListView = ({ Title }) => {
                <form onSubmit={updateList}>
 
                   <Input type="text" value={listData.listName} onChange={(e) => setListData({ ...listData, listName: e.target.value })} />
-                  <button type="submit" ></button>
+                  <button type="submit" className="bg-green-500 px-5">go</button>
+                  <button onClick={removeList} className="bg-red-500 px-5">X</button>
                </form>
                {/* add list item*/}
                <ListContainer>
@@ -70,6 +93,7 @@ const ListView = ({ Title }) => {
                   {listData.listItems.map((listItem) => {
                      return (
                         <UrlCard key={listItem._id}>
+                           <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>
                            <h3>{listItem.itemName}</h3>
                            <a href={listItem.url}>Visit</a>
                            <img src={listItem.img} alt="" />
