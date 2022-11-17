@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import Modal from './Modal.js'
 import { Main, ControlBar, GridBox } from './styles/Library.styles.js'
-import ListView from './ListView.js'
+
 const Library = () => {
    const [buckets, setBuckets] = useState([])
 
@@ -29,8 +29,8 @@ const Library = () => {
          <GridBox  >
 
             {/* bucket/collection rows  content rows pass in the card data props*/}
-            {buckets.map((bucket, i) => {
-               return (<BucketRow lists={bucket.lists} bucket={bucket} />)
+            {buckets.map((bucket) => {
+               return (<BucketRow lists={bucket.lists} bucket={bucket} key={bucket._id} />)
             })}
             {/* <BucketRow /> */}
 

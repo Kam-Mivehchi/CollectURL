@@ -37,10 +37,11 @@ const BucketRow = ({ lists, bucket }) => {
 
 
             {userBucket.lists.map((el, index) => {
+               console.log(el)
                return (
-                  <a href={`/lists/${el.id}`}>
+                  <a href={`/lists/${el._id}`}>
 
-                     <Card key={index} id={el.id} >
+                     <Card key={index} id={el._id} >
                         <h2 className=" font-bold flex ">{el.listName}</h2>
                         <ol className="list-decimal p-4 ">
                            {el.listItems.map((item, index) => {

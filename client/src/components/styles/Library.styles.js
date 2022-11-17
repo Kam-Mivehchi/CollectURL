@@ -38,8 +38,8 @@ grid-column: span 12;
 color:${({ theme }) => theme.colors.bucketText};
 background-color:${({ theme }) => theme.colors.bucketBackground};
 h3{
-   grid-column: span 4;
-   
+  grid-column: span 4;
+  
 }
 
 `
@@ -50,8 +50,7 @@ grid-column: span 12;
 margin:.5em;
 gap:.5em;
 display:flex;
-flex-wrap:overflow;
-
+flex-wrap:nowrap;
 width:100%;
 color:${({ theme }) => theme.colors.listRowText};
 background-color:${({ theme }) => theme.colors.listRowBackground};
@@ -75,12 +74,13 @@ height:25vh;
 color:${({ theme }) => theme.colors.cardText};
 background-color:${({ theme }) => theme.colors.cardBackground};
 position:relative;
+overflow:hidden;
 h2{
  
 font-size:.75em;
 }
 ol{
-  max-height:50%;
+  max-height:60%;
   width:100%;
    overflow-y:scroll;
    overflow-x:hidden;

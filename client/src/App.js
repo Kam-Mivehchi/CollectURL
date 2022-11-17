@@ -2,10 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.js'
 import Library from './components/Library.js'
+import Modal from './components/Modal.js'
 // import { Container } from './components/styles/Container.styled'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
+import { ControlBar } from './components/styles/Library.styles.js'
+
 import ListView from './components/ListView';
 const theme = {
   colors: {
@@ -40,6 +43,7 @@ function App() {
       <>
         {/* Navigation  */}
         <Header />
+
         <Routes>
           <Route path="/" element={<Library />} />
           <Route path="lists/:listId" element={<ListView />} />
