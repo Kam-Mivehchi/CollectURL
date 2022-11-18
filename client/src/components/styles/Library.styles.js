@@ -56,16 +56,27 @@ color:${({ theme }) => theme.colors.listRowText};
 background-color:${({ theme }) => theme.colors.listRowBackground};
 overflow-x:scroll;
 padding-right:1rem;
+padding-bottom:.5rem;
 margin-right:1rem;
 `
 export const AddList = styled.button`
-grid-column: span 1;
-background-color:lightblue;
-width:1.25em;
-height:1.25em;
-border-radius:50%;
-color:${({ theme }) => theme.colors.newListButtonText};
-background-color:${({ theme }) => theme.colors.newListButtonBackground};
+background-color:white;
+padding:1em .5em;
+border-radius:.2em;
+min-width:33vw;
+height:25vh;
+display:grid;
+place-items:center;
+font-size:300%;
+text-align:center;
+color:${({ theme }) => theme.colors.cardText};
+background-color:${({ theme }) => theme.colors.cardBackground};
+position:relative;
+
+@media (min-width: 768px) {
+min-width:20vw; 
+  }
+
 
 `
 export const Card = styled.article`
@@ -100,6 +111,7 @@ li{
   
   // max-width: 200px;
 }
+
 @media (min-width: 768px) {
 min-width:20vw; 
   }

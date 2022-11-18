@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import Modal from './Modal'
 import { Bucket, AddList, ListRow, Card } from './styles/Library.styles'
 
 
@@ -7,19 +7,10 @@ import { Bucket, AddList, ListRow, Card } from './styles/Library.styles'
 const BucketRow = ({ lists, bucket }) => {
    const [userBucket, setUserBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
-   // const fetchLists = async () => {
 
-   //    try {
-   //       const response = await axios.get('http://localhost:3001/api/lists/')
-   //       console.log(response.data)
-   //       localStorage.setItem('Lists', JSON.stringify(response.data))
-   //       setLists([])
-   //    } catch (error) {
+   const newList = () => {
 
-   //       console.error(error)
-   //    }
-   // }
-
+   }
    useEffect(() => {
       // fetchLists()
       console.log(userBucket, bucket)
@@ -31,9 +22,10 @@ const BucketRow = ({ lists, bucket }) => {
    return (
       <Bucket className="" >
          <h3>{userBucket.bucketName}</h3>
-         <AddList> + </AddList>
          <ListRow total={userBucket.length}>
             {/* {console.log("bucketData", bucketData.lists)} */}
+
+            <Modal />
             {userBucket.lists.map((el, index) => {
                return (
                   <a href={`/lists/${el._id}`}>
