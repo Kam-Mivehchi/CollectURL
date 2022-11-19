@@ -43,6 +43,7 @@ align-items:center;
 items-center;
 padding:.75rem .5rem;
 margin:0 1rem;
+color:${({ theme }) => theme.colors.accent2};
 a{
   font-size: 0.875rem; 
 line-height: 1.25rem;

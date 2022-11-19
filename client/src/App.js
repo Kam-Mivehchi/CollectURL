@@ -12,12 +12,13 @@ import { Routes, Route } from 'react-router-dom'
 import ListView from './components/ListView';
 const theme = {
   colors: {
-    primary: "white",
-    secondary: "black",
-    accent: 'lightblue',
-    bucketBackground: '#D8D9CF',
+    primary: "#EDEDED",
+    secondary: "#CFD2CF",
+    accent: '#EB1D36',
+    accent2: '#A2B5BB',
+    bucketBackground: '#CFD2CF',
     red: "#E0144C",
-    green: 'lightgray',
+    green: '#829460',
     black: '#252525',
     textPrimary: '#252525',
     light: '#ffffff',

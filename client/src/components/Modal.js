@@ -108,7 +108,7 @@ const Modal = ({ toggle }) => {
                            >
                               Close
                            </Button>
-                           <Button bg={theme.colors.accent}
+                           <Button bg={theme.colors.green}
                               color={theme.colors.primary}
                               className=" ease-linear transition-all duration-150"
                               type="submit"

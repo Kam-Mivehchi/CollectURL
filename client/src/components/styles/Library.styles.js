@@ -47,7 +47,7 @@ h3{
   grid-column: span 5;
   margin: .5rem 1rem;
   margin-bottom:0;
-  color:${({ theme }) => theme.colors.primary};
+  color:${({ theme }) => theme.colors.light};
   font-weight:bold;
   font-size:125%;
 
@@ -83,7 +83,7 @@ border-radius:.5em;
 min-width:33vw;
 height:25vh;
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.primary};
+background-color:${({ theme }) => theme.colors.light};
 position:relative;
 overflow:hidden;
 h2{
