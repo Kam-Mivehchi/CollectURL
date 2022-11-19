@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const ModalWrapper = styled.div`
 display:grid;
-place-items:center;
-overflow-y:aut;
+place-items:start center;
+overflow-y:auto;
 overflow-x:hidden;
 position:fixed;
+margin:0 auto;
 outline:none;
 z-index:50;
 height:80%;

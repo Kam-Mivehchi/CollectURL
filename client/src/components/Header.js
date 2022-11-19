@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Nav, Container } from './styles/Utilities.styles.js'
+import { Nav, Container, HomeIcon } from './styles/Utilities.styles.js'
+import { AiOutlineHome } from "react-icons/ai";
 const NavBar = () => {
    return (
 
@@ -8,7 +9,8 @@ const NavBar = () => {
          <Nav>
             <a href="">Brand</a>
             <Link to='/'>
-               Home
+               <HomeIcon />
+               <span className="hidden md:inline">Home</span>
             </Link>
          </Nav>
       </Container>

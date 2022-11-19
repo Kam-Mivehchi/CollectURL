@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import Modal from './Modal'
-import { Bucket, AddList, ListRow, Card } from './styles/Library.styles'
+import { Bucket, ListRow, Card } from './styles/Library.styles'
 
 
 
-const BucketRow = ({ lists, bucket }) => {
+const BucketRow = ({ bucket }) => {
    const [userBucket, setUserBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
 

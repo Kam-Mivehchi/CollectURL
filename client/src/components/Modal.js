@@ -4,10 +4,11 @@ import { Button } from './styles/Utilities.styles.js'
 import { AiFillDelete, AiOutlinePlusCircle } from 'react-icons/ai'
 import { useNavigate, useHistory } from 'react-router-dom'
 import axios from 'axios'
-
+import { useTheme } from 'styled-components'
 const Modal = ({ toggle }) => {
    const [showModal, setShowModal] = useState(toggle);
    const navigate = useNavigate()
+   const theme = useTheme()
    const [data, setData] = useState({
       bucket: "Free Thoughts",
       listName: ""
@@ -49,13 +50,13 @@ const Modal = ({ toggle }) => {
 
    return (
       <>
-         <button
-            className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 "
-            type="button"
+         <Button
+            bg={theme.colors.accent}
+            color={theme.colors.primary}
+            pad={'.3rem 1.4rem'}
             onClick={() => setShowModal(true)}
-         >
-            +
-         </button>
+         >+</Button>
+
          {showModal ? (
             <>
                <ModalWrapper
@@ -100,15 +101,15 @@ const Modal = ({ toggle }) => {
                            {/*footer*/}
 
                            <Button bg={'transparent'}
-                              color={"green"}
+                              color={theme.colors.red}
                               className="ease-linear transition-all duration-150"
 
                               onClick={() => setShowModal(false)}
                            >
                               Close
                            </Button>
-                           <Button bg={'green'}
-                              color={"white"}
+                           <Button bg={theme.colors.accent}
+                              color={theme.colors.primary}
                               className=" ease-linear transition-all duration-150"
                               type="submit"
 

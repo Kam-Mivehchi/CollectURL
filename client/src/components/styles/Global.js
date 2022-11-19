@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.colors.body};
+    background: ${({ theme }) => theme.colors.primary};
     color: hsl(192, 100%, 9%);
     font-family: 'Poppins', sans-serif;
     font-size: 1.15em;
@@ -18,6 +18,32 @@ const GlobalStyles = createGlobalStyle`
   }
   img {
     max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  height:10px ;
+  width:10px;
+  background-color: ${({ theme }) => theme.colors.accent};
+  border-radius: ${({ theme }) => theme.borders.outer} ;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.borders.outer} ;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.colors.accent};
+  border-radius: ${({ theme }) => theme.borders.outer} ;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: ${({ theme }) => theme.colors.gray};
+ 
 }
 `
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Card = styled.div`
-background-color:${({ theme }) => theme.colors.CenteredContainer || 'white'};
+background-color:${({ theme }) => theme.colors.primary || 'white'};
 padding:1.5em;
 margin:1.5em;
 min-width:90%;

@@ -15,9 +15,15 @@ const theme = {
     primary: "white",
     secondary: "black",
     accent: 'lightblue',
+    bucketBackground: '#D8D9CF',
+    red: "#E0144C",
+    green: 'lightgray',
+    black: '#252525',
+    textPrimary: '#252525',
+    light: '#ffffff',
     header: '#ebfbff',
+
     bucketText: '#000000',
-    bucketBackground: 'gray',
     mainText: '#000000',
     mainBackground: 'white',
     controlBarText: '#000000',
@@ -28,13 +34,13 @@ const theme = {
     newListButtonBackground: 'lightblue',
     cardText: '#000000',
     cardBackground: 'white',
-
   },
   mobile: '768px',
   borders: {
     inner: '.75rem',
     outer: '1.25rem',
-    input: '.25rem'
+    input: '.25rem',
+    button: '.5rem'
   }
 }
 

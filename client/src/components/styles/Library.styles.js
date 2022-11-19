@@ -5,43 +5,58 @@ export const Main = styled.main`
 padding:0;
 margin:0;
 position:relative;
-color:${({ theme }) => theme.colors.mainText};
-background-color:${({ theme }) => theme.colors.mainBackground};
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
 
 `
 export const ControlBar = styled.div`
 width:100%;
 display:flex;
-justify-content:center;
-padding: 1.25rem 2rem;
-color:${({ theme }) => theme.colors.controlBarText};
-background-color:${({ theme }) => theme.colors.controlBarBackground};
+justify-content:end;
+padding: 1.25rem 0rem;
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
+@media (min-width: 768px) {
+   width:66%;
+   margin:auto;
+   }
 `
 export const GridBox = styled.div`
 display:grid;
 grid-template-columns:repeat(12,1fr);
-color:${({ theme }) => theme.colors.bucketText};
-background-color:${({ theme }) => theme.colors.bucketBackground};
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
 row-gap:1em;
 // padding:0 1em;
 overflow-x:hidden;
+
 `
 export const Bucket = styled.section`
 display:grid;
 width:100vw;
 grid-template-columns:repeat(12,1fr);
 place-items:center start;
-padding:.5em 0;
+padding:.75em .5rem;
 row-gap:.5em;
 overflow-x:hidden;
 grid-column: span 12;
-color:${({ theme }) => theme.colors.bucketText};
+color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.bucketBackground};
+border-radius: ${({ theme }) => theme.borders.outer};
 h3{
   grid-column: span 5;
-  margin: 0 1rem;
+  margin: .5rem 1rem;
+  margin-bottom:0;
+  color:${({ theme }) => theme.colors.primary};
+  font-weight:bold;
+  font-size:125%;
+
 }
 
+@media (min-width: 768px) {
+   width:66%;
+   margin:auto;
+   }
 `
 
 export const ListRow = styled.section`
@@ -52,41 +67,23 @@ margin:.5em;
 gap:.5em;
 flex-wrap:nowrap;
 width:100%;
-color:${({ theme }) => theme.colors.listRowText};
-background-color:${({ theme }) => theme.colors.listRowBackground};
-overflow-x:scroll;
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:inherit;
 padding-right:1rem;
 padding-bottom:.5rem;
 margin-right:1rem;
+overflow-x:scroll;
+overflow-y:hidden;
 `
-export const AddList = styled.button`
-background-color:white;
-padding:1em .5em;
-border-radius:.2em;
-min-width:33vw;
-height:25vh;
-display:grid;
-place-items:center;
-font-size:300%;
-text-align:center;
-color:${({ theme }) => theme.colors.cardText};
-background-color:${({ theme }) => theme.colors.cardBackground};
-position:relative;
 
-@media (min-width: 768px) {
-min-width:20vw; 
-  }
-
-
-`
 export const Card = styled.article`
 background-color:white;
 padding:1em .5em;
 border-radius:.5em;
 min-width:33vw;
 height:25vh;
-color:${({ theme }) => theme.colors.cardText};
-background-color:${({ theme }) => theme.colors.cardBackground};
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
 position:relative;
 overflow:hidden;
 h2{
