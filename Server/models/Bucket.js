@@ -10,7 +10,7 @@ const bucketSchema = new Schema(
       },
       bucketDescription: {
          type: String,
-         required: true,
+         // required: true,
          minLength: 1,
          maxLength: 280,
       },

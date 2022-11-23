@@ -14,7 +14,7 @@ const Modal = ({ toggle }) => {
       listName: ""
    });
    const [buckets, setBuckets] = useState();
-
+   const [visible, setVisible] = useState(false)
 
    const createList = async (e) => {
 
@@ -38,6 +38,20 @@ const Modal = ({ toggle }) => {
          const response = await axios.get('http://localhost:3001/api/buckets/');
          console.log("________________________", response.data)
          setBuckets(response.data)
+      } catch (error) {
+
+      }
+   }
+   const handleBucket = e => {
+      if (e.target.value === 'new') return setVisible(true)
+      setData({ ...data, bucket: e.target.value })
+   }
+   const newBucket = async (e) => {
+      try {
+
+         const response = await axios.post('http://localhost:3001/api/buckets/', { bucketName: data.bucket });
+         getBuckets()
+         return response.data
       } catch (error) {
 
       }
@@ -81,22 +95,31 @@ const Modal = ({ toggle }) => {
                         </div>
 
                         <Form onSubmit={createList}>
-                           <Label >
+                           {!visible && (<Label >
                               Bucket
-                              <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={e => setData({ ...data, bucket: e.target.value })}>
+                              <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={handleBucket}>
                                  {buckets.map((el) => {
                                     return <option value={el._id}>{el.bucketName}</option>
                                  })}
                                  <option value="new">New Bucket</option>
 
                               </Select>
+                           </Label>)}
 
-                              <Label >
-                                 List Name
-                                 <Input type="text" placeholder="i.e. Wine, Todo's " class="focus:ring" required onChange={e => setData({ ...data, listName: e.target.value })} />
-                              </Label>
-
+                           {visible && (
+                              <>
+                                 <Label >
+                                    New Bucket Name
+                                    <Input type="text" placeholder="i.e. Projects, Python, Front-End " class="focus:ring" required onChange={e => setData({ ...data, bucket: e.target.value })} />
+                                    <Button bg={theme.colors.accent2} color={theme.colors.primary} ht={'.2rem 1rem'} style={{ display: 'block', margin: '1rem auto' }} onClick={newBucket}>New Bucket</Button>
+                                 </Label>
+                              </>
+                           )}
+                           <Label >
+                              List Name
+                              <Input type="text" placeholder="i.e. Wine, Todo's " class="focus:ring" required onChange={e => setData({ ...data, listName: e.target.value })} />
                            </Label>
+
 
                            {/*footer*/}
 

@@ -84,6 +84,7 @@ line-height: 1.25rem;
 text-transform: uppercase;
 font-weight: bold;
 padding:${({ ht }) => ht || ".75rem 1.4rem"};
+width:${({ wt }) => wt};
 border-radius:${({ theme }) => theme.borders.button || ".25rem"};
  outline:none;
  &:hover{
