@@ -18,11 +18,15 @@ When I click explore I see other peoples lists
 
 ## Collections
 ### User
-| Field | Type | Misc. | Reference |   |
-|-------|------|-------|-----------|---|
-| _id   |  String    | Required,unique,trimmed       |           |   |
-|       |      |       |           |   |
-|       |      |       |           |   |
+| Field     | Type              | Misc.                       | Reference                 |
+|-----------|-------------------|-----------------------------|---------------------------|
+| _id       | ObjectId          |                             |                           |
+| username  | String            | Required,unique,trimmed     |                           |
+| Lists     | array of document | required, maxLength-280     | List through listName     |
+| createdAt | Date              | default to when its created |                           |
+| bucket    | document          |                             | bucket through bucketName |
+|           |                   |                             |                           |
+|           |                   |                             |                           |
 ### Bucket
 | Field             | Type               | Misc.                       | Reference             |
 |-------------------|--------------------|-----------------------------|-----------------------|
