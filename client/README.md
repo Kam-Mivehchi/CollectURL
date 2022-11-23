@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Bucket List 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## User Story
+As I user I want to be able to create a List of Websites,
+When I add a URL to a list, a styled card is automatically generated using meta dat from the submitted site,
+When I save the list item I see it in the respective list and it saves to local storage, 
+When I want to add another list, I am prompted to sign in or create an account,
+when I succesfully sign in, that list is saved to a 'General Bucket',
+Then I am presented with a library view of all my buckets with the general bucket highlighted at the top;
+When I click the '+' button I am presented with a modal that asks which bucket I want to use or create new bucket and the title of the list.
+When that form is submitted the newly created list will open up in single page mode.
+When i click the color pallete in the navabar I can change the theme of the sight.
+When I click explore I see other peoples lists
 
-## Available Scripts
 
-In the project directory, you can run:
+## Data Model Flow
+![image](https://user-images.githubusercontent.com/90432404/203458014-41553033-bedf-4b4b-93d8-20ab1535afc8.png)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Collections
+### User
+| Field     | Type              | Misc.                       | Reference                 |
+|-----------|-------------------|-----------------------------|---------------------------|
+| _id       | ObjectId          |                             |                           |
+| username  | String            | Required,unique,trimmed     |                           |
+| Lists     | array of document | required, maxLength-280     | List through listName     |
+| createdAt | Date              | default to when its created |                           |
+| bucket    | document          |                             | bucket through bucketName |
+|           |                   |                             |                           |
+|           |                   |                             |                           |
+### Bucket
+| Field             | Type               | Misc.                       | Reference             |
+|-------------------|--------------------|-----------------------------|-----------------------|
+| _id               | ObjectId           |                             |                       |
+| bucketName        | String             | Required,unique,trimmed     |                       |
+| bucketDescription | String             | required, maxLength-280     |                       |
+| createdBy         | ObjectId           |                             |                       |
+| createdAt         | Date               | default to when its created |                       |
+| lists             | array of documents |                             | List through ObjectId |
+| lastUpdate        | Date               | Default to now              |                       |
+### List
+| Field           | Type          | Misc.                       | Reference               |
+|-----------------|---------------|-----------------------------|-------------------------|
+| _id             | ObjectId      |                             |                         |
+| listName        | String        | Required,unique,trimmed     |                         |
+| listDescription | String        | required, maxLength-280     |                         |
+| createdBy       | ObjectId      |                             |                         |
+| createdAt       | Date          | default to when its created |                         |
+| bucket          | document      |                             | List through bucketName |
+| listItems       | array of docs | uses item schema            |                         |
+### Item (Schema Only)
+| Field       | Type             | Misc.                       | Reference  |
+|-------------|------------------|-----------------------------|------------|
+| itemId      | ObjectId         |                             |            |
+| itemName    | String           | Required,trimmed            |            |
+| url         | String           | required                    |            |
+| description | String           | required, maxLength-280     |            |
+| createdAt   | Date             | default to when its created |            |
+| tasks       | Array of Strings |                             | To do list |
