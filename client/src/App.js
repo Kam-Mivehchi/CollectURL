@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { useState } from 'react'
 import './App.css';
 import Header from './components/Header.js'
 import Library from './components/Library.js'
@@ -10,31 +11,40 @@ import { Routes, Route } from 'react-router-dom'
 
 
 import ListView from './components/ListView';
-const theme = {
+const light = {
   colors: {
     primary: "#EDEDED",
     secondary: "#CFD2CF",
     accent: '#EB1D36',
     accent2: '#A2B5BB',
-    bucketBackground: '#CFD2CF',
-    red: "#E0144C",
-    green: '#829460',
-    black: '#252525',
+    cardText: 'black',
+    cardBackground: '#ffffff',
+    light: '#ffffff',
+    header: '#ebfbff',
+
+
+  },
+  mobile: '768px',
+  borders: {
+    inner: '.75rem',
+    outer: '1.25rem',
+    input: '.25rem',
+    button: '.5rem'
+  }
+}
+const dark = {
+  colors: {
+    primary: "#252525",
+    secondary: "#282A3A",
+    accent: '#C69749',
+    accent2: '#735F32',
+    cardBackground: 'black',
+    cardText: '#ffffff',
     textPrimary: '#252525',
     light: '#ffffff',
     header: '#ebfbff',
 
-    bucketText: '#000000',
-    mainText: '#000000',
-    mainBackground: 'white',
-    controlBarText: '#000000',
-    controlBarBackground: 'lightblue',
-    listRowText: '#000000',
-    listRowBackground: 'inherit',
-    newListButtonText: '#000000',
-    newListButtonBackground: 'lightblue',
-    cardText: '#000000',
-    cardBackground: 'white',
+
   },
   mobile: '768px',
   borders: {
@@ -46,13 +56,14 @@ const theme = {
 }
 
 function App() {
+  const [theme, setTheme] = useState(light)
   return (
     <ThemeProvider theme={theme}>
 
       <GlobalStyles />
       <>
         {/* Navigation  */}
-        <Header />
+        <Header theme={theme} setTheme={setTheme} options={{ dark: dark, light: light }} />
 
         <Routes>
           <Route path="/" element={<Library />} />

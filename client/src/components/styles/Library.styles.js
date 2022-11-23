@@ -41,7 +41,7 @@ row-gap:.5em;
 overflow-x:hidden;
 grid-column: span 12;
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.bucketBackground};
+background-color:${({ theme }) => theme.colors.secondary};
 border-radius: ${({ theme }) => theme.borders.outer};
 h3{
   grid-column: span 5;
@@ -77,13 +77,13 @@ overflow-y:hidden;
 `
 
 export const Card = styled.article`
-background-color:white;
+background-color:${({ theme }) => theme.colors.cardBackground};
 padding:1em .5em;
 border-radius:.5em;
 min-width:33vw;
 height:25vh;
-color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.light};
+color:${({ theme }) => theme.colors.cardText};
+
 position:relative;
 overflow:hidden;
 h2{

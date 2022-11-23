@@ -101,14 +101,14 @@ const Modal = ({ toggle }) => {
                            {/*footer*/}
 
                            <Button bg={'transparent'}
-                              color={theme.colors.red}
+                              color={theme.colors.accent2}
                               className="ease-linear transition-all duration-150"
 
                               onClick={() => setShowModal(false)}
                            >
                               Close
                            </Button>
-                           <Button bg={theme.colors.green}
+                           <Button bg={theme.colors.accent}
                               color={theme.colors.primary}
                               className=" ease-linear transition-all duration-150"
                               type="submit"
