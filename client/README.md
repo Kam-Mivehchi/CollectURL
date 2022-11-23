@@ -20,7 +20,7 @@ When I click explore I see other peoples lists
 ### User
 |   |   |   |   |   |
 |---|---|---|---|---|
-|   |   |   |   |   |
+|  _id  |   |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
 ### Bucket
@@ -35,7 +35,7 @@ When I click explore I see other peoples lists
 |   |   |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
-### List
+### Itme
 |   |   |   |   |   |
 |---|---|---|---|---|
 |   |   |   |   |   |
