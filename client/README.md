@@ -15,3 +15,29 @@ When I click explore I see other peoples lists
 
 ## Data Model Flow
 ![image](https://user-images.githubusercontent.com/90432404/203458014-41553033-bedf-4b4b-93d8-20ab1535afc8.png)
+
+## Models
+### User
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+### Bucket
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+### List
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+### List
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
