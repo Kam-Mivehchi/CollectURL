@@ -16,28 +16,39 @@ When I click explore I see other peoples lists
 ## Data Model Flow
 ![image](https://user-images.githubusercontent.com/90432404/203458014-41553033-bedf-4b4b-93d8-20ab1535afc8.png)
 
-## Models
+## Collections
 ### User
-|   |   |   |   |   |
-|---|---|---|---|---|
-|  _id  |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+| Field | Type | Misc. | Reference |   |
+|-------|------|-------|-----------|---|
+| _id   |  String    | Required,unique,trimmed       |           |   |
+|       |      |       |           |   |
+|       |      |       |           |   |
 ### Bucket
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+| Field             | Type               | Misc.                       | Reference             |
+|-------------------|--------------------|-----------------------------|-----------------------|
+| _id               | ObjectId           |                             |                       |
+| bucketName        | String             | Required,unique,trimmed     |                       |
+| bucketDescription | String             | required, maxLength-280     |                       |
+| createdBy         | ObjectId           |                             |                       |
+| createdAt         | Date               | default to when its created |                       |
+| lists             | array of documents |                             | List through ObjectId |
+| lastUpdate        | Date               | Default to now              |                       |
 ### List
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-### Itme
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+| Field           | Type          | Misc.                       | Reference               |
+|-----------------|---------------|-----------------------------|-------------------------|
+| _id             | ObjectId      |                             |                         |
+| listName        | String        | Required,unique,trimmed     |                         |
+| listDescription | String        | required, maxLength-280     |                         |
+| createdBy       | ObjectId      |                             |                         |
+| createdAt       | Date          | default to when its created |                         |
+| bucket          | document      |                             | List through bucketName |
+| listItems       | array of docs | uses item schema            |                         |
+### Item (Schema Only)
+| Field       | Type             | Misc.                       | Reference  |
+|-------------|------------------|-----------------------------|------------|
+| itemId      | ObjectId         |                             |            |
+| itemName    | String           | Required,trimmed            |            |
+| url         | String           | required                    |            |
+| description | String           | required, maxLength-280     |            |
+| createdAt   | Date             | default to when its created |            |
+| tasks       | Array of Strings |                             | To do list |
