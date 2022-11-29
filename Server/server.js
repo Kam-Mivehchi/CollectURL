@@ -1,8 +1,8 @@
 const express = require('express');
 const db = require('./config/connection')
 const routes = require('./routes');
-
-
+const cookieParser = require('cookie-parser');
+const { generateToken } = require('./utils/auth.js')
 const cors = require('cors');
 const corsOptions = {
    origin: 'http://localhost:3000',
@@ -16,6 +16,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
+app.use(cookieParser());
+
+
 
 
 

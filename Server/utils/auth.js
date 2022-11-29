@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 
 dotenv.config();
-const secret = process.env.Token_Secret;
+const secret = process.env.TokenSecret;
 const expiration = '2h';
 
 module.exports = {

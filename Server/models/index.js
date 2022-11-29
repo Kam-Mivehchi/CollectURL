@@ -1,6 +1,6 @@
 const Bucket = require('./Bucket.js')
 const List = require('./List.js')
-// const Website = require('./Website.js')
+const User = require('./User.js')
 
 
 //Buckets contain lists
@@ -10,4 +10,4 @@ const List = require('./List.js')
 //schema only no model
 //websites are attached to lists not free items
 
-module.exports = { Bucket, List }
+module.exports = { Bucket, List, User }
