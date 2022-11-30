@@ -11,14 +11,14 @@ module.exports = {
          const token = generateToken(user);
 
 
-         res.status(200).json({ token, user })
-         // return res
-         //    .cookie("access_token", token, {
-         //       httpOnly: true,
-         //       secure: process.env.NODE_ENV === "production",
-         //    })
-         //    .status(200)
-         //    .json({ message: "Logged in successfully 😊 👌" });
+         // res.status(200).json({ token, user })
+         return res
+            .cookie("access_token", token, {
+               httpOnly: true,
+               secure: process.env.NODE_ENV === "production",
+            })
+            .status(200)
+            .json({ token, user });
       } catch (err) {
          console.error(err)
          res.status(500).json(err)
@@ -27,7 +27,7 @@ module.exports = {
    async Login(req, res) {
       try {
          const { username, email, password } = req.body
-         const user = await User.findOne({ username });
+         const user = await User.findOne({ email: email });
 
          const token = generateToken(user);
 
