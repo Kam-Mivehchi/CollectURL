@@ -7,7 +7,7 @@ module.exports = {
 
    async getAllLists(req, res) {
       try {
-         const data = await List.find().select('-__v')
+         const data = await List.find({ user: req.user._id }).select('-__v')
          res.status(200).json(data)
 
       } catch (err) {
@@ -17,9 +17,9 @@ module.exports = {
    },
    async newList(req, res) {
       try {
-         const data = await List.create(req.body)
+         const data = await List.create({ ...req.body, user: req.user._id })
          console.log(data)
-         await Bucket.findOneAndUpdate({ bucketName: data.bucket },
+         await Bucket.findOneAndUpdate({ bucketName: data.bucket, user: req.user._id },
             { $addToSet: { lists: data._id } },
             { runValidators: true, new: true }
          )

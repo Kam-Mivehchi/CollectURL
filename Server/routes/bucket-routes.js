@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router()
-const { getAllUserBuckets, newBucket, getBucketById } = require('../controllers/bucket-controllers')
+const { getAllUserBuckets, newBucket, getBucketById, addListToBucket } = require('../controllers/bucket-controllers')
 const { authMiddleware } = require("../utils/auth.js");
 
-// ('buckets/')
-//create bucket & get all buckets
+//middleware for user authentication want on all the routes
 router.use(authMiddleware);
+//create bucket & get all buckets
+
+// ('buckets/')
 router.route('/')
    .get(getAllUserBuckets)
    .post(newBucket)
@@ -14,4 +16,8 @@ router.route('/')
 // add and remove list from a bucket
 router.route('/:bucketId')
    .get(getBucketById)
+
+router.route('/:bucketId/addList/:listId')
+   .get(addListToBucket)
+
 module.exports = router;

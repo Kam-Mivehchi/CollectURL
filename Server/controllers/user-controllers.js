@@ -1,13 +1,18 @@
 const { authMiddleware, generateToken } = require("../utils/auth.js");
-const { User } = require('../models')
+const { User, Bucket } = require('../models')
 const bcrypt = require("bcryptjs");
 module.exports = {
 
    async SignUp(req, res) {
       try {
          req.body.password = await bcrypt.hash(req.body.password, 10)
-         const user = await User.create(req.body);
+         let user = await User.create(req.body);
          const token = generateToken(user);
+         await Bucket.create({
+            bucketName: "Free Thoughts",
+            bucketDescription: "Unnassociated Thoughts Live Here",
+            user: user._id
+         })
 
 
 

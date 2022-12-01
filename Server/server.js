@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('./config/connection')
 const routes = require('./routes');
 const cookieParser = require('cookie-parser');
-const { generateToken } = require('./utils/auth.js')
+
 const cors = require('cors');
 const corsOptions = {
    origin: 'http://localhost:3000',

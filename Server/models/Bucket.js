@@ -5,7 +5,6 @@ const bucketSchema = new Schema(
       bucketName: {
          type: String,
          required: true,
-         unique: true,
          trim: true
       },
       bucketDescription: {
@@ -14,9 +13,11 @@ const bucketSchema = new Schema(
          minLength: 1,
          maxLength: 280,
       },
-      createdBy: {
-         type: String,
-         // required: true,
+      user: {
+         type: Schema.Types.ObjectId,
+         ref: 'User',
+         required: true
+         // default: "New User"
       },
       createdAt: {
          type: Date,
