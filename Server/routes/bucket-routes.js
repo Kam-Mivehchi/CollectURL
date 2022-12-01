@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router()
-const { getAllBuckets, newBucket, getBucketById } = require('../controllers/bucket-controllers')
+const { getAllUserBuckets, newBucket, getBucketById } = require('../controllers/bucket-controllers')
+const { authMiddleware } = require("../utils/auth.js");
+
 // ('buckets/')
 //create bucket & get all buckets
+router.use(authMiddleware);
 router.route('/')
-   .get(getAllBuckets)
+   .get(getAllUserBuckets)
    .post(newBucket)
 // ('buckets/:bucketId')
 // get, update(addList,changeName), delete single buckets
