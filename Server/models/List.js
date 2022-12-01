@@ -12,15 +12,15 @@ const listSchema = new Schema(
          type: Date,
          default: Date.now,
       },
-      createdBy: {
-         type: String,
-         default: "Local User"
-         // required: true,
-      },
       bucket: {
          type: Schema.Types.String,
          ref: 'Bucket',
          default: "Free Thoughts"
+      },
+      user: {
+         type: Schema.Types.ObjectId,
+         ref: 'User',
+         default: "New User"
       },
       listItems: [itemSchema],
    },
