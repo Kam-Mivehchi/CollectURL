@@ -7,25 +7,31 @@ const secret = process.env.TokenSecret;
 const expiration = '2h';
 
 module.exports = {
-   authMiddleware: function ({ req }) {
-      let token = req.body.token || req.query.token || req.headers.authorization;
-
-      if (req.headers.authorization) {
-         token = token.split(' ').pop().trim();
-      }
-
-      if (!token) {
-         return req;
-      }
-
+   authMiddleware: async function (req, res, next) {
       try {
-         const { data } = jwt.verify(token, secret, { maxAge: expiration });
-         req.user = data;
-      } catch {
-         console.log('Invalid token');
+         // check if auth header exists
+         if (req.headers.authorization) {
+            // parse token from header
+            const token = req.headers.authorization.split(" ")[1]; //split the header and get the token
+            if (token) {
+               const payload = await jwt.verify(token, process.env.TokenSecret);
+               if (payload) {
+                  // store user data in request object
+                  req.user = payload.data;
+                  next();
+               } else {
+                  res.status(400).json({ error: "token verification failed" });
+               }
+            } else {
+               res.status(400).json({ error: "malformed auth header" });
+            }
+         } else {
+            res.status(400).json({ error: "No authorization header" });
+         }
+      } catch (error) {
+         // console.log(error) 
+         res.status(400).json({ error });
       }
-
-      return req;
    },
    generateToken: function ({ email, username, _id }) {
       const payload = { email, username, _id };
