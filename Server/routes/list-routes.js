@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router()
 const { getAllLists, newList, getListById, getListItems, newListItem, removeListItem, removeList, updateList } = require('../controllers/list-controllers')
+const { authMiddleware } = require("../utils/auth.js");
+
 // ('Lists/')
+
 //create List & get all Lists
+router.use(authMiddleware);
 router.route('/')
    .get(getAllLists)
    .post(newList)

@@ -5,7 +5,6 @@ const bucketSchema = new Schema(
       bucketName: {
          type: String,
          required: true,
-         unique: true,
          trim: true
       },
       bucketDescription: {
