@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { IoHomeOutline } from "react-icons/io5";
+import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5";
 
 export const CenteredContainer = styled.div`
 background-color:${({ theme }) => theme.colors.primary || 'black'};
@@ -47,17 +47,16 @@ align-items:center;
 items-center;
 padding:.75rem .5rem;
 margin:0 1rem;
-color:${({ theme }) => theme.colors.accent2};
 a{
-  font-size: 0.875rem; 
-line-height: 1.25rem;
-font-weight:bold;
-leading:relaxed;
-padding:.5rem 0;
-whitespace:no-wrap;
-text-transform: uppercase;
-pointer:cursor;
-margin:0;
+   font-size: 0.875rem; 
+   line-height: 1.25rem;
+   font-weight:bold;
+   leading:relaxed;
+   padding:.5rem 0;
+   whitespace:no-wrap;
+   text-transform: uppercase;
+   pointer:cursor;
+   margin:0;
 }
 Link{
    pointer:cursor;
@@ -69,8 +68,12 @@ Link{
    outline:none;
    
    &:focus{
-   outline:none
+      outline:none
    }
+}
+span{
+   
+   color:${({ theme }) => theme.colors.accent2};
 }
 @media (min-width: 768px) {
    width:66%;
@@ -81,7 +84,7 @@ Link{
 export const Button = styled.button`
 background-color:${({ bg }) => bg};
 color:${({ color }) => color};
-// padding:.75rem 1.4rem;
+
 margin:0 10px 0 0;
 font-size: 0.875rem; 
 line-height: 1.25rem;
@@ -93,7 +96,7 @@ border-radius:${({ theme }) => theme.borders.button || ".25rem"};
  outline:none;
  &:hover{
    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-   transform:scale(1.1);
+  
  }
  &:active{
    background-color:${({ theme }) => theme.colors.activeButton || "black"}
@@ -107,7 +110,71 @@ export const HomeIcon = styled(IoHomeOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
+color:${({ theme }) => theme.colors.secondary};
    
    margin-right:.25rem;
   margin-bottom:.4em;
+`
+export const LoginIcon = styled(IoLogInOutline)`
+   margin:0;
+   padding:0;
+   display:inline-block;
+   font-size:120%;
+color:${({ theme }) => theme.colors.secondary};
+   
+   margin-right:.25rem;
+  margin-bottom:.4em;
+`
+export const SignUpIcon = styled(IoCreateOutline)`
+   margin:0;
+   padding:0;
+   display:inline-block;
+   font-size:120%;
+color:${({ theme }) => theme.colors.secondary};
+   
+   margin-right:.25rem;
+  margin-bottom:.4em;
+`
+
+export const AuthenticationForm = styled.form`
+background-color: ${({ theme }) => theme.colors.secondary};
+padding:1rem 2rem;
+border-radius:${({ theme }) => theme.borders.outer};
+border:2px solid ${({ theme }) => theme.colors.accent};
+h2{
+   font-weight:bold;
+   margin:0 0 1rem 0;
+   text-align:center;
+   font-size:150%;
+   font-weight:900;
+}
+label{
+font-size: .875rem; 
+font-weight:600;
+margin:0;
+}
+small{
+   font-size: .5rem;
+   color:${({ theme }) => theme.colors.accent}
+}
+input{
+   padding:.5rem;
+position:relative;
+border-radius:${({ theme }) => theme.borders.input};
+font-size: 0.875rem; 
+line-height: 1rem;
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+outline:none;
+width:80%;
+display:block;
+margin:.3rem auto 1rem auto;
+width:100%;
+&:focus{
+   outline:none;
+}
+}
+button{
+   display:block;
+   margin:auto;
+}
 `

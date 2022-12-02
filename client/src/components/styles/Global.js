@@ -19,6 +19,15 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
 }
+button{
+  padding:.75rem 1.4rem;
+  &:hover{
+    transform:scale(.9);
+  }
+ &:disabled{
+    opacity:.5;
+  }
+}
 
 ::-webkit-scrollbar {
   height:10px ;
