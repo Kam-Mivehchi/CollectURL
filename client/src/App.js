@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header.js'
 import Dashboard from './pages/Dashboard.js'
 import Home from './pages/Home.js'
-
+import Login from './pages/Login.js'
+import Signup from './pages/Signup.js'
 // import { Container } from './components/styles/Container.styled'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
@@ -69,6 +70,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route path="lists/:listId" element={<SingleList />} />
         </Routes>
         {/* workspace needs to have top bar to create the lists and the list library  */}
