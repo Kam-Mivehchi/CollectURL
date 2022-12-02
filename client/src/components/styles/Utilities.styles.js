@@ -2,12 +2,16 @@ import styled from 'styled-components'
 import { IoHomeOutline } from "react-icons/io5";
 
 export const CenteredContainer = styled.div`
-background-color:${({ theme }) => theme.colors.secondary || 'black'};
+background-color:${({ theme }) => theme.colors.primary || 'black'};
 min-width:100vw;
+overflow:;
+
 display:grid;
 place-items:center;
 // border-radius:${({ theme }) => theme.borders.outer};
-min-height:100vh;
+min-height:${({ height }) => height || '100vh'};
+max-height:100vh;
+
 `
 export const Container = styled.div`
 background-color:${({ theme }) => theme.colors.primary || 'white'};

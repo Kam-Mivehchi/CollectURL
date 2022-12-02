@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import { useState } from 'react'
 import './App.css';
 import Header from './components/Header.js'
-import Library from './components/Library.js'
+import Dashboard from './pages/Dashboard.js'
+import Home from './pages/Home.js'
 
 // import { Container } from './components/styles/Container.styled'
 import GlobalStyles from './components/styles/Global'
@@ -10,7 +11,7 @@ import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 
 
-import ListView from './components/ListView';
+import SingleList from './pages/SingleList';
 const light = {
   colors: {
     primary: "#EDEDED",
@@ -66,8 +67,9 @@ function App() {
         <Header theme={theme} setTheme={setTheme} options={{ dark: dark, light: light }} />
 
         <Routes>
-          <Route path="/" element={<Library />} />
-          <Route path="lists/:listId" element={<ListView />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="lists/:listId" element={<SingleList />} />
         </Routes>
         {/* workspace needs to have top bar to create the lists and the list library  */}
         {/* <Library /> */}

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import BucketRow from './Bucket.js'
+import BucketRow from '../components/Bucket.js'
 import axios from 'axios'
 
-import Modal from './Modal.js'
-import { Main, ControlBar, GridBox } from './styles/Library.styles.js'
-import ListView from './ListView.js'
-const Library = () => {
+import Modal from '../components/Modal.js'
+import { Main, ControlBar, GridBox } from '../components/styles/Library.styles.js'
+
+const Dashboard = () => {
    const [buckets, setBuckets] = useState([])
 
    const getBuckets = async () => {
@@ -39,4 +39,4 @@ const Library = () => {
    )
 }
 
-export default Library
+export default Dashboard
