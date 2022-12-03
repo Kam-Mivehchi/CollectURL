@@ -4,12 +4,12 @@ import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5"
 export const CenteredContainer = styled.div`
 background-color:${({ theme }) => theme.colors.primary || 'black'};
 min-width:100vw;
-overflow:;
+overflow-x:hidden;
 
 display:grid;
 place-items:center;
 // border-radius:${({ theme }) => theme.borders.outer};
-min-height:${({ height }) => height || '100vh'};
+min-height:${({ height }) => height || '90vh'};
 max-height:100vh;
 
 `
@@ -141,6 +141,7 @@ background-color: ${({ theme }) => theme.colors.secondary};
 padding:1rem 2rem;
 border-radius:${({ theme }) => theme.borders.outer};
 border:2px solid ${({ theme }) => theme.colors.accent};
+
 h2{
    font-weight:bold;
    margin:0 0 1rem 0;
