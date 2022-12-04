@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard.js'
 import Home from './pages/Home.js'
 import Login from './pages/Login.js'
 import Signup from './pages/Signup.js'
-// import { Container } from './components/styles/Container.styled'
+import PrivateRoute from './pages/PrivateRoute.js'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
@@ -71,10 +71,10 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            <Route path="lists/:listId" element={<PrivateRoute><SingleList /></PrivateRoute>} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="lists/:listId" element={<SingleList />} />
           </Routes>
           {/* workspace needs to have top bar to create the lists and the list library  */}
           {/* <Library /> */}
