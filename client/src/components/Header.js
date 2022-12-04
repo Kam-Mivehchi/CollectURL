@@ -14,6 +14,10 @@ const NavBar = ({ theme, setTheme, options }) => {
                   <HomeIcon />
                   <span className="hidden md:inline">Home</span>
                </Link>
+               <Link to='/dashboard'>
+                  <SignUpIcon />
+                  <span className="hidden md:inline">Dashboard</span>
+               </Link>
                <Link to='/login'>
                   <LoginIcon />
                   <span className="hidden md:inline">Login</span>

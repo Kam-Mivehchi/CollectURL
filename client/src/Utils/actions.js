@@ -1,0 +1,24 @@
+//USER ACTIONS
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const REGISTER = 'REGISTER';
+export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
+
+//BUCKET ACTIONS
+export const GET_ALL_BUCKETS = 'GET_ALL_BUCKETS';
+export const GET_ONE_BUCKET = 'GET_ONE_BUCKET';
+export const NEW_BUCKET = 'NEW_BUCKET';
+
+//LIST ACTIONS
+export const ADD_LIST_TO_BUCKET = 'ADD_LIST_TO_BUCKET';
+export const GET_ALL_LISTS = 'GET_ALL_LISTS';
+export const GET_ONE_LIST = 'GET_ONE_LIST';
+export const NEW_LIST = 'NEW_LIST';
+export const UPDATE_LIST = 'UPDATE_LIST';
+export const REMOVE_LIST = 'REMOVE_LIST';
+
+//LIST ITEM ACTIONS
+export const NEW_LIST_ITEM = 'NEW_LIST_ITEM';
+export const REMOVE_LIST_ITEM = 'REMOVE_LIST_ITEM';
+export const GET_ALL_LIST_ITEMS = 'GET_ALL_LIST_ITEMS';
+export const UPDATE_LIST_ITEM = 'UPDATE_LIST_ITEM';

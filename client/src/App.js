@@ -10,7 +10,7 @@ import Signup from './pages/Signup.js'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
-
+import UserProvider from './Utils/UserContext'
 
 import SingleList from './pages/SingleList';
 const light = {
@@ -60,24 +60,27 @@ const dark = {
 function App() {
   const [theme, setTheme] = useState(light)
   return (
-    <ThemeProvider theme={theme}>
+    <UserProvider>
 
-      <GlobalStyles />
-      <>
-        {/* Navigation  */}
-        <Header theme={theme} setTheme={setTheme} options={{ dark: dark, light: light }} />
+      <ThemeProvider theme={theme}>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="lists/:listId" element={<SingleList />} />
-        </Routes>
-        {/* workspace needs to have top bar to create the lists and the list library  */}
-        {/* <Library /> */}
-      </>
-    </ThemeProvider>
+        <GlobalStyles />
+        <>
+          {/* Navigation  */}
+          <Header theme={theme} setTheme={setTheme} options={{ dark: dark, light: light }} />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="lists/:listId" element={<SingleList />} />
+          </Routes>
+          {/* workspace needs to have top bar to create the lists and the list library  */}
+          {/* <Library /> */}
+        </>
+      </ThemeProvider>
+    </UserProvider>
   );
 }
 
