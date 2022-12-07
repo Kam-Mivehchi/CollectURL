@@ -2,28 +2,50 @@ import React, { useState } from 'react'
 import { useRef, useCallback } from "react";
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
+import { createUser } from "../Utils/API"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../Utils/UserContext"
+import { useUserReducer } from "../Utils/reducers"
+import { REGISTER } from '../Utils/actions';
+
 const Signup = () => {
+   const navigate = useNavigate()
    const theme = useTheme();
    const userNameInputElement = useRef();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
-   const formHandler = useCallback(
-      () => (event) => {
-         event.preventDefault();
 
-         const data = {
-            userName: userNameInputElement.current?.value,
-            email: emailInputElement.current?.value,
-            password: passwordInputElement.current?.value,
-            passwordConfirmation: passwordConfirmationInputElement.current?.value
-         };
+   const initialState = useAuth();
 
-         console.log(data);
-      },
-      []
-   );
+   const [state, dispatch] = useUserReducer(initialState);
+
+   const formHandler = async (event) => {
+      event.preventDefault();
+      const data = await createUser(
+         userNameInputElement.current?.value,
+         emailInputElement.current?.value,
+         passwordInputElement.current?.value
+      )
+      const { email, id, lists, username, buckets } = data.user
+
+      dispatch({
+         type: REGISTER,
+         payload: {
+            token: data.token,
+            username: username,
+            _id: id,
+            lists: lists,
+            buckets: buckets,
+            email: email,
+         },
+      })
+      console.log(state)
+      navigate('/dashboard')
+   }
+
+
    return (
       <CenteredContainer>
          <AuthenticationForm onSubmit={formHandler}>
@@ -76,7 +98,7 @@ const Signup = () => {
                   required
                />
             </label>
-            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || !passwordConfirmationInputElement.current?.value}>
+            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || passwordConfirmationInputElement.current?.value == ''}>
                Submit
             </Button>
 
