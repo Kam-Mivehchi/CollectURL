@@ -2,28 +2,45 @@ import React, { useState } from 'react'
 import { useRef, useCallback } from "react";
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
+import { createUser } from "../Utils/API"
+import { useNavigate } from "react-router-dom"
+import { useUserContext } from "../Utils/UserContext"
+import { useUserReducer } from "../Utils/reducers"
+import { AUTHENTICATE } from '../Utils/actions';
+
 const Signup = () => {
+   const navigate = useNavigate()
    const theme = useTheme();
    const userNameInputElement = useRef();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
-   const formHandler = useCallback(
-      () => (event) => {
-         event.preventDefault();
 
-         const data = {
-            userName: userNameInputElement.current?.value,
-            email: emailInputElement.current?.value,
-            password: passwordInputElement.current?.value,
-            passwordConfirmation: passwordConfirmationInputElement.current?.value
-         };
+   const [user, dispatch] = useUserContext();
 
-         console.log(data);
-      },
-      []
-   );
+
+
+   const formHandler = async (event) => {
+      event.preventDefault();
+      const data = await createUser(
+         userNameInputElement.current?.value,
+         emailInputElement.current?.value,
+         passwordInputElement.current?.value
+      )
+      console.log(data.user)
+      dispatch({
+         type: AUTHENTICATE,
+         payload: {
+            token: data.token,
+            ...data.user
+         },
+      })
+      console.log(user)
+      navigate('/dashboard')
+   }
+
+
    return (
       <CenteredContainer>
          <AuthenticationForm onSubmit={formHandler}>
@@ -76,7 +93,7 @@ const Signup = () => {
                   required
                />
             </label>
-            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || !passwordConfirmationInputElement.current?.value}>
+            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || passwordConfirmationInputElement.current?.value == ''}>
                Submit
             </Button>
 

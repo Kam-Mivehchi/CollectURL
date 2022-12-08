@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Nav, Container, HomeIcon, LoginIcon, SignUpIcon } from './styles/Utilities.styles.js'
-
+import { logout } from '../Utils/API'
 const NavBar = ({ theme, setTheme, options }) => {
    return (
 
@@ -18,14 +18,24 @@ const NavBar = ({ theme, setTheme, options }) => {
                   <SignUpIcon />
                   <span className="hidden md:inline">Dashboard</span>
                </Link>
-               <Link to='/login'>
-                  <LoginIcon />
-                  <span className="hidden md:inline">Login</span>
-               </Link>
-               <Link to='/signup'>
-                  <SignUpIcon />
-                  <span className="hidden md:inline">Sign Up</span>
-               </Link>
+               {localStorage.getItem('token') ?
+
+                  <Link onClick={logout}>
+                     <LoginIcon />
+                     <span className="hidden md:inline">Logout</span>
+                  </Link>
+                  :
+                  <>
+                     <Link to='/login'>
+                        <LoginIcon />
+                        <span className="hidden md:inline">Login</span>
+                     </Link>
+                     <Link to='/signup'>
+                        <SignUpIcon />
+                        <span className="hidden md:inline">Sign Up</span>
+                     </Link>
+                  </>
+               }
                {/* <label class="switch">
                   <input type="checkbox" onChange={() => setTheme(theme == options.light ? options.dark : options.light)} />
                   <span class="slider round"></span>

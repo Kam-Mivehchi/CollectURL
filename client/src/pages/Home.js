@@ -52,6 +52,7 @@ article{
 const Home = () => {
    return (
       <>
+
          <Hero>
             <article>
 
