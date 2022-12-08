@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const ModalWrapper = styled.div`
 display:grid;
+// min-width:100%;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
 place-items:start center;
 overflow-y:auto;
 overflow-x:hidden;
@@ -10,12 +14,17 @@ margin:0 auto;
 outline:none;
 z-index:50;
 height:80%;
+
+
 `
 export const ModalCard = styled.div`
-position:relative;
 width:auto;
-margin:1.5rem auto;
-
+// margin:1.5rem 0;
+ 
+h3{
+color:${({ theme }) => theme.colors.textPrimary || 'black'};
+   
+}
 
 `
 

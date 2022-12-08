@@ -4,8 +4,8 @@ import styled from 'styled-components'
 export const Card = styled.div`
 background-color:${({ theme }) => theme.colors.cardBackground || 'white'};
 padding:1.5em;
-margin:1.5em;
-// min-width:90%;
+margin:auto;
+max-width:90%;
 min-height:60vh;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};

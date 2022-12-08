@@ -11,14 +11,21 @@ background-color:${({ theme }) => theme.colors.primary};
 `
 export const ControlBar = styled.div`
 width:100%;
+position:relative;
 display:flex;
-justify-content:end;
+justify-content:space-around;
+align-items:center;
 padding: 1.25rem 0rem;
 color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.primary};
+h3{
+  font-weight:bold;
+}
 @media (min-width: 768px) {
    width:66%;
    margin:auto;
+justify-content:space-between;
+
    }
 `
 export const GridBox = styled.div`
