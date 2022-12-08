@@ -5,7 +5,7 @@ import { CenteredContainer, AuthenticationForm, Button } from "../components/sty
 import { createUser } from "../Utils/API"
 import { useNavigate } from "react-router-dom"
 import { useUserContext } from "../Utils/UserContext"
-import { useUserReducer } from "../Utils/reducers"
+
 import { AUTHENTICATE } from '../Utils/actions';
 
 const Signup = () => {
@@ -22,6 +22,7 @@ const Signup = () => {
 
 
    const formHandler = async (event) => {
+
       event.preventDefault();
       const data = await createUser(
          userNameInputElement.current?.value,

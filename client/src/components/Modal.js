@@ -5,6 +5,8 @@ import { AiFillDelete, AiOutlinePlusCircle } from 'react-icons/ai'
 import { useNavigate, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { useTheme } from 'styled-components'
+import { config } from '../Utils/API'
+
 const Modal = ({ toggle }) => {
    const [showModal, setShowModal] = useState(toggle);
    const navigate = useNavigate()
@@ -21,7 +23,7 @@ const Modal = ({ toggle }) => {
       e.preventDefault();
       try {
          setShowModal(false)
-         const response = await axios.post('http://localhost:3001/api/lists/', data);
+         const response = await axios.post('http://localhost:3001/api/lists/', data, config);
 
          navigate(0)
          console.log(response)

@@ -4,22 +4,28 @@ import axios from 'axios'
 
 import Modal from '../components/Modal.js'
 import { Main, ControlBar, GridBox } from '../components/styles/Library.styles.js'
-
+import { useUserContext } from "../Utils/UserContext"
+import { ADD_BUCKET, } from '../Utils/actions';
+import { getBuckets } from '../Utils/API'
 const Dashboard = () => {
+   const [user, dispatch] = useUserContext();
    const [buckets, setBuckets] = useState([])
 
-   const getBuckets = async () => {
+   async function renderBuckets() {
       try {
-         const response = await axios.get('http://localhost:3001/api/buckets/')
-         console.log(response.data)
-         setBuckets(response.data)
+         //get user buckets form api 
+         const response = await getBuckets()
+         //call the reducer to update the state
+         setBuckets(response)
+
       } catch (error) {
          console.error(error)
       }
    }
    useEffect(() => {
-      getBuckets()
+      renderBuckets()
    }, [])
+
 
    return (
       <Main >
