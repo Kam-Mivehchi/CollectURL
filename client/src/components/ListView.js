@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { useLocation, redirect } from 'react-router-dom';
 import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
-import { CenteredContainer, Input, TextArea } from "./styles/Utilities.styles"
-import Modal from './Modal.js'
-import { Main, ControlBar, GridBox } from './styles/Library.styles.js'
+import { Input, TextArea } from "./styles/Utilities.styles"
+import { getListData, updateList, deleteList, addListItem, deleteListItem, config } from "../Utils/API"
+
 import axios from 'axios'
 const ListView = ({ Title }) => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
@@ -17,10 +17,11 @@ const ListView = ({ Title }) => {
 
    });
 
-   const updateList = async (listId) => {
+   const updateListTitle = async () => {
       try {
          //if not logged in we need to save to loval storage
-         let changeTitle = await axios.put(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}`, listData)
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+         let changeTitle = await updateList(location.pathname.split('/')[2], listData)
          console.log("make api call to update list", changeTitle)
 
       } catch (error) {
@@ -29,13 +30,17 @@ const ListView = ({ Title }) => {
 
       }
    }
-   const removeList = async (listId) => {
+   const removeList = async () => {
       try {
-         let changeTitle = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}`)
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+         let changeTitle = await deleteList(location.pathname.split('/')[2])
          console.log("make api call to update list", changeTitle)
          return redirect("/")
 
       } catch (error) {
+         //user must sign in cannot delete my first list
+
+
          localStorage.setItem("newList", JSON.stringify(listData));
 
          console.error(error)
@@ -43,51 +48,66 @@ const ListView = ({ Title }) => {
    }
    const newListItem = async () => {
       try {
-         let newList = await axios.post(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items`, listItem)
-         console.log("make api call to create new list item", newList)
-         getListData()
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+         let response = await addListItem(location.pathname.split('/')[2], listItem)
 
-         return newList
+         renderListData()
+
+         return response
       } catch (error) {
          // setListData({ ...listData, listItems: [...listData.listItems, listItem] })\
-         let { listItems, listName } = listData
-         // setListData({ ...listData, listItems: [listItem, ...listData.listItems] })
-         listItems.push(listItem)
-         console.log(listItems)
+         let { listItems } = listData
 
+         console.log(listItems)
+         listItems.push(listItem)
+
+         setListData({ ...listData, listItems: listItems })
          localStorage.setItem("newList", JSON.stringify(listData));
-         getListData()
+         // renderListData()
 
       }
    }
    const removeListItem = async (itemId) => {
       try {
-         let newList = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items/${itemId}`)
-         console.log("make api call to create new list item", newList)
-         getListData()
-         return newList
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+
+         // let newList = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items/${itemId}`)
+         await deleteListItem(location.pathname.split('/')[2], itemId)
+         // console.log("make api call to create new list item", newList)
+         renderListData()
+
       } catch (error) {
+
+         //user must sign in
+
          localStorage.setItem("newList", JSON.stringify(listData));
          console.error(error)
       }
    }
-   const getListData = async () => {
+   const renderListData = async () => {
       try {
-         console.log(JSON.parse(localStorage.getItem('newList')))
-         const lists = await axios.get(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}`)
-         setListData(lists.data)
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+
+         // console.log(JSON.parse(localStorage.getItem('newList')))
+         const lists = await getListData(location.pathname.split('/')[2])
+         console.log(lists)
+         setListData(lists)
          // return lists
       } catch (error) {
-         setListData(JSON.parse(localStorage.getItem('newList')))
+         !localStorage.getItem('newList')
+            ?
+            localStorage.setItem("newList", JSON.stringify(listData))
+            :
+            setListData(JSON.parse(localStorage.getItem('newList')).listItems)
          console.error({ error })
       }
    }
 
    useEffect(() => {
       // console.log(itemId)
-      getListData()
-      localStorage.setItem("newList", JSON.stringify(listData));
+      renderListData()
 
+      setListData(JSON.parse(localStorage.getItem('newList')))
    }, [])
    return (
       <>
@@ -95,7 +115,7 @@ const ListView = ({ Title }) => {
          {/* save button if user is not logged in */}
          <Card >
             {/* edit list title */}
-            <form onSubmit={updateList}>
+            <form onSubmit={updateListTitle}>
                <div>
 
                   <Input type="text" value={listData.listName} onChange={(e) => setListData({ ...listData, listName: e.target.value })} default={"My First List"} />
