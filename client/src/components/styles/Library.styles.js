@@ -74,6 +74,7 @@ padding-bottom:.5rem;
 margin-right:1rem;
 overflow-x:scroll;
 overflow-y:hidden;
+min-height:25vh
 `
 
 export const Card = styled.article`

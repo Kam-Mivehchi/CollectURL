@@ -52,3 +52,14 @@ export async function getBuckets() {
       console.error(error)
    }
 }
+
+export async function newList(data) {
+   const response = await axios.post('http://localhost:3001/api/lists/', data, config);
+   return response.data
+}
+
+export async function createNewBucket(data) {
+   const response = await axios.post('http://localhost:3001/api/buckets/', { bucketName: data.bucket }, config);
+
+   return response.data
+}

@@ -8,7 +8,7 @@ export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 
 
 //BUCKET ACTIONS
-export const GET_ALL_BUCKETS = 'GET_ALL_BUCKETS';
+export const UPDATE_BUCKETS = 'UPDATE_BUCKETS';
 export const GET_ONE_BUCKET = 'GET_ONE_BUCKET';
 export const NEW_BUCKET = 'NEW_BUCKET';
 

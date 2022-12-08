@@ -8,9 +8,7 @@ const BucketRow = ({ bucket }) => {
    const [userBucket, setUserBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
 
-   const newList = () => {
 
-   }
    useEffect(() => {
       // fetchLists()
       console.log(userBucket, bucket)
@@ -21,12 +19,12 @@ const BucketRow = ({ bucket }) => {
 
    return (
       <Bucket className="" >
-         <h3>{userBucket.bucketName}</h3>
-         <ListRow total={userBucket.length}>
+         <h3>{bucket.bucketName}</h3>
+         <ListRow >
             {/* {console.log("bucketData", bucketData.lists)} */}
-
             <Modal />
-            {userBucket.lists.map((el, index) => {
+
+            {bucket.lists.length > 0 ? bucket.lists.map((el, index) => {
                return (
                   <a href={`/lists/${el._id}`}>
 
@@ -43,7 +41,9 @@ const BucketRow = ({ bucket }) => {
                      </Card>
                   </a>
                )
-            })}
+            }) :
+               <h1 className="mx-auto my-auto">No Lists in this buckets</h1>
+            }
 
          </ListRow>
       </Bucket>

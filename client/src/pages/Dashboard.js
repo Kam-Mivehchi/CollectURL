@@ -5,7 +5,7 @@ import axios from 'axios'
 import Modal from '../components/Modal.js'
 import { Main, ControlBar, GridBox } from '../components/styles/Library.styles.js'
 import { useUserContext } from "../Utils/UserContext"
-import { ADD_BUCKET, } from '../Utils/actions';
+import { UPDATE_BUCKETS, } from '../Utils/actions';
 import { getBuckets } from '../Utils/API'
 const Dashboard = () => {
    const [user, dispatch] = useUserContext();
@@ -17,13 +17,14 @@ const Dashboard = () => {
          const response = await getBuckets()
          //call the reducer to update the state
          setBuckets(response)
-
+         dispatch({ type: UPDATE_BUCKETS, buckets: response })
       } catch (error) {
          console.error(error)
       }
    }
    useEffect(() => {
       renderBuckets()
+      console.log(buckets)
    }, [])
 
 
