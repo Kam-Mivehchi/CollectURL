@@ -6,7 +6,7 @@ export async function createUser(username, email, password) {
    try {
       const response = await axios.post('http://localhost:3001/api/users/register', { username: username, email: email, password: password })
       console.log(response.data)
-      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('token', response.data.token);
 
 
       return response.data

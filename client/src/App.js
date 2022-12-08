@@ -10,7 +10,7 @@ import PrivateRoute from './pages/PrivateRoute.js'
 import GlobalStyles from './components/styles/Global'
 import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
-import UserProvider from './Utils/UserContext'
+import { UserProvider } from './Utils/UserContext'
 
 import SingleList from './pages/SingleList';
 const light = {

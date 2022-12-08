@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { useRef, useCallback } from "react";
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
-import { useAuth } from '../Utils/UserContext'
+import { useUserContext } from '../Utils/UserContext'
 import { LOGIN } from '../Utils/actions'
 const Login = () => {
    const theme = useTheme();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
-   const { user, dispatch } = useAuth();
+   const { user, dispatch } = useUserContext();
    console.log(user);
 
 

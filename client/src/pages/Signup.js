@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { createUser } from "../Utils/API"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../Utils/UserContext"
+import { useUserContext } from "../Utils/UserContext"
 import { useUserReducer } from "../Utils/reducers"
 import { REGISTER } from '../Utils/actions';
 
@@ -17,9 +17,9 @@ const Signup = () => {
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
 
-   const initialState = useAuth();
+   const [state, dispatch] = useUserContext();
 
-   const [state, dispatch] = useUserReducer(initialState);
+
 
    const formHandler = async (event) => {
       event.preventDefault();
@@ -28,17 +28,13 @@ const Signup = () => {
          emailInputElement.current?.value,
          passwordInputElement.current?.value
       )
-      const { email, id, lists, username, buckets } = data.user
-
+      const { email, id, lists, buckets, username } = data.user
+      console.log(data.user)
       dispatch({
          type: REGISTER,
          payload: {
             token: data.token,
-            username: username,
-            _id: id,
-            lists: lists,
-            buckets: buckets,
-            email: email,
+            ...data.user
          },
       })
       console.log(state)

@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
-import { LOGIN, REGISTER, LOGOUT } from './actions';
+import { LOGIN, REGISTER, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL } from './actions';
 import axios from 'axios'
-export const userReducer = async (state, action) => {
+export const userReducer = (state, action) => {
 
    switch (action.type) {
       case LOGIN:
@@ -12,6 +12,7 @@ export const userReducer = async (state, action) => {
 
 
       case REGISTER:
+         console.log(action.payload)
          return {
             ...state,
             ...action.payload,
@@ -28,6 +29,21 @@ export const userReducer = async (state, action) => {
             email: "",
             token: ""
          };
+      case UPDATE_USERNAME:
+         return {
+            ...state,
+            username: action.username
+         }
+      case UPDATE_EMAIL:
+         return {
+            ...state,
+            email: action.email
+         }
+      case UPDATE_PASSWORD:
+         return {
+            ...state,
+            password: action.password
+         }
       default:
          return state;
    }

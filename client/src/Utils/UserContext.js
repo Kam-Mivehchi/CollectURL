@@ -1,26 +1,29 @@
 import React, { useState, createContext, useContext } from 'react';
 import { useUserReducer } from './reducers';
 
-export const UserContext = createContext();
+const UserContext = createContext();
 
-export const useAuth = () => useContext(UserContext);
-
+//provider that facilites the users state
 const UserProvider = ({ children }) => {
    // const [currentUser, setCurrentUser] = useState();
    const [user, dispatch] = useUserReducer({
       username: "",
+      email: "",
+      password: "",
       _id: "",
       lists: [],
       buckets: [],
-      email: "",
       token: ""
    })
 
    return (
-      <UserContext.Provider value={{ user, dispatch }} >
+      <UserContext.Provider value={[user, dispatch]} >
          {children}
       </UserContext.Provider>
    );
 };
 
-export default UserProvider;
+//custum hook to access user state and dispatch
+const useUserContext = () => useContext(UserContext);
+
+export { UserProvider, useUserContext };
