@@ -33,7 +33,6 @@ const Login = () => {
                ...data.user
             },
          })
-
          navigate('/dashboard')
          setError("")
       } catch (error) {

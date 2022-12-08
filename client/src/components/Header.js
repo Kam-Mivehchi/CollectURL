@@ -2,7 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Nav, Container, HomeIcon, LoginIcon, SignUpIcon } from './styles/Utilities.styles.js'
 import { logout } from '../Utils/API'
+import { useUserContext } from "../Utils/UserContext"
+
+import { AUTHENTICATE } from '../Utils/actions';
 const NavBar = ({ theme, setTheme, options }) => {
+   const [user, dispatch] = useUserContext();
+
    return (
 
       <Container>
@@ -18,7 +23,7 @@ const NavBar = ({ theme, setTheme, options }) => {
                   <SignUpIcon />
                   <span className="hidden md:inline">Dashboard</span>
                </Link>
-               {localStorage.getItem('token') ?
+               {user._id || localStorage.getItem('token') ?
 
                   <Link onClick={logout}>
                      <LoginIcon />

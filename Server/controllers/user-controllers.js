@@ -8,12 +8,16 @@ module.exports = {
          req.body.password = await bcrypt.hash(req.body.password, 10)
          let user = await User.create(req.body);
          const token = generateToken(user);
-         await Bucket.create({
+         let def = await Bucket.create({
             bucketName: "Free Thoughts",
             bucketDescription: "Unnassociated Thoughts Live Here",
             user: user._id
          })
-
+         user = await User.findOneAndUpdate(
+            { _id: user._id },
+            { $addToSet: { buckets: def._id } },
+            { runValidators: true, new: true }
+         ).populate('buckets')
 
 
          return res
