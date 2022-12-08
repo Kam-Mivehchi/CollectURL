@@ -4,6 +4,7 @@ import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "../components/styles/SingleCard.styles"
 import { CenteredContainer, Input, TextArea } from "../components/styles/Utilities.styles"
 import Modal from '../components/Modal.js'
+import DashNav from '../components/DashNav.js'
 import { Main, ControlBar, GridBox } from '../components/styles/Library.styles.js'
 import axios from 'axios'
 const ListView = ({ Title }) => {
@@ -75,10 +76,10 @@ const ListView = ({ Title }) => {
    }, [])
    return (
       <>
-         <ControlBar >
-            <Modal />
-         </ControlBar>
+
+
          <CenteredContainer>
+            <DashNav />
 
             {/* todo import this as a component  */}
             <Card >

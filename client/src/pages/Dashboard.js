@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import BucketRow from '../components/Bucket.js'
-import axios from 'axios'
+import DashNav from '../components/DashNav.js'
 
-import Modal from '../components/Modal.js'
-import { Main, ControlBar, GridBox } from '../components/styles/Library.styles.js'
+
+import { Main, GridBox } from '../components/styles/Library.styles.js'
 import { useUserContext } from "../Utils/UserContext"
 import { UPDATE_BUCKETS, } from '../Utils/actions';
 import { getBuckets } from '../Utils/API'
@@ -30,9 +30,8 @@ const Dashboard = () => {
 
    return (
       <Main >
-         <ControlBar >
-            <Modal />
-         </ControlBar>
+
+         <DashNav />
          <GridBox  >
 
             {/* bucket/collection rows  content rows pass in the card data props*/}
