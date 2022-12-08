@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { LOGIN, AUTHENTICATE, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL } from './actions';
+import { LOGIN, AUTHENTICATE, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL, UPDATE_BUCKETS } from './actions';
 import axios from 'axios'
 export const userReducer = (state, action) => {
 
@@ -42,6 +42,11 @@ export const userReducer = (state, action) => {
          return {
             ...state,
             password: action.password
+         }
+      case UPDATE_BUCKETS:
+         return {
+            ...state,
+            buckets: action.buckets
          }
       default:
          return state;

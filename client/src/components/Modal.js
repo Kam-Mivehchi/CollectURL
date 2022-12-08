@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Input, Select, Form, Label, ModalWrapper, ModalCard } from './styles/Modal.styles.js'
 import { Button } from './styles/Utilities.styles.js'
-import { AiFillDelete, AiOutlinePlusCircle } from 'react-icons/ai'
-import { useNavigate, useHistory } from 'react-router-dom'
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
-import { config } from '../Utils/API'
+import { getBuckets, newList, createNewBucket } from '../Utils/API'
+import { useUserContext } from "../Utils/UserContext"
+import { UPDATE_BUCKETS } from '../Utils/actions';
 
 const Modal = ({ toggle }) => {
    const [showModal, setShowModal] = useState(toggle);
@@ -15,16 +15,15 @@ const Modal = ({ toggle }) => {
       bucket: "Free Thoughts",
       listName: ""
    });
-   const [buckets, setBuckets] = useState();
    const [visible, setVisible] = useState(false)
+   const [user, dispatch] = useUserContext();
 
    const createList = async (e) => {
 
       e.preventDefault();
       try {
          setShowModal(false)
-         const response = await axios.post('http://localhost:3001/api/lists/', data, config);
-
+         const response = await newList(data)
          navigate(0)
          console.log(response)
 
@@ -34,12 +33,12 @@ const Modal = ({ toggle }) => {
    }
 
 
-   const getBuckets = async () => {
+   const renderBuckets = async () => {
 
       try {
-         const response = await axios.get('http://localhost:3001/api/buckets/');
-         console.log("________________________", response.data)
-         setBuckets(response.data)
+         const response = await getBuckets()
+         // setBuckets(response)
+         dispatch({ type: UPDATE_BUCKETS, buckets: response })
       } catch (error) {
 
       }
@@ -51,16 +50,17 @@ const Modal = ({ toggle }) => {
    const newBucket = async (e) => {
       try {
 
-         const response = await axios.post('http://localhost:3001/api/buckets/', { bucketName: data.bucket });
-         getBuckets()
-         return response.data
+         await createNewBucket(data);
+
+         renderBuckets()
+
       } catch (error) {
 
       }
    }
    useEffect(() => {
       console.log(data)
-      getBuckets()
+      renderBuckets()
    }, [])
 
 
@@ -100,7 +100,7 @@ const Modal = ({ toggle }) => {
                            {!visible && (<Label >
                               Bucket
                               <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={handleBucket}>
-                                 {buckets.map((el) => {
+                                 {user.buckets.map((el) => {
                                     return <option value={el._id}>{el.bucketName}</option>
                                  })}
                                  <option value="new">New Bucket</option>
