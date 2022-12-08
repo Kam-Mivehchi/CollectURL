@@ -14,7 +14,6 @@ export const userReducer = async (state, action) => {
             return {
                ...state,
                token: data.token,
-               ...data.user
             };
 
 

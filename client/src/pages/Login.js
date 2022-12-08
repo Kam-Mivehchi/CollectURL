@@ -6,13 +6,12 @@ import { useAuth } from '../Utils/UserContext'
 import { LOGIN } from '../Utils/actions'
 const Login = () => {
    const theme = useTheme();
-   const userNameInputElement = useRef();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
-   const passwordConfirmationInputElement = useRef();
-   const [confirm, setConfirm] = useState(false);
    const { user, dispatch } = useAuth();
    console.log(user);
+
+
    const formHandler = useCallback(
       () => (event) => {
          event.preventDefault();
