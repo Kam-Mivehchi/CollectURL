@@ -6,7 +6,7 @@ import { createUser } from "../Utils/API"
 import { useNavigate } from "react-router-dom"
 import { useUserContext } from "../Utils/UserContext"
 import { useUserReducer } from "../Utils/reducers"
-import { REGISTER } from '../Utils/actions';
+import { AUTHENTICATE } from '../Utils/actions';
 
 const Signup = () => {
    const navigate = useNavigate()
@@ -17,7 +17,7 @@ const Signup = () => {
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
 
-   const [state, dispatch] = useUserContext();
+   const [user, dispatch] = useUserContext();
 
 
 
@@ -28,16 +28,15 @@ const Signup = () => {
          emailInputElement.current?.value,
          passwordInputElement.current?.value
       )
-      const { email, id, lists, buckets, username } = data.user
       console.log(data.user)
       dispatch({
-         type: REGISTER,
+         type: AUTHENTICATE,
          payload: {
             token: data.token,
             ...data.user
          },
       })
-      console.log(state)
+      console.log(user)
       navigate('/dashboard')
    }
 

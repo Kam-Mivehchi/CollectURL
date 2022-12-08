@@ -3,39 +3,50 @@ import { useRef, useCallback } from "react";
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { useUserContext } from '../Utils/UserContext'
-import { LOGIN } from '../Utils/actions'
+import { AUTHENTICATE } from '../Utils/actions'
+import { login } from "../Utils/API"
+import { useNavigate } from "react-router-dom"
+
 const Login = () => {
+   const navigate = useNavigate()
    const theme = useTheme();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
-   const { user, dispatch } = useUserContext();
+   const [user, dispatch] = useUserContext();
+   const [error, setError] = useState("")
    console.log(user);
 
 
-   const formHandler = useCallback(
-      () => (event) => {
-         event.preventDefault();
+   const formHandler = async (event) => {
+      event.preventDefault();
+      try {
 
-         // const data = {
-         //    email: emailInputElement.current?.value,
-         //    password: passwordInputElement.current?.value,
+         const data = await login(
 
-         // };
+            emailInputElement.current?.value,
+            passwordInputElement.current?.value
+         )
+         dispatch({
+            type: AUTHENTICATE,
+            payload: {
+               token: data.token,
+               ...data.user
+            },
+         })
+
+         navigate('/dashboard')
+         setError("")
+      } catch (error) {
+         console.log(error)
+         setError("Unable to Sign In")
+      }
 
 
-      },
-      []
-   );
+   }
    return (
       <CenteredContainer>
-         <AuthenticationForm onSubmit={() => dispatch({
-            type: LOGIN, payload: {
-               email: emailInputElement.current?.value,
-               password: passwordInputElement.current?.value,
-            }
-         })}>
+         <AuthenticationForm onSubmit={formHandler}>
             <h2>Login</h2>
-
 
 
             <label>
@@ -62,6 +73,7 @@ const Login = () => {
 
 
             </label>
+            <small>{error}</small>
 
             <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" >
                Submit

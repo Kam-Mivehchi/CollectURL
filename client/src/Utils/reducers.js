@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { LOGIN, REGISTER, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL } from './actions';
+import { LOGIN, AUTHENTICATE, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL } from './actions';
 import axios from 'axios'
 export const userReducer = (state, action) => {
 
@@ -10,8 +10,7 @@ export const userReducer = (state, action) => {
             ...action.payload,
          };
 
-
-      case REGISTER:
+      case AUTHENTICATE:
          console.log(action.payload)
          return {
             ...state,

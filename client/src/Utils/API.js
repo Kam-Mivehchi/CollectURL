@@ -14,6 +14,19 @@ export async function createUser(username, email, password) {
       console.error(error)
    }
 }
+export async function login(email, password) {
+
+   try {
+      const response = await axios.post('http://localhost:3001/api/users/login', { email: email, password: password })
+      console.log(response.data)
+      localStorage.setItem('token', response.data.token);
+
+
+      return response.data
+   } catch (error) {
+      console.error(error)
+   }
+}
 
 export function logout() {
    localStorage.setItem('token', '')
