@@ -9,6 +9,9 @@ export async function createUser(username, email, password) {
 
       const { data } = await axios.post('http://localhost:3001/api/users/register', { username: username, email: email, password: password, list: JSON.parse(localStorage.getItem('newList')) })
 
+      //clear the local list when user signs in
+      localStorage.setItem("newList", JSON.stringify({ listItems: [], listName: "My First List" }))
+      //add user data and token to local storage
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
 
@@ -23,6 +26,10 @@ export async function login(email, password) {
    try {
       const { data } = await axios.post('http://localhost:3001/api/users/login', { email: email, password: password, list: localStorage.getItem('newList') })
       console.log(data)
+
+      //clear the local list when user signs in
+      localStorage.setItem("newList", JSON.stringify({ listItems: [], listName: "My First List" }))
+      //add user data and token to local storage
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
 
