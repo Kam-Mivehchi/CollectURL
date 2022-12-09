@@ -15,7 +15,7 @@ const NavBar = ({ theme, setTheme, options }) => {
             <a href="">Brand</a>
             <div>
 
-               <Link to='/'>
+               <Link to='/' className={`${user._id || localStorage.getItem('token') ? "hidden" : 'static'}`}>
                   <HomeIcon />
                   <span className="hidden md:inline">Home</span>
                </Link>

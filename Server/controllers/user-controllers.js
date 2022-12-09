@@ -1,25 +1,45 @@
 const { authMiddleware, generateToken } = require("../utils/auth.js");
-const { User, Bucket } = require('../models')
+const { User, Bucket, List } = require('../models')
 const bcrypt = require("bcryptjs");
 module.exports = {
 
    async SignUp(req, res) {
       try {
          req.body.password = await bcrypt.hash(req.body.password, 10)
-         let user = await User.create(req.body);
-         const token = generateToken(user);
+         let createUser = await User.create(req.body);
+         const token = generateToken(createUser);
          let def = await Bucket.create({
             bucketName: "Free Thoughts",
             bucketDescription: "Unnassociated Thoughts Live Here",
-            user: user._id
+            user: createUser._id
          })
-         user = await User.findOneAndUpdate(
-            { _id: user._id },
-            { $addToSet: { buckets: def._id } },
+         //add free thought bucket
+         await User.findOneAndUpdate(
+            { _id: createUser._id },
+            { $addToSet: { buckets: def } },
             { runValidators: true, new: true }
-         ).populate('buckets')
+         )
+         //create local list
+         console.log(req.body.list)
+         const data = await List.create({ ...req.body.list, user: createUser._id })
+         //add that list to the freethough bucket
+         await Bucket.findOneAndUpdate({ bucketName: data.bucket, user: createUser._id },
+            { $addToSet: { lists: data._id } },
+            { runValidators: true, new: true }
+         )
+         await User.findOneAndUpdate(
+            { _id: createUser._id },
+            { $addToSet: { lists: data._id } },
+            { runValidators: true, new: true }
+         )
 
-
+         await User.findOneAndUpdate(
+            { _id: createUser._id },
+            { $addToSet: { listss: def } },
+            { runValidators: true, new: true }
+         )
+         //return fully populated user
+         const user = await User.findOne({ _id: createUser._id }).populate("buckets").populate('lists');
          return res
             .cookie("access_token", token, {
                httpOnly: true,
@@ -35,7 +55,7 @@ module.exports = {
    async Login(req, res) {
       try {
 
-         const user = await User.findOne({ email: req.body.email });
+         const user = await User.findOne({ email: req.body.email }).populate('buckets').populate('lists');
 
 
          if (user) {
