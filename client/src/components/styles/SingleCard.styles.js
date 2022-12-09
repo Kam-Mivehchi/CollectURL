@@ -33,8 +33,11 @@ form:first-child{
 
 export const UrlCard = styled.div`
 
+h3{
+  font-weight:bold;
+}
 p{
-  
+  font-style:italic;
 }
 `
 export const ListContainer = styled.div`
