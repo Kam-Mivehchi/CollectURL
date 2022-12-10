@@ -1,5 +1,5 @@
 const { Bucket, List } = require('../models')
-
+const axios = require('axios')
 
 
 
@@ -56,6 +56,16 @@ module.exports = {
    },
    async newListItem(req, res) {
       try {
+         //call metadata API 
+         const metadata = await axios.get(`https://api.urlmeta.org/?url=${req.body.url}`, {
+            headers: {
+               Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+         })
+
+
+
+         //add the apidata to the list
          const data = await List.findOneAndUpdate(
             { _id: req.params.listId },
             { $addToSet: { listItems: req.body } },
