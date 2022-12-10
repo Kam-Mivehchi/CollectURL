@@ -57,18 +57,28 @@ module.exports = {
    async newListItem(req, res) {
       try {
          //call metadata API 
-         const metadata = await axios.get(`https://api.urlmeta.org/?url=${req.body.url}`, {
+         const base64Credentials = Buffer.from(process.env.METADATA_API_KEY).toString('base64')
+         let metadata = await axios.get(`https://api.urlmeta.org/?url=${req.body.url}`, {
             headers: {
-               Authorization: `Bearer ${localStorage.getItem('token')}`
+               Authorization: `Basic ${base64Credentials}`
             }
          })
+         console.log(metadata)
 
-
-
+         const { title, site, image, description } = metadata.data.meta
          //add the apidata to the list
          const data = await List.findOneAndUpdate(
             { _id: req.params.listId },
-            { $addToSet: { listItems: req.body } },
+            {
+               $addToSet: {
+                  listItems: {
+                     itemName: title || site.name,
+                     url: req.body.url,
+                     img: site.logo || site.favicon || "https://via.placeholder.com/150",
+                     description: description
+                  }
+               }
+            },
             { runValidators: true, new: true }
          )
 

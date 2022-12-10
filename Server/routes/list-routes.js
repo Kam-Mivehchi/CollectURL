@@ -15,7 +15,7 @@ router.route('/')
 // add and remove list from a List
 router.route('/:listId')
    .get(getListById).delete(removeList).put(updateList)
-
+//add new item
 router.route('/:listId/items')
    .get(getListItems)
    .post(newListItem)
