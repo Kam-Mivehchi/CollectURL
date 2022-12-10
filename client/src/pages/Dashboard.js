@@ -16,6 +16,7 @@ const Dashboard = () => {
          //get user buckets form api 
          const response = await getBuckets()
          //call the reducer to update the state
+         console.log(response)
          setBuckets(response)
          dispatch({ type: UPDATE_BUCKETS, buckets: response })
       } catch (error) {
@@ -35,7 +36,7 @@ const Dashboard = () => {
          <GridBox  >
 
             {/* bucket/collection rows  content rows pass in the card data props*/}
-            {buckets.map((bucket) => {
+            {buckets?.map((bucket) => {
                return (<BucketRow lists={bucket.lists} bucket={bucket} key={bucket._id} />)
             })}
             {/* <BucketRow /> */}

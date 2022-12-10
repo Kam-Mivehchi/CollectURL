@@ -4,11 +4,10 @@ import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
 import { Input, TextArea } from "./styles/Utilities.styles"
 import { getListData, updateList, deleteList, addListItem, deleteListItem, config } from "../Utils/API"
-
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 const ListView = ({ Title }) => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
-
    let location = useLocation();
    const [listItem, setlistItem] = useState({
       url: null,
@@ -16,6 +15,7 @@ const ListView = ({ Title }) => {
       description: "add a description",
 
    });
+
 
    const updateListTitle = async () => {
       try {
@@ -119,10 +119,18 @@ const ListView = ({ Title }) => {
                <div>
 
                   <Input type="text" value={listData.listName} onChange={(e) => setListData({ ...listData, listName: e.target.value })} default={"My First List"} />
-                  <button type="submit" className="bg-green-500 px-5">go</button>
-                  <button onClick={removeList} className="bg-red-500 px-5">X</button>
+                  {location.pathname.split('/')[2] = "" && (
+                     <>
+                        <button type="submit" className="bg-green-500 px-5">go</button>
+                        <button onClick={removeList} className="bg-red-500 px-5">X</button>
+                     </>
+                  )}
                </div>
-               <button>Save </button>
+               <button>
+                  <Link to="/dashboard">
+                     Save
+                  </Link>
+               </button>
             </form>
             {/* add list item*/}
             <ListContainer>
@@ -130,7 +138,7 @@ const ListView = ({ Title }) => {
                {listData.listItems.map((listItem) => {
                   return (
                      <UrlCard key={listItem._id}>
-                        <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>
+                        {location.pathname.split('/')[2] = "" && <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>}
                         <h3>{listItem.itemName}</h3>
                         <a href={listItem.url}>Visit</a>
                         <img src={listItem.img} alt="" />
