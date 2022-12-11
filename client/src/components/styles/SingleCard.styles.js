@@ -12,8 +12,14 @@ border-radius:${({ theme }) => theme.borders.inner};
 form:first-child{
   display:flex;
   justify-content:space-between;
-  div{
-    max-width:50%;
+  // div{
+  //   max-width:50%;
+  // }
+  Input{
+    font-weight:bold;
+    font-size:1.5em;
+    width:75%;
+    text-overflow: ellipsis;
   }
   >button{
     color:white;
@@ -24,6 +30,9 @@ form:first-child{
     
   }
 }
+Input{
+  width:50%;
+}
 @media (min-width: 768px) {
   max-width:50vw; 
   
@@ -32,13 +41,54 @@ form:first-child{
 
 
 export const UrlCard = styled.div`
+display:grid;
+grid-template-columns:20% 75%;
+column-gap:.5em;
+grid-template-rows:repeat(2,1fr);
+max-height:10em;
+// border:2px solid red;
+border-radius:${({ theme }) => theme.borders.button};
+padding:.25em;
+align-items:center;
+  overflow-y:hidden;
+background-color:${({ theme }) => theme.colors.primary};
+margin:.25em 0;
+img{
 
+  grid-area:span 2/span 1;
+
+height:auto;
+
+ width:min(100%,5em);
+ filter: drop-shadow(0px 50px 20px rgb(100,100,100,.3));
+  border-radius:${({ theme }) => theme.borders.inner};
+  justify-self:left;
+  overflow:hidden;
+}
 h3{
   font-weight:bold;
+    grid-column:2;
+  font-size:.9em;
+white-space: nowrap;
+text-overflow: ellipsis;
+text-transform: capitalize;
+overflow:hidden;
+margin:0;
 }
 p{
+
   font-style:italic;
+  font-size:.7em;
+ overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  &:hover{
+ overflow: auto;
+  
+  }
 }
+
 `
 export const ListContainer = styled.div`
 
