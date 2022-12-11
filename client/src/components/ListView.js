@@ -46,14 +46,15 @@ const ListView = ({ Title }) => {
          console.error(error)
       }
    }
-   const newListItem = async () => {
+   const newListItem = async (e) => {
+      e.preventDefault()
       try {
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
-         let response = await addListItem(location.pathname.split('/')[2], listItem)
+         await addListItem(location.pathname.split('/')[2], listItem)
 
          renderListData()
 
-         return response
+         // return response
       } catch (error) {
          // setListData({ ...listData, listItems: [...listData.listItems, listItem] })\
          let { listItems } = listData
