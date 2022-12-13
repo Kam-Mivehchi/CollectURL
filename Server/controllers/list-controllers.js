@@ -65,7 +65,7 @@ module.exports = {
          })
          console.log(metadata)
 
-         const { title, site, image, description } = metadata.data.meta
+         const { title, site, description } = metadata.data.meta
          //add the apidata to the list
          const data = await List.findOneAndUpdate(
             { _id: req.params.listId },
