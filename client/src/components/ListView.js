@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLocation, redirect } from 'react-router-dom';
 import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
@@ -17,7 +17,29 @@ const ListView = ({ Title }) => {
       description: "add a description",
 
    });
+   const dragItem = useRef();
+   const dragOverItem = useRef();
 
+
+   const dragStart = (e, position) => {
+      dragItem.current = position;
+      console.log(e.target.innerHTML);
+   };
+
+   const dragEnter = (e, position) => {
+      dragOverItem.current = position;
+      console.log(e.target.innerHTML);
+   };
+
+   const drop = (e) => {
+      const copyListItems = [...listData.listItems];
+      const dragItemContent = copyListItems[dragItem.current];
+      copyListItems.splice(dragItem.current, 1);
+      copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+      dragItem.current = null;
+      dragOverItem.current = null;
+      setListData({ ...listData, listItems: copyListItems });
+   };
 
    const updateListTitle = async () => {
       try {
@@ -138,9 +160,11 @@ const ListView = ({ Title }) => {
             {/* add list item*/}
             <ListContainer>
 
-               {listData.listItems.map((listItem) => {
+               {listData.listItems.map((listItem, index) => {
                   return (
-                     <UrlCard key={listItem._id}>
+                     <UrlCard key={listItem._id} draggable onDragStart={(e) => dragStart(e, index)}
+                        onDragEnter={(e) => dragEnter(e, index)}
+                        onDragEnd={drop}>
                         {location.pathname.split('/')[2] = "" && <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>}
                         <img src={listItem.img} alt="" />
                         <h3>{listItem.itemName}</h3>
