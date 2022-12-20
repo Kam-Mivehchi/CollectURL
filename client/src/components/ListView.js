@@ -131,9 +131,10 @@ const ListView = () => {
 
    useEffect(() => {
       // console.log(itemId)
-      render()
+      renderListData()
 
       setListData(JSON.parse(localStorage.getItem('newList')))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
    return (
       <>
