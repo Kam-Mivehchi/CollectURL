@@ -11,22 +11,23 @@ const Dashboard = () => {
    const [dispatch] = useUserContext();
    const [buckets, setBuckets] = useState([])
 
-   async function renderBuckets() {
-      try {
-         //get user buckets form api 
-         const response = await getBuckets()
-         //call the reducer to update the state
-         console.log(response)
-         setBuckets(response)
-         dispatch({ type: UPDATE_BUCKETS, buckets: response })
-      } catch (error) {
-         console.error(error)
-      }
-   }
+
    useEffect(() => {
+      async function renderBuckets() {
+         try {
+            //get user buckets form api 
+            const response = await getBuckets()
+            //call the reducer to update the state
+            console.log(response)
+            setBuckets(response)
+            dispatch({ type: UPDATE_BUCKETS, buckets: response })
+         } catch (error) {
+            console.error(error)
+         }
+      }
       renderBuckets()
       console.log(buckets)
-   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+   }, [])
 
 
    return (

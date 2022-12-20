@@ -60,8 +60,18 @@ const Modal = ({ toggle }) => {
    }
    useEffect(() => {
       console.log(data)
-      renderBuckets()
-   }, [])// eslint-disable-line react-hooks/exhaustive-deps
+      const render = async () => {
+
+         try {
+            const response = await getBuckets()
+            // setBuckets(response)
+            dispatch({ type: UPDATE_BUCKETS, buckets: response })
+         } catch (error) {
+
+         }
+      }
+      render()
+   }, [])
 
 
    return (
