@@ -131,23 +131,6 @@ const ListView = () => {
 
    useEffect(() => {
       // console.log(itemId)
-      const render = async () => {
-         try {
-            if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
-            // console.log(JSON.parse(localStorage.getItem('newList')))
-            const lists = await getListData(location.pathname.split('/')[2])
-            console.log(lists)
-            setListData(lists)
-            // return lists
-         } catch (error) {
-            !localStorage.getItem('newList')
-               ?
-               localStorage.setItem("newList", JSON.stringify(listData))
-               :
-               setListData(JSON.parse(localStorage.getItem('newList')).listItems)
-            console.error({ error })
-         }
-      }
       render()
 
       setListData(JSON.parse(localStorage.getItem('newList')))

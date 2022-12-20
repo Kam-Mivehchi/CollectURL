@@ -60,17 +60,7 @@ const Modal = ({ toggle }) => {
    }
    useEffect(() => {
       console.log(data)
-      const render = async () => {
-
-         try {
-            const response = await getBuckets()
-            // setBuckets(response)
-            dispatch({ type: UPDATE_BUCKETS, buckets: response })
-         } catch (error) {
-
-         }
-      }
-      render()
+      renderBuckets()
    }, [])
 
 
