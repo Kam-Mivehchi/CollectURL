@@ -1,6 +1,6 @@
 import React from "react"
 import { Navigate } from "react-router-dom"
-import { useAuth } from "../Utils/UserContext"
+// TODO this needs to check the expiration of the token
 
 export default function PrivateRoute({ children }) {
 

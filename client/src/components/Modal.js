@@ -61,7 +61,7 @@ const Modal = ({ toggle }) => {
    useEffect(() => {
       console.log(data)
       renderBuckets()
-   }, [])
+   }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
 
    return (

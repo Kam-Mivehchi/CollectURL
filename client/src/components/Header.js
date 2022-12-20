@@ -6,7 +6,7 @@ import { useUserContext } from "../Utils/UserContext"
 
 
 const NavBar = () => {
-   const [user, dispatch] = useUserContext();
+   const [user] = useUserContext();
 
    return (
 

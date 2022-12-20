@@ -26,7 +26,7 @@ const Dashboard = () => {
    useEffect(() => {
       renderBuckets()
       console.log(buckets)
-   }, [])
+   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
    return (

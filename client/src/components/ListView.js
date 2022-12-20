@@ -134,7 +134,7 @@ const ListView = () => {
       renderListData()
 
       setListData(JSON.parse(localStorage.getItem('newList')))
-   }, [])
+   }, []) // eslint-disable-line react-hooks/exhaustive-deps
    return (
       <>
 
