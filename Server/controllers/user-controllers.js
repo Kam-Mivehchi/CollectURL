@@ -5,6 +5,7 @@ module.exports = {
 
    async SignUp(req, res) {
       try {
+         console.log(req.body)
          req.body.password = await bcrypt.hash(req.body.password, 10)
          let createUser = await User.create(req.body);
          const token = generateToken(createUser);

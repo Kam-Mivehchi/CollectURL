@@ -39,6 +39,7 @@ const ListView = ({ Title }) => {
       dragItem.current = null;
       dragOverItem.current = null;
       setListData({ ...listData, listItems: copyListItems });
+
    };
 
    const updateListTitle = async () => {
