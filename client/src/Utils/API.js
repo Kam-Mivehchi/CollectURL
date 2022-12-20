@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
-import { useLocation, redirect } from 'react-router-dom';
-import { useUserContext } from "../Utils/UserContext"
+// import { useLocation, redirect } from 'react-router-dom';
+// import { useUserContext } from "../Utils/UserContext"
 
 export async function createUser(username, email, password) {
 

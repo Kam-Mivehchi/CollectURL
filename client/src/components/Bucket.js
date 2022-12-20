@@ -5,14 +5,14 @@ import { Bucket, ListRow, Card } from './styles/Library.styles'
 
 
 const BucketRow = ({ bucket }) => {
-   const [userBucket, setUserBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
+   const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
 
 
    useEffect(() => {
       // fetchLists()
       console.log(userBucket, bucket)
-   }, [])
+   })
 
 
 

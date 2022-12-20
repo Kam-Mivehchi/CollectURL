@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useRef, useCallback } from "react";
+import React, { useState, useRef } from 'react'
+
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { createUser } from "../Utils/API"
@@ -94,7 +94,7 @@ const Signup = () => {
                   required
                />
             </label>
-            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || passwordConfirmationInputElement.current?.value == ''}>
+            <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || passwordConfirmationInputElement.current?.value === ''}>
                Submit
             </Button>
 

@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { LOGIN, AUTHENTICATE, LOGOUT, UPDATE_USERNAME, UPDATE_PASSWORD, UPDATE_EMAIL, UPDATE_BUCKETS } from './actions';
-import axios from 'axios'
+// import axios from 'axios'
 export const userReducer = (state, action) => {
 
    switch (action.type) {

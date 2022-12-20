@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useRef, useCallback } from "react";
+import React, { useState, useRef } from 'react'
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { useUserContext } from '../Utils/UserContext'

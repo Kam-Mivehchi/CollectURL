@@ -8,7 +8,7 @@ import { useUserContext } from "../Utils/UserContext"
 import { UPDATE_BUCKETS, } from '../Utils/actions';
 import { getBuckets } from '../Utils/API'
 const Dashboard = () => {
-   const [user, dispatch] = useUserContext();
+   const [dispatch] = useUserContext();
    const [buckets, setBuckets] = useState([])
 
    async function renderBuckets() {

@@ -4,15 +4,15 @@ import { Nav, Container, HomeIcon, LoginIcon, SignUpIcon } from './styles/Utilit
 import { logout } from '../Utils/API'
 import { useUserContext } from "../Utils/UserContext"
 
-import { AUTHENTICATE } from '../Utils/actions';
-const NavBar = ({ theme, setTheme, options }) => {
+
+const NavBar = () => {
    const [user, dispatch] = useUserContext();
 
    return (
 
       <Container>
          <Nav>
-            <a href="">Brand</a>
+            <Link to='/'>Brand</Link>
             <div>
 
                <Link to='/' className={`${user._id || localStorage.getItem('token') ? "hidden" : 'static'}`}>

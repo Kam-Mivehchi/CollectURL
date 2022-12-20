@@ -3,11 +3,11 @@ import { useLocation, redirect } from 'react-router-dom';
 import { IoAdd } from "react-icons/io5"
 import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
 import { Input, Button } from "./styles/Utilities.styles"
-import { getListData, updateList, deleteList, addListItem, deleteListItem, config } from "../Utils/API"
+import { getListData, updateList, deleteList, addListItem, deleteListItem } from "../Utils/API"
 import { Link } from 'react-router-dom'
 import { useTheme } from 'styled-components'
-import axios from 'axios'
-const ListView = ({ Title }) => {
+
+const ListView = () => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
    const theme = useTheme()
    let location = useLocation();
