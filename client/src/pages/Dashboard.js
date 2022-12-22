@@ -11,7 +11,7 @@ const Dashboard = () => {
    const [user, dispatch] = useUserContext();
    const [buckets, setBuckets] = useState([])
 
-
+   console.log(user)
    useEffect(() => {
       async function renderBuckets() {
          try {
