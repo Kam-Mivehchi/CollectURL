@@ -24,7 +24,7 @@ export async function createUser(username, email, password) {
 export async function login(email, password) {
 
    try {
-      const { data } = await axios.post('http://localhost:3001/api/users/login', { email: email, password: password, list: localStorage.getItem('newList') })
+      const { data } = await axios.post('https://collecturl.herokuapp.com/api/users/login', { email: email, password: password, list: localStorage.getItem('newList') })
       console.log(data)
 
       //clear the local list when user signs in
@@ -50,7 +50,7 @@ export function logout() {
 export async function getBuckets() {
    try {
       //get user buckets form api 
-      const { data } = await axios.get('http://localhost:3001/api/buckets', {
+      const { data } = await axios.get('https://collecturl.herokuapp.com/api/buckets', {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
@@ -64,7 +64,7 @@ export async function getBuckets() {
 }
 
 export async function newList(listData) {
-   const { data } = await axios.post('http://localhost:3001/api/lists/', listData, {
+   const { data } = await axios.post('https://collecturl.herokuapp.com/api/lists/', listData, {
       headers: {
          Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -73,7 +73,7 @@ export async function newList(listData) {
 }
 
 export async function createNewBucket(bucketData) {
-   const { data } = await axios.post('http://localhost:3001/api/buckets/', { bucketName: bucketData.bucket }, {
+   const { data } = await axios.post('https://collecturl.herokuapp.com/api/buckets/', { bucketName: bucketData.bucket }, {
       headers: {
          Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -85,7 +85,7 @@ export async function createNewBucket(bucketData) {
 export const updateList = async (id, listData) => {
    try {
       //if not logged in we need to save to loval storage
-      let { data } = await axios.put(`http://localhost:3001/api/lists/${id}`, listData, {
+      let { data } = await axios.put(`https://collecturl.herokuapp.com/api/lists/${id}`, listData, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
@@ -101,7 +101,7 @@ export const updateList = async (id, listData) => {
 export const getListData = async (id) => {
    try {
 
-      const { data } = await axios.get(`http://localhost:3001/api/lists/${id}`, {
+      const { data } = await axios.get(`https://collecturl.herokuapp.com/api/lists/${id}`, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
@@ -117,7 +117,7 @@ export const getListData = async (id) => {
 
 export const deleteList = async (id) => {
    try {
-      let { data } = await axios.delete(`http://localhost:3001/api/lists/${id}`, {
+      let { data } = await axios.delete(`https://collecturl.herokuapp.com/api/lists/${id}`, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
@@ -132,7 +132,7 @@ export const deleteList = async (id) => {
 }
 export const addListItem = async (listId, listItem) => {
    try {
-      let { data } = await axios.post(`http://localhost:3001/api/lists/${listId}/items`, listItem, {
+      let { data } = await axios.post(`https://collecturl.herokuapp.com/api/lists/${listId}/items`, listItem, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
@@ -146,7 +146,7 @@ export const addListItem = async (listId, listItem) => {
 
 export const deleteListItem = async (listId, itemId) => {
    try {
-      let { data } = await axios.delete(`http://localhost:3001/api/lists/${listId}/items/${itemId}`, {
+      let { data } = await axios.delete(`https://collecturl.herokuapp.com/api/lists/${listId}/items/${itemId}`, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
          }
