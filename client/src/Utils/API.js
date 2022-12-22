@@ -7,7 +7,7 @@ export async function createUser(username, email, password) {
 
    try {
 
-      const { data } = await axios.post('http://localhost:3001/api/users/register', { username: username, email: email, password: password, list: JSON.parse(localStorage.getItem('newList')) })
+      const { data } = await axios.post('https://collecturl.herokuapp.com/api/users/register', { username: username, email: email, password: password, list: JSON.parse(localStorage.getItem('newList')) })
 
       //clear the local list when user signs in
       localStorage.setItem("newList", JSON.stringify({ listItems: [], listName: "My First List" }))
