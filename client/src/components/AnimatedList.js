@@ -48,16 +48,11 @@ const AnimatedList = () => {
                <div>
 
                   <Input type="text" value={listData.listName} default={"My First List"} />
-                  {location.pathname.split('/')[2] = "" && (
-                     <>
-                        <button type="submit" className="bg-green-500 px-5">go</button>
-                        <button className="bg-red-500 px-5">X</button>
-                     </>
-                  )}
+
                </div>
                {<button>
                   <Link to="/dashboard">
-                     Save
+                     Create Your Own
                   </Link>
                </button>}
             </form>

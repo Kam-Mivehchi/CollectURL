@@ -19,9 +19,15 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
 }
+
 button{
   padding:.75rem 1.4rem;
+  transition: transform .2s ease-out ;
   &:hover{
+    transform:scale(1.1);
+    box-shadow: 0 0 .25em  2px rgb(0,0,0,.2) inset;
+  }
+  &:active{
     transform:scale(.9);
   }
  &:disabled{
