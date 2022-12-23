@@ -67,5 +67,7 @@ const Home = () => {
       </>
    )
 }
+function AnimatedList() {
 
+}
 export default Home
