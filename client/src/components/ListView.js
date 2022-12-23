@@ -6,7 +6,7 @@ import { Input, Button } from "./styles/Utilities.styles"
 import { getListData, updateList, deleteList, addListItem, deleteListItem } from "../Utils/API"
 import { Link } from 'react-router-dom'
 import { useTheme } from 'styled-components'
-import { motion, Reorder } from "framer-motion"
+import { motion } from "framer-motion"
 const ListView = () => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
    const theme = useTheme()
