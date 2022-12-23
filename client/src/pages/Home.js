@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import ListView from '../components/ListView'
-
-
+import AnimatedList from '../components/AnimatedList'
+import { motion } from 'framer-motion'
 const Hero = styled.section`
 
 display:flex;
 flex-direction:column;
 justify-content:center;
+align-items:center;
+min-height:100vh;
 article{
    
    text-align: center;
@@ -17,7 +18,7 @@ article{
       font-weight: bold;
    }
    p{
-   margin:1.5rem 0;
+   margin:.75rem 0 0 0;
    }
    button{
     font-size:120%;
@@ -29,15 +30,13 @@ article{
 
 }
 
-@media (min-width: 768px) {
- 
-  flex-direction:row;
-  article{
-   margin:auto 0;
 
-  }
-}
 @media (min-width: 940px) {
+   flex-direction:row;
+   article{
+      margin:auto 0;
+      
+   }
  
    width:80vw;
   margin:auto;
@@ -54,13 +53,20 @@ const Home = () => {
       <>
 
          <Hero>
+            <AnimatedList />
             <article>
 
-               <h1>Collect<span>URL</span></h1>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate necessitatibus nihil quam aliquam voluptatibus enim?</p>
-               <button>Sign up!</button>
+               <motion.h1
+                  animate={{ y: [50, 0] }}
+                  transition={{ ease: "easeOut", duration: 1 }}
+
+               >Collect<span>URL</span></motion.h1>
+               <motion.p animate={{ opacity: [0, 1] }}
+                  transition={{ ease: "easeOut", duration: 1, }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate necessitatibus nihil quam aliquam voluptatibus enim?</motion.p>
+               <motion.button
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ ease: "easeOut", duration: 1, }}>Sign up!</motion.button>
             </article>
-            <ListView />
             {/* <CenteredContainer height="60vh">
             </CenteredContainer> */}
          </Hero>

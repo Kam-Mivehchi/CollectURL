@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5";
 
 export const CenteredContainer = styled.div`
@@ -30,6 +30,37 @@ max-width:100%;
 }
 
 `
+const blink = keyframes`
+from, to { border-color: transparent }
+  50% { border-color: black; }
+  `
+export const MockInput = styled.div`
+width:100%;
+display:flex;
+justify-content:center;
+position:absolute;
+bottom:.1rem;
+div{
+   border-radius:${({ theme }) => theme.borders.input};
+   background-color:${({ bg }) => bg || 'white'};
+   overflow:hidden;
+   margin:auto 0;
+   border:2px solid black;
+   height:2rem;
+   width:50%;
+   padding:.25em 0;
+   
+}
+h3{
+   overflow:hidden;
+   border-right:2px solid black;
+   animation:${blink}.75s step-end infinite;
+}
+&:focus{
+   outline:2px solid blue;
+}
+`
+
 export const TextArea = styled.textarea`
 background-color:${({ bg }) => bg || 'white'};
 border:2px solid ${({ border }) => border || 'transparent'};

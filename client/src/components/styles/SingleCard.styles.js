@@ -45,7 +45,7 @@ display:grid;
 grid-template-columns:20% 75%;
 column-gap:.5em;
 grid-template-rows:repeat(2,1fr);
-max-height:10em;
+max-height:5em;
 // border:2px solid red;
 border-radius:${({ theme }) => theme.borders.button};
 padding:.25em;

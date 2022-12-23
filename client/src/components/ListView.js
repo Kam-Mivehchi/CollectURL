@@ -6,7 +6,7 @@ import { Input, Button } from "./styles/Utilities.styles"
 import { getListData, updateList, deleteList, addListItem, deleteListItem } from "../Utils/API"
 import { Link } from 'react-router-dom'
 import { useTheme } from 'styled-components'
-
+import { motion } from "framer-motion"
 const ListView = () => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
    const theme = useTheme()
@@ -140,7 +140,11 @@ const ListView = () => {
       <>
 
          {/* save button if user is not logged in */}
-         <Card >
+         <Card as={motion.div}
+            animate={{ opacity: [0, 1,] }}
+            transition={{ ease: "easeOut", duration: 1 }}
+
+         >
             {/* edit list title */}
             <form onSubmit={updateListTitle}>
                <div>
@@ -164,9 +168,17 @@ const ListView = () => {
 
                {listData.listItems.map((listItem, index) => {
                   return (
-                     <UrlCard key={listItem._id} draggable onDragStart={(e) => dragStart(e, index)}
+                     <UrlCard as={motion.div} key={listItem._id} draggable onDragStart={(e) => dragStart(e, index)}
                         onDragEnter={(e) => dragEnter(e, index)}
-                        onDragEnd={drop}>
+                        onDragEnd={drop}
+                        animate={{ x: [-300, 0] }}
+                        transition={{ ease: "easeOut", duration: 1 }}
+                        whileHover={{
+                           scale: 1.1,
+                           transition: { duration: .5 },
+                        }}
+                        whileTap={{ scale: 0.9 }}
+                     >
                         {location.pathname.split('/')[2] = "" && <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>}
                         <img src={listItem.img} alt="" />
                         <h3>{listItem.itemName}</h3>
