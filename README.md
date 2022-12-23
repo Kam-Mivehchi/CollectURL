@@ -1,5 +1,11 @@
 # Bucket List 
 
+## Launch Date
+12/28/22
+
+## Description
+Designed to collect websites and group them together into a single buckets. Inspired by my journey as a software developer, which relies on learning concepts from various sources. This tool allows users to easily add websites via copy/paste. Does not currently support PWA url's.
+
 ## User Story
 ```
 As I user 
@@ -21,7 +27,7 @@ When I click explore I see other peoples lists (coming soon)
 ## Collections
 ### User
 | Field     | Type              | Misc.                       | Reference                 |
-|-----------|-------------------|-----------------------------|---------------------------|
+| --------- | ----------------- | --------------------------- | ------------------------- |
 | _id       | ObjectId          |                             |                           |
 | username  | String            | Required,unique,trimmed     |                           |
 | Lists     | array of document | required, maxLength-280     | List through listName     |
@@ -31,7 +37,7 @@ When I click explore I see other peoples lists (coming soon)
 |           |                   |                             |                           |
 ### Bucket
 | Field             | Type               | Misc.                       | Reference             |
-|-------------------|--------------------|-----------------------------|-----------------------|
+| ----------------- | ------------------ | --------------------------- | --------------------- |
 | _id               | ObjectId           |                             |                       |
 | bucketName        | String             | Required,unique,trimmed     |                       |
 | bucketDescription | String             | required, maxLength-280     |                       |
@@ -41,7 +47,7 @@ When I click explore I see other peoples lists (coming soon)
 | lastUpdate        | Date               | Default to now              |                       |
 ### List
 | Field           | Type          | Misc.                       | Reference               |
-|-----------------|---------------|-----------------------------|-------------------------|
+| --------------- | ------------- | --------------------------- | ----------------------- |
 | _id             | ObjectId      |                             |                         |
 | listName        | String        | Required,unique,trimmed     |                         |
 | listDescription | String        | required, maxLength-280     |                         |
@@ -51,7 +57,7 @@ When I click explore I see other peoples lists (coming soon)
 | listItems       | array of docs | uses item schema            |                         |
 ### Item (Schema Only)
 | Field       | Type             | Misc.                       | Reference  |
-|-------------|------------------|-----------------------------|------------|
+| ----------- | ---------------- | --------------------------- | ---------- |
 | itemId      | ObjectId         |                             |            |
 | itemName    | String           | Required,trimmed            |            |
 | url         | String           | required                    |            |
