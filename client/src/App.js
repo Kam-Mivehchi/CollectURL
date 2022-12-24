@@ -8,6 +8,7 @@ import Login from './pages/Login.js'
 import Signup from './pages/Signup.js'
 import PrivateRoute from './pages/PrivateRoute.js'
 import GlobalStyles from './components/styles/Global'
+import { Background } from './components/styles/Utilities.styles'
 import { ThemeProvider } from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 import { UserProvider } from './Utils/UserContext'
@@ -17,8 +18,8 @@ const light = {
   colors: {
     primary: "#EDEDED",
     secondary: "#CFD2CF",
-    accent: '#EB1D36',
-    accent2: '#A2B5BB',
+    accent: '#8758FF',
+    accent2: '#9772fb',
     cardText: 'black',
     cardBackground: '#ffffff',
     light: '#ffffff',
@@ -65,7 +66,7 @@ function App() {
       <ThemeProvider theme={theme}>
 
         <GlobalStyles />
-        <>
+        <Background>
           {/* Navigation  */}
           <Header theme={theme} setTheme={setTheme} options={{ dark: dark, light: light }} />
 
@@ -78,7 +79,7 @@ function App() {
           </Routes>
           {/* workspace needs to have top bar to create the lists and the list library  */}
           {/* <Library /> */}
-        </>
+        </Background>
       </ThemeProvider>
     </UserProvider>
   );

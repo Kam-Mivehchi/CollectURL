@@ -9,17 +9,18 @@ max-width:90%;
 min-height:60vh;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
+box-shadow:0 .5em 1em  rgb(0,0,0,.3);
+
 form:first-child{
   display:flex;
   justify-content:space-between;
-  // div{
-  //   max-width:50%;
-  // }
+  align-items:center;
   Input{
     font-weight:bold;
-    font-size:1.5em;
+    font-size:clamp(1em,2em,2vw);
     width:75%;
-    text-overflow: ellipsis;
+    // text-overflow: ellipsis;
+    
   }
   >button{
     color:white;
@@ -53,6 +54,8 @@ align-items:center;
   overflow-y:hidden;
 background-color:${({ theme }) => theme.colors.primary};
 margin:.25em 0;
+box-shadow:0 .5em 4em  rgb(0,0,0,.2);
+
 img{
 
   grid-area:span 2/span 1;

@@ -16,11 +16,12 @@ const listData = {
       itemName: "ChatGPT: Optimizing Language Models for Dialogue"
 
    }, {
-      description: "A JavaScript library for building user interfaces",
-      img: "https://reactjs.org/icons/icon-512x512.png?v=f4d46f030265b4c48a05c999b8d93791",
-      itemId: "63a5147ef85d31eb8cbc660f",
-      itemName: "React – A JavaScript library for building user interfaces"
-
+      description: "An end-to-end open source machine learning platform for everyone. Discover TensorFlow's flexible ecosystem of tools, libraries and community resources.",
+      img: "https://www.gstatic.com/devrel-devsite/prod/vdbc400b97a86c8815ab6ee057e8dc91626aee8cf89b10f7d89037e5a33539f53/tensorflow/images/apple-touch-icon-180x180.png",
+      itemId: "63a6162ddf1d1654b30973cb",
+      itemName: "TensorFlow",
+      tasks: [],
+      url: "https://www.tensorflow.org/"
    }, {
       description: "Learn with Google AI. Whether you're just learning to code or you're a seasoned machine learning practitioner, you'll find information and exercises in this resource center to help you develop your skills and advance your projects.",
       img: "https://ai.google/static/images/favicon.ico",
@@ -52,7 +53,7 @@ const AnimatedList = () => {
                </div>
                {<button>
                   <Link to="/dashboard">
-                     Create Your Own
+                     Create
                   </Link>
                </button>}
             </form>

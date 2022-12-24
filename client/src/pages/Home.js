@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import AnimatedList from '../components/AnimatedList'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+
 const Hero = styled.section`
 
 display:flex;
@@ -14,18 +16,26 @@ article{
    text-align: center;
    margin:1.5rem 0;
    padding:0 2rem;
-   span{
-      font-weight: bold;
+   h1{
+      font-weight: 900;
+      font-size:clamp(1.5em,2em,3em);
+      color:${({ theme }) => theme.colors.accent};
+      filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.8));
+
+
    }
    p{
    margin:.75rem 0 0 0;
+      filter:drop-shadow(0 .75em 1em  rgb(0,0,0,.3));
+
    }
    button{
     font-size:120%;
-    background-color:${({ theme }) => theme.colors.accent2 || 'white'};
-    padding:${({ p }) => p || ".3rem .75rem"};
+    background-color:${({ theme }) => theme.colors.accent || 'black'};
+    padding:${({ p }) => p || ".5rem 1rem"};
+   color:${({ theme }) => theme.colors.primary || 'white'};
     border-radius:${({ theme }) => theme.borders.button};
-
+margin:.5em auto
    }
 
 }
@@ -60,12 +70,16 @@ const Home = () => {
                   animate={{ y: [50, 0] }}
                   transition={{ ease: "easeOut", duration: 1 }}
 
-               >Collect<span>URL</span></motion.h1>
+               >Organize your Learning</motion.h1>
                <motion.p animate={{ opacity: [0, 1] }}
-                  transition={{ ease: "easeOut", duration: 1, }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate necessitatibus nihil quam aliquam voluptatibus enim?</motion.p>
+                  transition={{ ease: "easeOut", duration: 1, }}>Effortlessly organize and share your favorite websites with our dynamic list-making tool. Try it now and streamline your online experience!</motion.p>
                <motion.button
                   animate={{ opacity: [0, 1] }}
-                  transition={{ ease: "easeOut", duration: 1, }}>Sign up!</motion.button>
+                  transition={{ ease: "easeOut", duration: 1, }}>
+                  <Link to='/signup'>
+                     Sign up!
+                  </Link>
+               </motion.button>
             </article>
             {/* <CenteredContainer height="60vh">
             </CenteredContainer> */}

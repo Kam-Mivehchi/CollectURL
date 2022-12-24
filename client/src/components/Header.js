@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Nav, Container, HomeIcon, LoginIcon, SignUpIcon } from './styles/Utilities.styles.js'
 import { logout } from '../Utils/API'
 import { useUserContext } from "../Utils/UserContext"
-
+import Logo from '../assets/svg/logo-no-background.svg'
 
 const NavBar = () => {
    const [user] = useUserContext();
@@ -12,7 +12,7 @@ const NavBar = () => {
 
       <Container>
          <Nav>
-            <Link to='/'>Brand</Link>
+            <Link to='/'><img src={Logo} alt="" /></Link>
             <div>
 
                <Link to='/' className={`${user._id || localStorage.getItem('token') ? "hidden" : 'static'}`}>
@@ -31,10 +31,10 @@ const NavBar = () => {
                   </Link>
                   :
                   <>
-                     <Link to='/login'>
+                     {/* <Link to='/login'>
                         <LoginIcon />
                         <span className="hidden md:inline">Login</span>
-                     </Link>
+                     </Link> */}
                      <Link to='/signup'>
                         <SignUpIcon />
                         <span className="hidden md:inline">Sign Up</span>
