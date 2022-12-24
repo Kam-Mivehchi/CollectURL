@@ -1,21 +1,21 @@
 import styled, { keyframes } from 'styled-components'
 import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5";
 export const Background = styled.div`
-
+min-height:100vh;
  background: linear-gradient(260deg, rgba(151,114,251,0.3) 0%, rgba(237,237,237,1) 100%);
  `
 export const CenteredContainer = styled.div`
-// background-color:${({ theme }) => theme.colors.primary || 'black'};
+
 min-width:100%;
 
-overflow-x:hidden;
+
 
 display:grid;
 place-items:center;
-
+margin:2rem auto;
 // border-radius:${({ theme }) => theme.borders.outer};
-min-height:${({ height }) => height || '90vh'};
-max-height:100vh-2rem;
+min-height:${({ height }) => height || 'auto'};
+
 
 `
 export const Container = styled.div`
@@ -23,7 +23,7 @@ export const Container = styled.div`
 // background-color:${({ theme }) => theme.colors.primary || 'black'};
 
 max-width:100vw;
-overflow-x:hidden;
+// overflow-x:hidden;
 `
 export const Input = styled.input`
 background-color:${({ bg }) => bg || 'white'};

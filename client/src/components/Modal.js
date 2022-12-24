@@ -139,7 +139,7 @@ const Modal = ({ toggle }) => {
                                  color={theme.colors.primary}
                                  className=" ease-linear transition-all duration-150"
                                  type="submit"
-
+                                 onClick={newList(data)}
                               >
                                  Create List
                               </Button>

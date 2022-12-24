@@ -38,7 +38,7 @@ color:${({ theme }) => theme.colors.textPrimary};
 // background-color:${({ theme }) => theme.colors.primary};
 row-gap:2em;
 // padding:0 1em;
-overflow-x:hidden;
+// overflow-x:hidden;
    
 
 
@@ -50,7 +50,7 @@ grid-template-columns:repeat(12,1fr);
 place-items:center start;
 padding:.75em .5rem;
 row-gap:.5em;
-overflow-x:hidden;
+// overflow-x:hidden;
 grid-column: span 12;
 color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.secondary};
@@ -88,8 +88,8 @@ background-color:inherit;
 padding-right:1rem;
 padding-bottom:.5rem;
 margin-right:1rem;
-overflow-x:scroll;
-overflow-y:hidden;
+overflow-x:auto;
+
 min-height:25vh
 `
 
