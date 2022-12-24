@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import { useTheme } from 'styled-components'
 import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { createUser } from "../Utils/API"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useUserContext } from "../Utils/UserContext"
 
 import { AUTHENTICATE } from '../Utils/actions';
@@ -98,6 +98,7 @@ const Signup = () => {
                Submit
             </Button>
 
+            <p>Already have an Account? <Link to="/login">Sign In</Link></p>
          </AuthenticationForm >
       </CenteredContainer >
    )

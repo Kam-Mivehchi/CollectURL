@@ -6,8 +6,8 @@ padding:0;
 margin:0;
 position:relative;
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.primary};
-
+// background-color:${({ theme }) => theme.colors.primary};
+min-height:90vh;
 `
 export const ControlBar = styled.div`
 width:100%;
@@ -17,7 +17,7 @@ justify-content:space-around;
 align-items:center;
 padding: 1.25rem 0rem;
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.primary};
+// background-color:${({ theme }) => theme.colors.primary};
 h3{
   font-weight:bold;
 }
@@ -32,7 +32,7 @@ export const GridBox = styled.div`
 display:grid;
 grid-template-columns:repeat(12,1fr);
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.primary};
+// background-color:${({ theme }) => theme.colors.primary};
 row-gap:1em;
 // padding:0 1em;
 overflow-x:hidden;
