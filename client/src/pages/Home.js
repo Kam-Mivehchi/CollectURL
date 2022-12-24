@@ -21,8 +21,10 @@ article{
       font-size:clamp(1.5em,2em,3em);
       color:${({ theme }) => theme.colors.accent};
       filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.8));
-
-
+ background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+line-height:200%;
    }
    p{
    margin:.75rem 0 0 0;
@@ -31,7 +33,8 @@ article{
    }
    button{
     font-size:120%;
-    background-color:${({ theme }) => theme.colors.accent || 'black'};
+    background-color:${({ theme }) => theme.colors.accent};
+    background:linear-gradient(135deg,${({ theme }) => theme.colors.accent} 0%,#CB1C8D 100%);
     padding:${({ p }) => p || ".5rem 1rem"};
    color:${({ theme }) => theme.colors.primary || 'white'};
     border-radius:${({ theme }) => theme.borders.button};

@@ -7,7 +7,7 @@ const DashNav = () => {
    return (
       <ControlBar >
          {/* TODO:add icon for username */}
-         <h3>{user.username}</h3>
+         <h3>Welcome, {user.username}</h3>
 
          <Modal />
       </ControlBar>

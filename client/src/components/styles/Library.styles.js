@@ -20,11 +20,14 @@ color:${({ theme }) => theme.colors.textPrimary};
 // background-color:${({ theme }) => theme.colors.primary};
 h3{
   font-weight:bold;
+   filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.6));
+font-size:clamp(1em,2vw,3em);
+text-transform:capitalize;
 }
 @media (min-width: 768px) {
    width:66%;
    margin:auto;
-justify-content:space-between;
+  justify-content:space-between;
 
    }
 `
@@ -33,9 +36,11 @@ display:grid;
 grid-template-columns:repeat(12,1fr);
 color:${({ theme }) => theme.colors.textPrimary};
 // background-color:${({ theme }) => theme.colors.primary};
-row-gap:1em;
+row-gap:2em;
 // padding:0 1em;
 overflow-x:hidden;
+   
+
 
 `
 export const Bucket = styled.section`
@@ -50,11 +55,15 @@ grid-column: span 12;
 color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.secondary};
 border-radius: ${({ theme }) => theme.borders.outer};
+// box-shadow:0 3em 4em  rgb(0,0,0,.4);
+   filter:drop-shadow(0 1em 1em  rgb(0,0,0,.3));
+
 h3{
   grid-column: span 5;
   margin: .5rem 1rem;
   margin-bottom:0;
-  color:${({ theme }) => theme.colors.light};
+  color:${({ theme }) => theme.colors.black};
+
   font-weight:bold;
   font-size:125%;
 
@@ -91,7 +100,15 @@ border-radius:.5em;
 min-width:33vw;
 height:25vh;
 color:${({ theme }) => theme.colors.cardText};
-
+transition:transform .2s ease-in-out;
+transition:box-shadow .2s ease-in-out;
+&:hover{
+ 
+  box-shadow: inset 0 0 1em   rgb(0,0,0,.3);
+}
+&:active{
+  transform: scale(.9);
+}
 position:relative;
 overflow:hidden;
 h2{

@@ -12,7 +12,7 @@ const NavBar = () => {
 
       <Container>
          <Nav>
-            <Link to='/'><img src={Logo} alt="" /></Link>
+            <Link to='/'><img src={Logo} alt="CollectURL Logo" /></Link>
             <div>
 
                <Link to='/' className={`${user._id || localStorage.getItem('token') ? "hidden" : 'static'}`}>

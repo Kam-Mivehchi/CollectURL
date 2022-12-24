@@ -87,7 +87,7 @@ padding:1rem .5rem;
 margin:0 1rem;
 // filter:drop-shadow(0 0em 1em  rgb(0,0,0,.8));
 img{
-   width:4em;
+   width:6em;
 }
 a{
    font-size: 1.25rem; 
@@ -119,7 +119,7 @@ Link{
 }
 span{
    
-   color:${({ theme }) => theme.colors.accent};
+   color:${({ theme }) => theme.colors.black};
 }
 @media (min-width: 768px) {
    width:66%;
@@ -128,7 +128,7 @@ span{
 
 `
 export const Button = styled.button`
-background-color:${({ bg }) => bg};
+background:${({ bg }) => bg};
 color:${({ color }) => color};
 
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
@@ -158,7 +158,7 @@ export const HomeIcon = styled(IoHomeOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    margin-right:.25rem;
   margin-bottom:.4em;
 `
@@ -167,7 +167,7 @@ export const LoginIcon = styled(IoLogInOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    
    margin-right:.25rem;
   margin-bottom:.4em;
@@ -177,7 +177,7 @@ export const SignUpIcon = styled(IoCreateOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    
    margin-right:.25rem;
   margin-bottom:.4em;

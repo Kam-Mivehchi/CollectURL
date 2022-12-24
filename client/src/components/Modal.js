@@ -68,87 +68,88 @@ const Modal = ({ toggle }) => {
    return (
       <>
          <Button
-            bg={theme.colors.accent}
+            bg={`linear-gradient(45deg ,${theme.colors.accent} 0%, #CB1C8D 100%)`}
             color={theme.colors.primary}
             pad={'.3rem 1.4rem'}
             onClick={() => setShowModal(true)}
          >+</Button>
 
-         {showModal ? (
-            <>
-               <ModalWrapper
+         {
+            showModal ? (
+               <>
+                  <ModalWrapper
 
-               >
-                  <ModalCard >
-                     {/*content*/}
-                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                        {/*header*/}
-                        <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                           <h3 className="text-3xl font-semibold">
-                              New List
-                           </h3>
-                           <button
-                              className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                              onClick={() => setShowModal(false)}
-                           >
-                              <span className=" h-6 w-6 text-2xl ">
-                                 ×
-                              </span>
-                           </button>
+                  >
+                     <ModalCard >
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                           {/*header*/}
+                           <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                              <h3 className="text-3xl font-semibold">
+                                 New List
+                              </h3>
+                              <button
+                                 className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                 onClick={() => setShowModal(false)}
+                              >
+                                 <span className=" h-6 w-6 text-2xl ">
+                                    ×
+                                 </span>
+                              </button>
+                           </div>
+
+                           <Form onSubmit={createList}>
+                              {!visible && (<Label >
+                                 Bucket
+                                 <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={handleBucket}>
+                                    {user.buckets.map((el) => {
+                                       return <option value={el._id}>{el.bucketName}</option>
+                                    })}
+                                    <option value="new">New Bucket</option>
+
+                                 </Select>
+                              </Label>)}
+
+                              {visible && (
+                                 <>
+                                    <Label >
+                                       New Bucket Name
+                                       <Input type="text" placeholder="i.e. Projects, Python, Front-End " class="focus:ring" required onChange={e => setData({ ...data, bucket: e.target.value })} />
+                                       <Button bg={theme.colors.accent2} color={theme.colors.primary} ht={'.2rem 1rem'} style={{ display: 'block', margin: '1rem auto' }} onClick={newBucket}>New Bucket</Button>
+                                    </Label>
+                                 </>
+                              )}
+                              <Label >
+                                 List Name
+                                 <Input type="text" placeholder="i.e. Wine, Todo's " class="focus:ring" required onChange={e => setData({ ...data, listName: e.target.value })} />
+                              </Label>
+
+
+                              {/*footer*/}
+
+                              <Button bg={'transparent'}
+                                 color={theme.colors.accent2}
+                                 className="ease-linear transition-all duration-150"
+
+                                 onClick={() => setShowModal(false)}
+                              >
+                                 Close
+                              </Button>
+                              <Button bg={theme.colors.accent}
+                                 color={theme.colors.primary}
+                                 className=" ease-linear transition-all duration-150"
+                                 type="submit"
+
+                              >
+                                 Create List
+                              </Button>
+                           </Form>
                         </div>
-
-                        <Form onSubmit={createList}>
-                           {!visible && (<Label >
-                              Bucket
-                              <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={handleBucket}>
-                                 {user.buckets.map((el) => {
-                                    return <option value={el._id}>{el.bucketName}</option>
-                                 })}
-                                 <option value="new">New Bucket</option>
-
-                              </Select>
-                           </Label>)}
-
-                           {visible && (
-                              <>
-                                 <Label >
-                                    New Bucket Name
-                                    <Input type="text" placeholder="i.e. Projects, Python, Front-End " class="focus:ring" required onChange={e => setData({ ...data, bucket: e.target.value })} />
-                                    <Button bg={theme.colors.accent2} color={theme.colors.primary} ht={'.2rem 1rem'} style={{ display: 'block', margin: '1rem auto' }} onClick={newBucket}>New Bucket</Button>
-                                 </Label>
-                              </>
-                           )}
-                           <Label >
-                              List Name
-                              <Input type="text" placeholder="i.e. Wine, Todo's " class="focus:ring" required onChange={e => setData({ ...data, listName: e.target.value })} />
-                           </Label>
-
-
-                           {/*footer*/}
-
-                           <Button bg={'transparent'}
-                              color={theme.colors.accent2}
-                              className="ease-linear transition-all duration-150"
-
-                              onClick={() => setShowModal(false)}
-                           >
-                              Close
-                           </Button>
-                           <Button bg={theme.colors.accent}
-                              color={theme.colors.primary}
-                              className=" ease-linear transition-all duration-150"
-                              type="submit"
-
-                           >
-                              Create List
-                           </Button>
-                        </Form>
-                     </div>
-                  </ModalCard>
-               </ModalWrapper>
-               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-            </>
-         ) : null
+                     </ModalCard>
+                  </ModalWrapper>
+                  <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+               </>
+            ) : null
          }
       </>
    );

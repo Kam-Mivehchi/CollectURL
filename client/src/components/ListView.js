@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLocation, redirect } from 'react-router-dom';
 import { IoAdd } from "react-icons/io5"
-import { Card, UrlCard, ListContainer } from "./styles/SingleCard.styles"
+import { Card, UrlCard, ListContainer, Anchor } from "./styles/SingleCard.styles"
 import { Input, Button } from "./styles/Utilities.styles"
 import { getListData, updateList, deleteList, addListItem, deleteListItem } from "../Utils/API"
 import { Link } from 'react-router-dom'
@@ -168,23 +168,22 @@ const ListView = () => {
 
                {listData.listItems.map((listItem, index) => {
                   return (
-                     <UrlCard as={motion.div} key={listItem._id} draggable onDragStart={(e) => dragStart(e, index)}
-                        onDragEnter={(e) => dragEnter(e, index)}
-                        onDragEnd={drop}
-                        animate={{ x: [-300, 0] }}
-                        transition={{ ease: "easeOut", duration: 1 }}
-                        whileHover={{
-                           scale: 1.1,
-                           transition: { duration: .5 },
-                        }}
-                        whileTap={{ scale: 0.9 }}
-                     >
-                        {location.pathname.split('/')[2] = "" && <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>}
-                        <img src={listItem.img} alt="" />
-                        <h3>{listItem.itemName}</h3>
-                        {/* <a href={listItem.url}>Visit</a> */}
-                        <p>{listItem.description}</p>
-                     </UrlCard>
+                     <Anchor href={listItem.url}>
+
+                        <UrlCard as={motion.div} key={listItem._id} draggable onDragStart={(e) => dragStart(e, index)}
+                           onDragEnter={(e) => dragEnter(e, index)}
+                           onDragEnd={drop}
+                           animate={{ x: [-300, 0] }}
+                           transition={{ ease: "easeOut", duration: 1, delay: index * .1 }}
+
+                        >
+                           {location.pathname.split('/')[2] = "" && <button onClick={() => removeListItem(listItem._id)} className="bg-red-500">X</button>}
+                           <img src={listItem.img} alt="" />
+                           <h3>{listItem.itemName}</h3>
+                           {/* <a href={listItem.url}>Visit</a> */}
+                           <p>{listItem.description}</p>
+                        </UrlCard>
+                     </Anchor>
                   )
 
                })}
