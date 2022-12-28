@@ -25,6 +25,7 @@ form:first-child{
   >button{
     color:white;
     background-color:${({ theme }) => theme.colors.accent || 'white'};
+    background:linear-gradient(45deg,${({ theme }) => theme.colors.accent} 0%,#CB1C8D 100%);
     border-radius:${({ theme }) => theme.borders.button};
     padding:${({ p }) => p || ".3rem .75rem"};
     height:fit-content;
@@ -38,6 +39,10 @@ Input{
   max-width:50vw; 
   
 }
+`
+export const Anchor = styled.a`
+
+
 `
 
 
@@ -55,7 +60,18 @@ align-items:center;
 background-color:${({ theme }) => theme.colors.primary};
 margin:.25em 0;
 box-shadow:0 .5em 4em  rgb(0,0,0,.2);
+transition:transform .2s ease-in-out;
+transition:box-shadow .2s ease-in-out;
+&:hover{
+ 
+  box-shadow: inset 0 0 1em rgb(0,0,0,.3);
+}
 
+&:active{
+  
+  transform: scale(.9);
+
+}
 img{
 
   grid-area:span 2/span 1;

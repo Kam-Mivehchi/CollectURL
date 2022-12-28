@@ -1,21 +1,21 @@
 import styled, { keyframes } from 'styled-components'
 import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5";
 export const Background = styled.div`
-
+min-height:100vh;
  background: linear-gradient(260deg, rgba(151,114,251,0.3) 0%, rgba(237,237,237,1) 100%);
  `
 export const CenteredContainer = styled.div`
-// background-color:${({ theme }) => theme.colors.primary || 'black'};
+
 min-width:100%;
 
-overflow-x:hidden;
+
 
 display:grid;
 place-items:center;
-
+margin:2rem auto;
 // border-radius:${({ theme }) => theme.borders.outer};
-min-height:${({ height }) => height || '90vh'};
-max-height:100vh-2rem;
+min-height:${({ height }) => height || 'auto'};
+
 
 `
 export const Container = styled.div`
@@ -23,7 +23,7 @@ export const Container = styled.div`
 // background-color:${({ theme }) => theme.colors.primary || 'black'};
 
 max-width:100vw;
-overflow-x:hidden;
+// overflow-x:hidden;
 `
 export const Input = styled.input`
 background-color:${({ bg }) => bg || 'white'};
@@ -87,7 +87,7 @@ padding:1rem .5rem;
 margin:0 1rem;
 // filter:drop-shadow(0 0em 1em  rgb(0,0,0,.8));
 img{
-   width:4em;
+   width:6em;
 }
 a{
    font-size: 1.25rem; 
@@ -119,7 +119,7 @@ Link{
 }
 span{
    
-   color:${({ theme }) => theme.colors.accent};
+   color:${({ theme }) => theme.colors.black};
 }
 @media (min-width: 768px) {
    width:66%;
@@ -128,7 +128,7 @@ span{
 
 `
 export const Button = styled.button`
-background-color:${({ bg }) => bg};
+background:${({ bg }) => bg};
 color:${({ color }) => color};
 
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
@@ -158,7 +158,7 @@ export const HomeIcon = styled(IoHomeOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    margin-right:.25rem;
   margin-bottom:.4em;
 `
@@ -167,7 +167,7 @@ export const LoginIcon = styled(IoLogInOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    
    margin-right:.25rem;
   margin-bottom:.4em;
@@ -177,7 +177,7 @@ export const SignUpIcon = styled(IoCreateOutline)`
    padding:0;
    display:inline-block;
    font-size:120%;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.black};
    
    margin-right:.25rem;
   margin-bottom:.4em;
