@@ -17,7 +17,7 @@ function isTokenExpired(token) {
       const decoded = decode(token);
       console.log(decoded, decoded.exp < Date.now / 1000)
       if (decoded.exp < Date.now() / 1000) {
-         logout
+         logout()
          return true;
       } else return false;
    } catch (err) {
