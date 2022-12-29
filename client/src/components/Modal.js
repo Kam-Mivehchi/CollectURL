@@ -25,7 +25,7 @@ const Modal = ({ toggle }) => {
          setShowModal(false)
          const response = await newList(data)
          navigate(0)
-         console.log(response)
+
 
       } catch (error) {
 
@@ -59,7 +59,7 @@ const Modal = ({ toggle }) => {
       }
    }
    useEffect(() => {
-      console.log(data)
+
       renderBuckets()
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])

@@ -112,7 +112,7 @@ transition:box-shadow .2s ease-in-out;
 position:relative;
 overflow:hidden;
 h2{
- 
+ font-weight:bold;
 font-size:.75em;
 }
 ol{

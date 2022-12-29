@@ -7,7 +7,7 @@ const baseURL = process.env.PRODURL || 'http://localhost:3001'
 export function loggedIn() {
    // Checks if there is a saved token and it's still valid
    let token = localStorage.getItem('token');
-   console.log(token, isTokenExpired(token));
+
    return !!token && !isTokenExpired(token); // handwaiving here
 }
 
@@ -15,7 +15,7 @@ export function loggedIn() {
 function isTokenExpired(token) {
    try {
       const decoded = decode(token);
-      console.log(decoded, decoded.exp < Date.now / 1000)
+
       if (decoded.exp < Date.now() / 1000) {
          logout()
          return true;

@@ -11,13 +11,13 @@ export const userReducer = (state, action) => {
          };
 
       case AUTHENTICATE:
-         console.log(action.payload)
+
          return {
             ...state,
             ...action.payload,
          };
       case LOGOUT:
-         console.log('LOGOUT dispatched');
+
          //REMOVE TOKEN AND USER DATA FROM STATE
          return {
             ...state,

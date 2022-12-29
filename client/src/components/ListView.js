@@ -23,12 +23,12 @@ const ListView = () => {
 
    const dragStart = (e, position) => {
       dragItem.current = position;
-      console.log(e.target.innerHTML);
+
    };
 
    const dragEnter = (e, position) => {
       dragOverItem.current = position;
-      console.log(e.target.innerHTML);
+
    };
 
    const drop = (e) => {
@@ -47,7 +47,7 @@ const ListView = () => {
          //if not logged in we need to save to loval storage
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
          let changeTitle = await updateList(location.pathname.split('/')[2], listData)
-         console.log("make api call to update list", changeTitle)
+
 
       } catch (error) {
          localStorage.setItem("newList", JSON.stringify(listData));
@@ -59,7 +59,7 @@ const ListView = () => {
       try {
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
          let changeTitle = await deleteList(location.pathname.split('/')[2])
-         console.log("make api call to update list", changeTitle)
+
          return redirect("/")
 
       } catch (error) {
@@ -84,7 +84,7 @@ const ListView = () => {
          // setListData({ ...listData, listItems: [...listData.listItems, listItem] })\
          let { listItems } = listData
 
-         console.log(listItems)
+
          listItems.push(listItem)
 
          setListData({ ...listData, listItems: listItems })
@@ -99,7 +99,7 @@ const ListView = () => {
 
          // let newList = await axios.delete(`http://localhost:3001/api/lists/${location.pathname.split('/')[2]}/items/${itemId}`)
          await deleteListItem(location.pathname.split('/')[2], itemId)
-         // console.log("make api call to create new list item", newList)
+         // 
          renderListData()
 
       } catch (error) {
@@ -114,9 +114,9 @@ const ListView = () => {
       try {
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
 
-         // console.log(JSON.parse(localStorage.getItem('newList')))
+         // 
          const lists = await getListData(location.pathname.split('/')[2])
-         console.log(lists)
+
          setListData(lists)
          // return lists
       } catch (error) {
@@ -130,7 +130,7 @@ const ListView = () => {
    }
 
    useEffect(() => {
-      // console.log(itemId)
+      // 
       renderListData()
 
       setListData(JSON.parse(localStorage.getItem('newList')))

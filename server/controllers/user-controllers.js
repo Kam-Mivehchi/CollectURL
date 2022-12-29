@@ -1,11 +1,11 @@
-const { authMiddleware, generateToken } = require("../utils/auth.js");
+const { generateToken } = require("../utils/auth.js");
 const { User, Bucket, List } = require('../models')
 const bcrypt = require("bcryptjs");
 module.exports = {
 
    async SignUp(req, res) {
       try {
-         console.log(req.body)
+
          req.body.password = await bcrypt.hash(req.body.password, 10)
          let createUser = await User.create(req.body);
          const token = generateToken(createUser);
@@ -21,7 +21,7 @@ module.exports = {
             { runValidators: true, new: true }
          )
          //create local list
-         console.log(req.body.list)
+
          const data = await List.create({
             listName: "My First List",
             bucket: "Free Thoughts",

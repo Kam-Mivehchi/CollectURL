@@ -1,4 +1,4 @@
-const { Bucket, List } = require('../models')
+const { Bucket } = require('../models')
 
 
 
@@ -7,7 +7,7 @@ module.exports = {
 
    async getAllUserBuckets(req, res) {
       try {
-         console.log(req.user._id)
+
          const data = await Bucket.find({ user: req.user._id }).populate('lists').select('-__v')
          res.status(200).json(data)
 
@@ -23,7 +23,7 @@ module.exports = {
          res.status(200).json(data)
 
       } catch (err) {
-         console.log(err)
+
          res.status(500).json(err)
 
       }
