@@ -7,6 +7,6 @@ import { loggedIn } from '../Utils/API'
 
 export default function PrivateRoute({ children }) {
 
-   console.log(loggedIn())
+
    return loggedIn() ? children : <Navigate to="/login" />;
 }

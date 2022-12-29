@@ -29,7 +29,7 @@ const Signup = () => {
          emailInputElement.current?.value,
          passwordInputElement.current?.value
       )
-      console.log(data.user)
+
       dispatch({
          type: AUTHENTICATE,
          payload: {
@@ -37,7 +37,7 @@ const Signup = () => {
             ...data.user
          },
       })
-      console.log(user)
+
       navigate('/dashboard')
    }
 

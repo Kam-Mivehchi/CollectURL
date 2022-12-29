@@ -13,7 +13,7 @@ const Login = () => {
    const passwordInputElement = useRef();
    const [user, dispatch] = useUserContext();
    const [error, setError] = useState("")
-   console.log(user);
+
 
 
    const formHandler = async (event) => {
@@ -35,7 +35,7 @@ const Login = () => {
          navigate('/dashboard')
          setError("")
       } catch (error) {
-         console.log(error)
+
          setError("Unable to Sign In")
       }
 

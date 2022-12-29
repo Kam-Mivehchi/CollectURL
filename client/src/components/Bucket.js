@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react'
 import Modal from './Modal'
 import { Bucket, ListRow, Card } from './styles/Library.styles'
-
-
+// import { deleteList } from '../Utils/API'
+// import { BiTrash } from "react-icons/bi"
 
 const BucketRow = ({ bucket }) => {
    const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
 
 
-   useEffect(() => {
-      // fetchLists()
-      console.log(userBucket, bucket)
-   })
+
 
 
 
@@ -21,7 +18,7 @@ const BucketRow = ({ bucket }) => {
       <Bucket className="" >
          <h3>{bucket.bucketName}</h3>
          <ListRow >
-            {/* {console.log("bucketData", bucketData.lists)} */}
+
             <Modal />
 
             {bucket.lists.length > 0 ? bucket.lists.map((el, index) => {
@@ -29,7 +26,10 @@ const BucketRow = ({ bucket }) => {
                   <a href={`/lists/${el._id}`}>
 
                      <Card key={index} id={el._id} >
-                        <h2 className=" font-bold flex ">{el.listName}</h2>
+                        <div>
+                           <h2 className=" ">{el.listName}</h2>
+                           {/* <BiTrash onClick={deleteList(el._id)} /> */}
+                        </div>
                         <ol className="list-decimal p-4 ">
                            {el.listItems.map((item, index) => {
 

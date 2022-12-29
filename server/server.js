@@ -30,6 +30,6 @@ app.use('*', (req, res) => {
 db.once('open', () => {
 
    app.listen(PORT, () => {
-      console.log(`Example app listening on port ${PORT}`)
+
    })
 })
