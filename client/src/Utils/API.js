@@ -31,7 +31,7 @@ export async function createUser(username, email, password) {
 
    try {
 
-      const { data } = await axios.post(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/users/register`, { username: username, email: email, password: password })
+      const { data } = await axios.post(`${process.env.PRODURL || 'http://localhost:3001'}/api/users/register`, { username: username, email: email, password: password })
 
       //clear the local list when user signs in
       // localStorage.setItem("newList", JSON.stringify({ listItems: [], listName: "My First List" }))
@@ -48,7 +48,7 @@ export async function createUser(username, email, password) {
 export async function login(email, password) {
 
    try {
-      const { data } = await axios.post(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/users/login`, { email: email, password: password })
+      const { data } = await axios.post(`${process.env.PRODURL || 'http://localhost:3001'}/api/users/login`, { email: email, password: password })
 
       //add user data and token to local storage
       localStorage.setItem('token', data.token);
@@ -71,7 +71,7 @@ export function logout() {
 export async function getBuckets() {
    try {
       //get user buckets form api 
-      const { data } = await axios.get(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/buckets`, {
+      const { data } = await axios.get(`${process.env.PRODURL || 'http://localhost:3001'}/api/buckets`, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
@@ -85,7 +85,7 @@ export async function getBuckets() {
 }
 
 export async function newList(listData) {
-   const { data } = await axios.post(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/`, listData, {
+   const { data } = await axios.post(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/`, listData, {
       headers: {
          Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
       }
@@ -94,7 +94,7 @@ export async function newList(listData) {
 }
 
 export async function createNewBucket(bucketData) {
-   const { data } = await axios.post(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/buckets/`, { bucketName: bucketData.bucket }, {
+   const { data } = await axios.post(`${process.env.PRODURL || 'http://localhost:3001'}/api/buckets/`, { bucketName: bucketData.bucket }, {
       headers: {
          Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
       }
@@ -106,7 +106,7 @@ export async function createNewBucket(bucketData) {
 export const updateList = async (id, listData) => {
    try {
       //if not logged in we need to save to loval storage
-      let { data } = await axios.put(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/${id}`, listData, {
+      let { data } = await axios.put(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/${id}`, listData, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
@@ -122,7 +122,7 @@ export const updateList = async (id, listData) => {
 export const getListData = async (id) => {
    try {
 
-      const { data } = await axios.get(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/${id}`, {
+      const { data } = await axios.get(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/${id}`, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
@@ -138,7 +138,7 @@ export const getListData = async (id) => {
 
 export const deleteList = async (id) => {
    try {
-      let { data } = await axios.delete(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/${id}`, {
+      let { data } = await axios.delete(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/${id}`, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
@@ -153,7 +153,7 @@ export const deleteList = async (id) => {
 }
 export const addListItem = async (listId, listItem) => {
    try {
-      let { data } = await axios.post(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/${listId}/items`, listItem, {
+      let { data } = await axios.post(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/${listId}/items`, listItem, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
@@ -167,7 +167,7 @@ export const addListItem = async (listId, listItem) => {
 
 export const deleteListItem = async (listId, itemId) => {
    try {
-      let { data } = await axios.delete(`${process.env.REACT_APP_PRODURL || 'http://localhost:3001'}/api/lists/${listId}/items/${itemId}`, {
+      let { data } = await axios.delete(`${process.env.PRODURL || 'http://localhost:3001'}/api/lists/${listId}/items/${itemId}`, {
          headers: {
             Authorization: `Bearer ${loggedIn ? localStorage.getItem('token') : null}`
          }
