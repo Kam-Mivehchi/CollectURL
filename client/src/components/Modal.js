@@ -103,7 +103,7 @@ const Modal = ({ toggle }) => {
                                  Bucket
                                  <Select className=" focus:ring " default="Free Thoughts" name="bucket" onChange={handleBucket}>
                                     {user.buckets.map((el) => {
-                                       return <option value={el._id}>{el.bucketName}</option>
+                                       return <option value={el.bucketName}>{el.bucketName}</option>
                                     })}
                                     <option value="new">New Bucket</option>
 
@@ -139,7 +139,7 @@ const Modal = ({ toggle }) => {
                                  color={theme.colors.primary}
                                  className=" ease-linear transition-all duration-150"
                                  type="submit"
-                                 onClick={newList(data)}
+                              // onClick={newList(data)}
                               >
                                  Create List
                               </Button>
