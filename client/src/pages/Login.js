@@ -11,7 +11,7 @@ const Login = () => {
    const theme = useTheme();
    const emailInputElement = useRef();
    const passwordInputElement = useRef();
-   const [user, dispatch] = useUserContext();
+   const [dispatch] = useUserContext();
    const [error, setError] = useState("")
 
 

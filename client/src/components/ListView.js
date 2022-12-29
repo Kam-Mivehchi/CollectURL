@@ -46,7 +46,7 @@ const ListView = () => {
       try {
          //if not logged in we need to save to loval storage
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
-         let changeTitle = await updateList(location.pathname.split('/')[2], listData)
+         await updateList(location.pathname.split('/')[2], listData)
 
 
       } catch (error) {
@@ -58,7 +58,7 @@ const ListView = () => {
    const removeList = async () => {
       try {
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
-         let changeTitle = await deleteList(location.pathname.split('/')[2])
+         await deleteList(location.pathname.split('/')[2])
 
          return redirect("/")
 

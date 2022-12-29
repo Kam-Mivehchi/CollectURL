@@ -17,7 +17,7 @@ const Signup = () => {
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
 
-   const [user, dispatch] = useUserContext();
+   const [dispatch] = useUserContext();
 
 
 

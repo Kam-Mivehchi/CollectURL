@@ -23,7 +23,7 @@ const Modal = ({ toggle }) => {
       e.preventDefault();
       try {
          setShowModal(false)
-         const response = await newList(data)
+         await newList(data)
          navigate(0)
 
 
