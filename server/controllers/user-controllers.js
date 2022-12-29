@@ -22,7 +22,16 @@ module.exports = {
          )
          //create local list
          console.log(req.body.list)
-         const data = await List.create({ ...req.body.list, user: createUser._id })
+         const data = await List.create({
+            listName: "My First List",
+            bucket: "Free Thoughts",
+
+            listItems: [{
+               itemName: "Copy and Paste your favorite Websites into your own list",
+               url: "https://lovely-banoffee-8811b7.netlify.app/"
+            }],
+            user: createUser._id
+         })
          //add that list to the freethough bucket
          await Bucket.findOneAndUpdate({ bucketName: data.bucket, user: createUser._id },
             { $addToSet: { lists: data._id } },
