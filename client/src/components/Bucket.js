@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Modal from './Modal'
 import { Bucket, ListRow, Card } from './styles/Library.styles'
 // import { deleteList } from '../Utils/API'
 // import { BiTrash } from "react-icons/bi"
 
 const BucketRow = ({ bucket }) => {
-   const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
+   // const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
 
 
