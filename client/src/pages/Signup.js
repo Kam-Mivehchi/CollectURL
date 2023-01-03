@@ -17,7 +17,7 @@ const Signup = () => {
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
 
-   const [dispatch] = useUserContext();
+   const [user, dispatch] = useUserContext();
 
 
 
@@ -37,7 +37,7 @@ const Signup = () => {
             ...data.user
          },
       })
-
+      console.log(user)
       navigate('/dashboard')
    }
 
