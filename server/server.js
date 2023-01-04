@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 
 const cors = require('cors');
 const corsOptions = {
-   origin: 'https://lovely-banoffee-8811b7.netlify.app/',
+   origin: true,
 
    credentials: true,            //access-control-allow-credentials:true
    optionSuccessStatus: 200
