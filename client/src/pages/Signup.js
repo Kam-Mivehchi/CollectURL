@@ -6,6 +6,7 @@ import { createUser } from "../Utils/API"
 import { useNavigate, Link } from "react-router-dom"
 import { useUserContext } from "../Utils/UserContext"
 
+import Loader from '../components/Loading'
 import { AUTHENTICATE } from '../Utils/actions';
 
 const Signup = () => {
@@ -16,29 +17,37 @@ const Signup = () => {
    const passwordInputElement = useRef();
    const passwordConfirmationInputElement = useRef();
    const [confirm, setConfirm] = useState(false);
-
+   const [loading, setLoading] = useState(true)
    const [user, dispatch] = useUserContext();
 
 
 
    const formHandler = async (event) => {
+      try {
+         setLoading(true);
+         event.preventDefault();
+         const data = await createUser(
+            userNameInputElement.current?.value,
+            emailInputElement.current?.value,
+            passwordInputElement.current?.value
+         )
 
-      event.preventDefault();
-      const data = await createUser(
-         userNameInputElement.current?.value,
-         emailInputElement.current?.value,
-         passwordInputElement.current?.value
-      )
+         dispatch({
+            type: AUTHENTICATE,
+            payload: {
+               token: data.token,
+               ...data.user
+            },
+         })
+         console.log(user)
+         navigate('/dashboard')
 
-      dispatch({
-         type: AUTHENTICATE,
-         payload: {
-            token: data.token,
-            ...data.user
-         },
-      })
-      console.log(user)
-      navigate('/dashboard')
+      } catch (e) {
+         console.log(e)
+      } finally {
+         setLoading(false);
+
+      }
    }
 
 
@@ -94,6 +103,8 @@ const Signup = () => {
                   required
                />
             </label>
+
+            {loading && <Loader />}
             <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" disabled={passwordInputElement.current?.value !== passwordConfirmationInputElement.current?.value || passwordConfirmationInputElement.current?.value === ''}>
                Submit
             </Button>

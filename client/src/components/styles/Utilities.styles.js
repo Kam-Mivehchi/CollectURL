@@ -130,7 +130,7 @@ span{
 export const Button = styled.button`
 background:${({ bg }) => bg};
 color:${({ color }) => color};
-
+position:relative;
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
 margin:0 10px 0 0;
 font-size: 0.875rem; 
