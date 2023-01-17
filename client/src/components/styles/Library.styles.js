@@ -16,7 +16,7 @@ display:flex;
 justify-content:space-around;
 align-items:center;
 padding: 1.25rem 0rem;
-color:${({ theme }) => theme.colors.textPrimary};
+color:${({ theme }) => theme.colors.light};
 // background-color:${({ theme }) => theme.colors.primary};
 h3{
   font-weight:bold;

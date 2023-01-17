@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
 background-color:${({ theme }) => theme.colors.cardBackground || 'white'};
+color:${({ theme }) => theme.colors.cardText || 'black'};
 padding:1.5em;
 margin:auto;
 max-width:90%;
