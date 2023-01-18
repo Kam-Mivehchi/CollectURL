@@ -28,6 +28,7 @@ line-height:200%;
    p{
    margin:.75rem 0 0 0;
       filter:drop-shadow(0 .75em 1em  rgb(0,0,0,.3));
+color:${({ theme }) => theme.colors.light};
 
    }
    button{

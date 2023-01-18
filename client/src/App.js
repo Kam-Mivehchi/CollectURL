@@ -20,7 +20,7 @@ const light = {
     secondary: "#CFD2CF",
     accent: '#8758FF',
     accent2: '#9772fb',
-    cardText: 'black',
+    cardText: '#252525',
     cardBackground: '#ffffff',
     light: '#ffffff',
     header: '#ebfbff',
