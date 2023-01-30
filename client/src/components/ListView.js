@@ -166,7 +166,7 @@ const ListView = () => {
             {/* add list item*/}
             <ListContainer>
 
-               {listData.listItems.map((listItem, index) => {
+               {listData?.listItems.map((listItem, index) => {
                   return (
                      <Anchor href={listItem.url}>
 
