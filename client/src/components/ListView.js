@@ -32,7 +32,7 @@ const ListView = () => {
    };
 
    const drop = (e) => {
-      const copyListItems = [...listData.listItems];
+      const copyListItems = [...listData?.listItems];
       const dragItemContent = copyListItems[dragItem.current];
       copyListItems.splice(dragItem.current, 1);
       copyListItems.splice(dragOverItem.current, 0, dragItemContent);
@@ -124,7 +124,7 @@ const ListView = () => {
             ?
             localStorage.setItem("newList", JSON.stringify(listData))
             :
-            setListData(JSON.parse(localStorage.getItem('newList')).listItems)
+            setListData(JSON.parse(localStorage.getItem('newList'))?.listItems)
          console.error({ error })
       }
    }
