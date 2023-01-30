@@ -149,7 +149,7 @@ const ListView = () => {
             <form onSubmit={updateListTitle}>
                <div>
 
-                  <Input type="text" value={listData.listName} onChange={(e) => setListData({ ...listData, listName: e.target.value })} default={"My First List"} />
+                  <Input type="text" value={listData?.listName} onChange={(e) => setListData({ ...listData, listName: e.target.value })} default={"My First List"} />
                   {location.pathname.split('/')[2] = "" && (
                      <>
                         <button type="submit" className="bg-green-500 px-5">go</button>
