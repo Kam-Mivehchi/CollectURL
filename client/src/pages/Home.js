@@ -11,25 +11,30 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 article{
-   
    text-align: center;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+align-items:center;
    margin:1.5rem 0;
    padding:0 2rem;
+   min-height:60vh;
    h1{
       font-weight: 900;
-      font-size:clamp(1.5em,2em,3em);
+      font-size:3em;
       color:${({ theme }) => theme.colors.accent};
       filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.8));
- background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-line-height:200%;
+   background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   line-height:150%;
    }
    p{
-   margin:.75rem 0 0 0;
+   margin:.5em auto  1em  auto ;
       filter:drop-shadow(0 .75em 1em  rgb(0,0,0,.3));
-color:${({ theme }) => theme.colors.light};
-
+      color:${({ theme }) => theme.colors.dark};
+      max-width:45ch;
+      
    }
    button{
     font-size:120%;
@@ -45,7 +50,7 @@ margin:.5em auto
 
 
 @media (min-width: 940px) {
-   flex-direction:row;
+   // flex-direction:row;
    article{
       margin:auto 0;
       
@@ -66,7 +71,6 @@ const Home = () => {
       <>
 
          <Hero>
-            <AnimatedList />
             <article>
 
                <motion.h1
@@ -84,8 +88,8 @@ const Home = () => {
                   </Link>
                </motion.button>
             </article>
-            {/* <CenteredContainer height="60vh">
-            </CenteredContainer> */}
+            <AnimatedList />
+
          </Hero>
       </>
    )
