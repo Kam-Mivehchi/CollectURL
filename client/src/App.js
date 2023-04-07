@@ -18,12 +18,13 @@ const light = {
   colors: {
     primary: "#EDEDED",
     secondary: "#CFD2CF",
-    accent: '#8758FF',
+    accent: "#37306B",//'#8758FF',
     accent2: '#9772fb',
     cardText: '#252525',
     cardBackground: '#ffffff',
     light: '#ffffff',
     header: '#ebfbff',
+    dark: "#252525"
 
 
   },
@@ -46,7 +47,7 @@ const dark = {
     textPrimary: '#252525',
     light: '#ffffff',
     header: '#ebfbff',
-
+    dark: "#37306B"
 
   },
   mobile: '768px',

@@ -10,26 +10,72 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-article{
+
+ 
+span{
+//  background:linear-gradient(90deg,${({ theme }) => theme.colors.dark} 40%,${({ theme }) => theme.colors.secondary}  40%);
+background:${({ theme }) => theme.colors.light} ;
+ 
+ width:100%;
+ display:grid;
+ grid-template-columns:50% 50%;
+ place-items:center ;
+ ol{
    
+    justify-self:center;
+    align-self:center;
+   //  color:${({ theme }) => theme.colors.secondary};
+    text-align:center;
+   
+    grid-column:span 2;
+    display:flex;
+    flex-direction:column;
+    gap:2em;
+// align-items:start;
+// justify-content:space-evenly;
+padding:1rem 1.5rem;
+text-align:center;
+}
+h2{
+       color:${({ theme }) => theme.colors.accent};
+   font-size:min(8vw,2.75em);
+   font-weight:900;
+   text-shadow:0 .25em .7em black;
+}
+li{
+  
+font-size: 1.2em;
+
+}
+}
+article{
    text-align: center;
+   display:flex;
+// box-shadow:0 1em .4em green;
+   
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
    margin:1.5rem 0;
    padding:0 2rem;
+   height:60vh;
    h1{
       font-weight: 900;
-      font-size:clamp(1.5em,2em,3em);
+         font-size:min(12vw,4.5em);
+
       color:${({ theme }) => theme.colors.accent};
       filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.8));
- background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-line-height:200%;
+   background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   line-height:150%;
    }
    p{
-   margin:.75rem 0 0 0;
+   margin:.5em auto  1em  auto ;
       filter:drop-shadow(0 .75em 1em  rgb(0,0,0,.3));
-color:${({ theme }) => theme.colors.light};
-
+      color:${({ theme }) => theme.colors.dark};
+      max-width:45ch;
+      
    }
    button{
     font-size:120%;
@@ -38,25 +84,29 @@ color:${({ theme }) => theme.colors.light};
     padding:${({ p }) => p || ".5rem 1rem"};
    color:${({ theme }) => theme.colors.primary || 'white'};
     border-radius:${({ theme }) => theme.borders.button};
-margin:.5em auto
+margin:.5em auto;
    }
 
 }
-
+@media (min-width: 768px) {
+ span ol{
+    margin-left:1em;
+    grid-column:span 1; 
+ }  
+}
 
 @media (min-width: 940px) {
-   flex-direction:row;
+   margin:auto;
+   
    article{
       margin:auto 0;
-      
    }
- 
-   width:80vw;
-  margin:auto;
+
+   span ol{
+      transform:translateX(-4em);
+   }
 }
 @media (min-width: 1600px) {
- 
-   width:60vw;
   margin:auto;
 }
 `
@@ -66,7 +116,6 @@ const Home = () => {
       <>
 
          <Hero>
-            <AnimatedList />
             <article>
 
                <motion.h1
@@ -84,8 +133,19 @@ const Home = () => {
                   </Link>
                </motion.button>
             </article>
-            {/* <CenteredContainer height="60vh">
-            </CenteredContainer> */}
+            <span>
+
+               <AnimatedList />
+               <ol>
+                  <h2>Simply Paste Your URL</h2>
+
+                  <li>Simply copy and paste the URLs you want to save, or type them in manually.Say goodbye to cluttered bookmarks and hello to a streamlined, organized way of saving your favorite URLs.</li>
+                  {/* {<li> Whether you're browsing the web or remembering a URL from memory, our app makes it simple to build your collection of favorite links.</li>} */}
+                  <li></li>
+
+               </ol>
+            </span>
+
          </Hero>
       </>
    )
