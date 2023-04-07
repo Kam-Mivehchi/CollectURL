@@ -2,15 +2,16 @@ import styled from 'styled-components'
 
 
 export const Card = styled.div`
+grid-column:span 2;
 background-color:${({ theme }) => theme.colors.cardBackground || 'white'};
 color:${({ theme }) => theme.colors.cardText || 'black'};
 padding:1.5em;
-margin:auto;
+margin:3em auto;
 max-width:90%;
-min-height:60vh;
+
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
-box-shadow:0 .5em 1em  rgb(0,0,0,.3);
+box-shadow:0 0 1em  rgb(0,0,0,.5);
 
 form:first-child{
   display:flex;
@@ -37,7 +38,9 @@ Input{
   width:50%;
 }
 @media (min-width: 768px) {
-  max-width:50vw; 
+  max-width:25rem; 
+grid-column:span 1;
+  
   
 }
 `
@@ -53,13 +56,13 @@ grid-template-columns:20% 75%;
 column-gap:.5em;
 grid-template-rows:repeat(2,1fr);
 max-height:5em;
-// border:2px solid red;
+border:2px solid ${({ theme }) => theme.colors.dark} ;
 border-radius:${({ theme }) => theme.borders.button};
-padding:.25em;
+padding:.5em;
 align-items:center;
   overflow-y:hidden;
 background-color:${({ theme }) => theme.colors.primary};
-margin:.25em 0;
+margin:.75em 0;
 box-shadow:0 .5em 4em  rgb(0,0,0,.2);
 transition:transform .2s ease-in-out;
 transition:box-shadow .2s ease-in-out;
@@ -114,5 +117,5 @@ export const ListContainer = styled.div`
 
 max-height:70vh;
 
-overflow-x:auto;
+// overflow-x:auto;
 `
