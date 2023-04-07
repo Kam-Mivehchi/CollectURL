@@ -55,10 +55,11 @@ module.exports = {
    async newListItem(req, res) {
       try {
          //call metadata API 
-         const base64Credentials = Buffer.from(process.env.METADATA_API_KEY).toString('base64')
+         // const base64Credentials = Buffer.from(process.env.METADATA_API_KEY).toString('base64')
+
          let metadata = await axios.get(`https://api.urlmeta.org/?url=${req.body.url}`, {
             headers: {
-               Authorization: `Basic ${base64Credentials}`
+               Authorization: process.env.METADATA_API_KEY
             }
          })
 
