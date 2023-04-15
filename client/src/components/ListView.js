@@ -76,7 +76,7 @@ const ListView = () => {
    const newListItem = async (e) => {
       e.preventDefault()
       try {
-         console.log(inputURL.current.value)
+
          if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
          await addListItem(location.pathname.split('/')[2], {
             url: inputURL.current.value,
@@ -84,7 +84,6 @@ const ListView = () => {
             description: "add a description",
 
          })
-
          renderListData()
 
          // return response
@@ -127,6 +126,7 @@ const ListView = () => {
 
          setListData(lists)
          // return lists
+
       } catch (error) {
          !localStorage.getItem('newList')
             ?
