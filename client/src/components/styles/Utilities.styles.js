@@ -3,8 +3,9 @@ import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5"
 export const Background = styled.div`
 background:${({ theme }) => theme.colors.secondary};
 
- `
+`
 export const CenteredContainer = styled.div`
+
 
 min-width:100%;
 
@@ -12,8 +13,9 @@ min-width:100%;
 
 display:grid;
 place-items:center;
-margin:2rem auto;
-// border-radius:${({ theme }) => theme.borders.outer};
+
+
+
 min-height:${({ height }) => height || 'auto'};
 
 

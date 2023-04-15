@@ -151,7 +151,7 @@ const ListView = () => {
          <Card as={motion.div}
             animate={{ opacity: [0, 1,] }}
             transition={{ ease: "easeOut", duration: 1 }}
-
+            bg={theme.colors.secondary}
          >
             {/* edit list title */}
             <form onSubmit={updateListTitle}>

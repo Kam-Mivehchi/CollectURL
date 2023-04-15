@@ -6,7 +6,7 @@ grid-column:span 2;
 background-color:${({ theme }) => theme.colors.cardBackground || 'white'};
 color:${({ theme }) => theme.colors.cardText || 'black'};
 padding:1.5em;
-margin:3em auto;
+// margin:3em auto;
 max-width:90%;
 
 position:relative;
