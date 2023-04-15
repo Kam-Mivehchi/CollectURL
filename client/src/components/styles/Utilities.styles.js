@@ -45,6 +45,7 @@ display:flex;
 justify-content:center;
 position:absolute;
 bottom:.1rem;
+align-items:center;
 div{
    border-radius:${({ theme }) => theme.borders.input};
    background-color:${({ bg }) => bg || 'white'};
@@ -136,12 +137,20 @@ color:${({ color }) => color};
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
 margin:0 10px 0 0;
 font-size: 0.875rem; 
-line-height: 1.25rem;
+// line-height: 1.25rem;
 text-transform: uppercase;
 font-weight: bold;
-padding:${({ ht }) => ht || ".75rem 1.4rem"};
+padding:${({ pad }) => pad || ".75rem 1.4rem"};
 width:${({ wt }) => wt};
-border-radius:${({ theme }) => theme.borders.button || ".25rem"};
+height:${({ ht }) => ht};
+
+border-radius:${({ theme, border }) => border || theme.borders.button || ".25rem"};
+
+
+
+display:${({ flex }) => flex ? "flex" : ""};
+align-items:center;
+justify-content:center;
 
  outline:none;
  &:hover{

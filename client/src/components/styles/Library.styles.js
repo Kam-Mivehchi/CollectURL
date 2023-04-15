@@ -49,6 +49,7 @@ width:100vw;
 grid-template-columns:repeat(12,1fr);
 place-items:center start;
 padding:.75em .5rem;
+align-items:center;
 row-gap:.5em;
 // overflow-x:hidden;
 grid-column: span 12;
@@ -78,7 +79,7 @@ h3{
 export const ListRow = styled.section`
 grid-column: span 12;
 display:flex;
-
+align-items:center;
 margin:.5em;
 gap:.5em;
 flex-wrap:nowrap;
@@ -88,7 +89,7 @@ background-color:inherit;
 padding-right:1rem;
 padding-bottom:.5rem;
 margin-right:1rem;
-overflow-x:auto;
+// overflow-x:auto;
 
 min-height:25vh
 `

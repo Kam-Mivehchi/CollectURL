@@ -28,7 +28,7 @@ const Modal = ({ toggle }) => {
 
 
       } catch (error) {
-
+         console.error(error)
       }
    }
 
@@ -55,6 +55,7 @@ const Modal = ({ toggle }) => {
          renderBuckets()
 
       } catch (error) {
+         console.error(error)
 
       }
    }
@@ -70,15 +71,18 @@ const Modal = ({ toggle }) => {
          <Button
             bg={`linear-gradient(45deg ,${theme.colors.accent} 0%, #CB1C8D 100%)`}
             color={theme.colors.primary}
-            pad={'.3rem 1.4rem'}
-            onClick={() => setShowModal(true)}
+            wt={"1em"}
+            pad={"1.3em"}
+            ht={'1em'}
+            border={"50%"}
+            onClick={() => setShowModal(!showModal)}
+            flex={true}
          >+</Button>
 
          {
             showModal ? (
                <>
                   <ModalWrapper
-
                   >
                      <ModalCard >
                         {/*content*/}
@@ -127,14 +131,6 @@ const Modal = ({ toggle }) => {
 
                               {/*footer*/}
 
-                              <Button bg={'transparent'}
-                                 color={theme.colors.accent2}
-                                 className="ease-linear transition-all duration-150"
-
-                                 onClick={() => setShowModal(false)}
-                              >
-                                 Close
-                              </Button>
                               <Button bg={theme.colors.accent}
                                  color={theme.colors.primary}
                                  className=" ease-linear transition-all duration-150"
@@ -142,6 +138,14 @@ const Modal = ({ toggle }) => {
                               // onClick={newList(data)}
                               >
                                  Create List
+                              </Button>
+                              <Button bg={'transparent'}
+                                 color={theme.colors.accent2}
+                                 className="ease-linear transition-all duration-150"
+
+                                 onClick={() => setShowModal(false)}
+                              >
+                                 Close
                               </Button>
                            </Form>
                         </div>

@@ -14,7 +14,7 @@ margin:0 auto;
 outline:none;
 z-index:50;
 // height:80%;
-
+color:black;
 
 `
 export const ModalCard = styled.div`
