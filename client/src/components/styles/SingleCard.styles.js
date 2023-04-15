@@ -62,7 +62,7 @@ align-items:center;
   overflow-y:hidden;
 background-color:${({ theme }) => theme.colors.primary};
 margin:.75em 0;
-box-shadow:0 .5em 4em  rgb(0,0,0,.2);
+box-shadow:0 .5em .25em  rgb(0,0,0,.2);
 transition:transform .2s ease-in-out;
 transition:box-shadow .2s ease-in-out;
 &:hover{
@@ -118,6 +118,6 @@ export const ListContainer = styled.div`
 
 max-height:70vh;
 overflow-y:scroll;
+padding:1em;
 
-// overflow-x:auto;
 `

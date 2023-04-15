@@ -35,10 +35,10 @@ export const GridBox = styled.div`
 display:grid;
 grid-template-columns:repeat(12,1fr);
 color:${({ theme }) => theme.colors.textPrimary};
-// background-color:${({ theme }) => theme.colors.primary};
+background-color:${({ theme }) => theme.colors.primary};
+
 row-gap:2em;
-// padding:0 1em;
-// overflow-x:hidden;
+padding:1em ;
    
 
 
@@ -58,10 +58,11 @@ background-color:${({ theme }) => theme.colors.secondary};
 border-radius: ${({ theme }) => theme.borders.outer};
 // box-shadow:0 3em 4em  rgb(0,0,0,.4);
    filter:drop-shadow(0 1em 1em  rgb(0,0,0,.3));
+padding:1em;
 
 h3{
   grid-column: span 5;
-  margin: .5rem 1rem;
+  
   margin-bottom:0;
   color:${({ theme }) => theme.colors.black};
 
@@ -80,7 +81,7 @@ export const ListRow = styled.section`
 grid-column: span 12;
 display:flex;
 align-items:center;
-margin:.5em;
+// margin:.5em;
 gap:.5em;
 flex-wrap:nowrap;
 width:100%;
@@ -88,8 +89,10 @@ color:${({ theme }) => theme.colors.textPrimary};
 background-color:inherit;
 padding-right:1rem;
 padding-bottom:.5rem;
-margin-right:1rem;
-// overflow-x:auto;
+// margin-right:1rem;
+overflow-x:auto;
+padding: 0  0 .75em  .75em;
+border-radius: ${({ theme }) => theme.borders.inner};
 
 min-height:25vh
 `
