@@ -45,6 +45,7 @@ display:flex;
 justify-content:center;
 position:absolute;
 bottom:.1rem;
+align-items:center;
 div{
    border-radius:${({ theme }) => theme.borders.input};
    background-color:${({ bg }) => bg || 'white'};
@@ -136,12 +137,20 @@ color:${({ color }) => color};
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
 margin:0 10px 0 0;
 font-size: 0.875rem; 
-line-height: 1.25rem;
+// line-height: 1.25rem;
 text-transform: uppercase;
 font-weight: bold;
-padding:${({ ht }) => ht || ".75rem 1.4rem"};
+padding:${({ pad }) => pad || ".75rem 1.4rem"};
 width:${({ wt }) => wt};
-border-radius:${({ theme }) => theme.borders.button || ".25rem"};
+height:${({ ht }) => ht};
+
+border-radius:${({ theme, border }) => border || theme.borders.button || ".25rem"};
+
+
+
+display:${({ flex }) => flex ? "flex" : ""};
+align-items:center;
+justify-content:center;
 
  outline:none;
  &:hover{
@@ -192,7 +201,10 @@ border-radius:${({ theme }) => theme.borders.outer};
 border:2px solid ${({ theme }) => theme.colors.accent};
 overflow-x:hidden;
 box-shadow:0 3em 4em  rgb(0,0,0,.4);
-
+div{
+   text-align:center;
+   margin:.5em auto;
+}
 h2{
    font-weight:bold;
    margin:0 0 1rem 0;
@@ -206,8 +218,9 @@ font-weight:600;
 margin:0;
 }
 small{
-   font-size: .5rem;
-   color:${({ theme }) => theme.colors.accent}
+   font-size: .75rem;
+   color:red;
+   font-weight:bold;
 }
 input{
    padding:.5rem;
@@ -219,7 +232,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 outline:none;
 width:80%;
 display:block;
-margin:.3rem auto 1rem auto;
+margin:.3rem auto 0rem auto;
 width:100%;
 &:focus{
    outline:none;

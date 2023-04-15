@@ -11,12 +11,14 @@ const ListView = () => {
    const [listData, setListData] = useState({ listItems: [], listName: 'My First List' });
    const theme = useTheme()
    let location = useLocation();
+
    const [listItem, setlistItem] = useState({
       url: null,
       itemName: "untitled",
       description: "add a description",
 
    });
+   const inputURL = useRef();
    const dragItem = useRef();
    const dragOverItem = useRef();
 
@@ -74,9 +76,14 @@ const ListView = () => {
    const newListItem = async (e) => {
       e.preventDefault()
       try {
-         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
-         await addListItem(location.pathname.split('/')[2], listItem)
 
+         if (!location.pathname.split('/')[2]) throw new Error("User Not Sign In")
+         await addListItem(location.pathname.split('/')[2], {
+            url: inputURL.current.value,
+            itemName: "untitled",
+            description: "add a description",
+
+         })
          renderListData()
 
          // return response
@@ -119,6 +126,7 @@ const ListView = () => {
 
          setListData(lists)
          // return lists
+
       } catch (error) {
          !localStorage.getItem('newList')
             ?
@@ -188,10 +196,10 @@ const ListView = () => {
 
                })}
             </ListContainer>
-            <form onSubmit={newListItem} className="flex justify-center ">
+            <form onSubmit={newListItem} className="flex justify-center " >
                <div className="flex flex-wrap justify-center">
 
-                  <Input border={"black"} type="text" value={listItem.url} onChange={(e) => setlistItem({ ...listItem, url: e.target.value })} placeholder="Enter a URL" />
+                  <Input border={"black"} type="text" value={listItem.url} onChange={(e) => setlistItem({ ...listItem, url: e.target.value })} placeholder="Enter a URL" ref={inputURL} />
                   {/* <Input border={"black"} type="text" value={listItem.itemName} onChange={(e) => setlistItem({ ...listItem, itemName: e.target.value })} placeholder="Item Title" />
                   <TextArea border={"black"} type="text" value={listItem.description} onChange={(e) => setlistItem({ ...listItem, description: e.target.value })} placeholder="Description" /> */}
                   <Button bg={theme.colors.accent} type="submit">

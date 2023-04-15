@@ -12,7 +12,6 @@ max-width:90%;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
 box-shadow:0 0 1em  rgb(0,0,0,.5);
-
 form:first-child{
   display:flex;
   justify-content:space-between;
@@ -20,8 +19,8 @@ form:first-child{
   Input{
     font-weight:bold;
     font-size:clamp(1em,2em,2vw);
-    width:75%;
-    // text-overflow: ellipsis;
+    width:100%;
+    text-overflow: ellipsis;
     
   }
   >button{
@@ -106,8 +105,10 @@ p{
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-height:1em;
   &:hover{
  overflow: auto;
+ 
   
   }
 }
@@ -116,6 +117,7 @@ p{
 export const ListContainer = styled.div`
 
 max-height:70vh;
+overflow-y:scroll;
 
 // overflow-x:auto;
 `

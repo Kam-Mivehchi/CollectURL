@@ -55,16 +55,26 @@ module.exports = {
    async newListItem(req, res) {
       try {
          //call metadata API 
-         // const base64Credentials = Buffer.from(process.env.METADATA_API_KEY).toString('base64')
 
+         console.error(req.body.url)
          let metadata = await axios.get(`https://api.urlmeta.org/?url=${req.body.url}`, {
             headers: {
-               Authorization: process.env.METADATA_API_KEY
+               Authorization: `${process.env.METADATA_API_KEY}`,
+               'Accept-Encoding': 'gzip,deflate,compress'
             }
          })
+         console.info(metadata.data)
+         // let itemName = img = desc = "";
+         const { title = "", site = "", description = "", image = "" } = metadata.data.meta
+         // if (metadata.data.result.status === "OK") {
+         //    itemName = title || site.name
+         //    img = site.logo || site.favicon || image;
+         //    desc = description;
+         // }
 
 
-         const { title, site, description } = metadata.data.meta
+         const isImagePublic = new RegExp('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)', 'gm')
+
          //add the apidata to the list
          const data = await List.findOneAndUpdate(
             { _id: req.params.listId },
@@ -73,8 +83,8 @@ module.exports = {
                   listItems: {
                      itemName: title || site.name,
                      url: req.body.url,
-                     img: site.logo || site.favicon || "https://via.placeholder.com/150",
-                     description: description
+                     img: (site.logo || site.favicon || isImagePublic.test(image)) ? (site.logo || site.favicon || image) : undefined,
+                     description: description ? description : undefined
                   }
                }
             },
@@ -85,6 +95,7 @@ module.exports = {
 
 
       } catch (err) {
+         console.error(err)
          res.status(500).json(err)
 
       }
