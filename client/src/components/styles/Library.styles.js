@@ -10,14 +10,17 @@ color:${({ theme }) => theme.colors.textPrimary};
 min-height:90vh;
 `
 export const ControlBar = styled.div`
-width:100%;
+width:66%;
+   
+
 position:relative;
 display:flex;
-justify-content:space-around;
+// justify-content:space-around;
+justify-content:space-between;
 align-items:center;
 padding: 1.25rem 0rem;
 color:${({ theme }) => theme.colors.light};
-// background-color:${({ theme }) => theme.colors.primary};
+grid-column:span 2;
 h3{
   font-weight:bold;
    filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.6));
@@ -28,6 +31,7 @@ text-transform:capitalize;
    width:66%;
    margin:auto;
   justify-content:space-between;
+grid-column:span 1;
 
    }
 `
@@ -36,16 +40,17 @@ display:grid;
 grid-template-columns:repeat(12,1fr);
 color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.primary};
-
 row-gap:2em;
+margin:auto;
 padding:1em ;
+overflow:hidden;
    
 
 
 `
 export const Bucket = styled.section`
 display:grid;
-width:100vw;
+// width:100vw;
 grid-template-columns:repeat(12,1fr);
 place-items:center start;
 padding:.75em .5rem;
