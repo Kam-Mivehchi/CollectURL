@@ -10,6 +10,8 @@ const itemSchema = new Schema(
       itemName: {
          type: String,
          // required: true,
+         default: "Site Not Found"
+
       },
       url: {
          type: String,
@@ -19,9 +21,13 @@ const itemSchema = new Schema(
       img: {
          type: String,
          // required: true,
+         default: "https://via.placeholder.com/150"
+
       },
       description: {
          type: String,
+         default: "Sorry our API doesn't currently support all features for that url, we are working to expand our coverage of sites. In the meanwhile try something else"
+
       },
       tasks: {
          type: Array,

@@ -12,7 +12,6 @@ max-width:90%;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
 box-shadow:0 0 1em  rgb(0,0,0,.5);
-
 form:first-child{
   display:flex;
   justify-content:space-between;
@@ -118,6 +117,7 @@ p{
 export const ListContainer = styled.div`
 
 max-height:70vh;
+overflow-y:scroll;
 
 // overflow-x:auto;
 `
