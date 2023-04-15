@@ -20,8 +20,8 @@ form:first-child{
   Input{
     font-weight:bold;
     font-size:clamp(1em,2em,2vw);
-    width:75%;
-    // text-overflow: ellipsis;
+    width:100%;
+    text-overflow: ellipsis;
     
   }
   >button{
@@ -106,8 +106,10 @@ p{
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-height:1em;
   &:hover{
  overflow: auto;
+ 
   
   }
 }

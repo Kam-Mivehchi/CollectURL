@@ -36,7 +36,7 @@ const Login = () => {
          setError("")
       } catch (error) {
 
-         setError("Unable to Sign In")
+         setError("Password or Username is incorrect")
       }
 
 
@@ -71,7 +71,10 @@ const Login = () => {
 
 
             </label>
-            <small>{error}</small>
+            <div>
+
+               <small>{error}</small>
+            </div>
 
             <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" >
                Submit

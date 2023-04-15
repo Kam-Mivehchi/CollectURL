@@ -192,7 +192,10 @@ border-radius:${({ theme }) => theme.borders.outer};
 border:2px solid ${({ theme }) => theme.colors.accent};
 overflow-x:hidden;
 box-shadow:0 3em 4em  rgb(0,0,0,.4);
-
+div{
+   text-align:center;
+   margin:.5em auto;
+}
 h2{
    font-weight:bold;
    margin:0 0 1rem 0;
@@ -206,8 +209,9 @@ font-weight:600;
 margin:0;
 }
 small{
-   font-size: .5rem;
-   color:${({ theme }) => theme.colors.accent}
+   font-size: .75rem;
+   color:red;
+   font-weight:bold;
 }
 input{
    padding:.5rem;
@@ -219,7 +223,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 outline:none;
 width:80%;
 display:block;
-margin:.3rem auto 1rem auto;
+margin:.3rem auto 0rem auto;
 width:100%;
 &:focus{
    outline:none;
