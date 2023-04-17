@@ -16,8 +16,9 @@ import { UserProvider } from './Utils/UserContext'
 import SingleList from './pages/SingleList';
 const light = {
   colors: {
-    primary: "#EDEDED",
-    secondary: "#CFD2CF",
+    primary: "#F1F6F9",
+    secondary: "#14274E",
+    bucketBg: "#CFD2CF",
     accent: "#37306B",//'#8758FF',
     accent2: '#9772fb',
     cardText: '#252525',

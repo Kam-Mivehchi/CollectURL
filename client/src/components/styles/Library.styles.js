@@ -6,20 +6,22 @@ padding:0;
 margin:0;
 position:relative;
 color:${({ theme }) => theme.colors.textPrimary};
-// background-color:${({ theme }) => theme.colors.primary};
+background-color:${({ theme }) => theme.colors.primary};
 min-height:90vh;
 `
 export const ControlBar = styled.div`
-width:66%;
+width:90%;
+margin:auto;
    
+background-color:${({ theme }) => theme.colors.primary};
 
 position:relative;
 display:flex;
-// justify-content:space-around;
+justify-content:space-between;
 justify-content:space-between;
 align-items:center;
 padding: 1.25rem 0rem;
-color:${({ theme }) => theme.colors.light};
+color:${({ theme }) => theme.colors.accent};
 grid-column:span 2;
 h3{
   font-weight:bold;
@@ -42,27 +44,25 @@ color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.primary};
 row-gap:2em;
 margin:auto;
-padding:1em ;
 overflow:hidden;
-   
 
-
+align-items:start;
+align-content: space-between;
+padding: 1em 1em 2em 1em;
 `
 export const Bucket = styled.section`
 display:grid;
-// width:100vw;
+
 grid-template-columns:repeat(12,1fr);
 place-items:center start;
-padding:.75em .5rem;
+
 align-items:center;
 row-gap:.5em;
-// overflow-x:hidden;
 grid-column: span 12;
 color:${({ theme }) => theme.colors.textPrimary};
 background-color:${({ theme }) => theme.colors.secondary};
 border-radius: ${({ theme }) => theme.borders.outer};
-// box-shadow:0 3em 4em  rgb(0,0,0,.4);
-   filter:drop-shadow(0 1em 1em  rgb(0,0,0,.3));
+box-shadow:0 1em 1em  rgb(0,0,0,.2);
 padding:1em;
 
 h3{
@@ -78,7 +78,7 @@ h3{
 
 @media (min-width: 768px) {
    width:66%;
-   margin:auto;
+   margin: 0 auto;
    }
 `
 

@@ -9,6 +9,7 @@ padding:1.5em;
 // margin:3em auto;
 max-width:90%;
 
+margin:auto;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
 box-shadow:0 0 1em  rgb(0,0,0,.5);
@@ -30,7 +31,6 @@ form:first-child{
     border-radius:${({ theme }) => theme.borders.button};
     padding:${({ p }) => p || ".3rem .75rem"};
     height:fit-content;
-    
   }
 }
 Input{
@@ -115,7 +115,7 @@ p{
 
 `
 export const ListContainer = styled.div`
-
+min-height:283px;
 max-height:70vh;
 overflow-y:scroll;
 padding:1em;

@@ -5,19 +5,20 @@ background:${({ theme }) => theme.colors.secondary};
 
 `
 export const CenteredContainer = styled.div`
+// background:${({ theme }) => theme.colors.primary};
+// min-width:100%;
+// display:grid;
+// place-items:start center;
 
-
-min-width:100%;
-
-
-
-display:grid;
-place-items:center;
-
-
-
-min-height:${({ height }) => height || 'auto'};
-
+// // min-height:${({ height }) => height || 'auto'};
+// min-height:90vh;
+padding:0;
+margin:0;
+position:relative;
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
+min-height:90vh;
+// display:grid;
 
 `
 export const Container = styled.div`

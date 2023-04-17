@@ -7,13 +7,6 @@ import { Bucket, ListRow, Card } from './styles/Library.styles'
 const BucketRow = ({ bucket }) => {
    // const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
-
-
-
-
-
-
-
    return (
       <Bucket className="" >
          <h3>{bucket.bucketName}</h3>

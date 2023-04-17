@@ -12,10 +12,10 @@ justify-content:center;
 align-items:center;
 
  
-span{
-//  background:linear-gradient(90deg,${({ theme }) => theme.colors.dark} 40%,${({ theme }) => theme.colors.secondary}  40%);
+section{
+
 background:${({ theme }) => theme.colors.light} ;
- 
+ padding:2em 0;
  width:100%;
  display:grid;
  grid-template-columns:50% 50%;
@@ -24,15 +24,14 @@ background:${({ theme }) => theme.colors.light} ;
    
     justify-self:center;
     align-self:center;
-   //  color:${({ theme }) => theme.colors.secondary};
+   
     text-align:center;
    
     grid-column:span 2;
     display:flex;
     flex-direction:column;
     gap:2em;
-// align-items:start;
-// justify-content:space-evenly;
+
 padding:1rem 1.5rem;
 text-align:center;
 }
@@ -89,7 +88,7 @@ margin:.5em auto;
 
 }
 @media (min-width: 768px) {
- span ol{
+ section ol{
     margin-left:1em;
     grid-column:span 1; 
  }  
@@ -102,7 +101,7 @@ margin:.5em auto;
       margin:auto 0;
    }
 
-   span ol{
+   section ol{
       transform:translateX(-4em);
    }
 }
@@ -133,18 +132,18 @@ const Home = () => {
                   </Link>
                </motion.button>
             </article>
-            <span>
+            <section>
 
                <AnimatedList />
                <ol>
                   <h2>Simply Paste Your URL</h2>
 
-                  <li>Simply copy and paste the URLs you want to save, or type them in manually.Say goodbye to cluttered bookmarks and hello to a streamlined, organized way of saving your favorite URLs.</li>
+                  <li>Say goodbye to cluttered bookmarks and hello to a streamlined, organized way of saving your favorite URLs.Just copy and paste the URLs you want to save, or type them in manually.</li>
                   {/* {<li> Whether you're browsing the web or remembering a URL from memory, our app makes it simple to build your collection of favorite links.</li>} */}
                   <li></li>
 
                </ol>
-            </span>
+            </section>
 
          </Hero>
       </>
