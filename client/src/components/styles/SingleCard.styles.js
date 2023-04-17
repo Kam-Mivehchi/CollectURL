@@ -27,7 +27,7 @@ form:first-child{
   >button{
     color:white;
     background-color:${({ theme }) => theme.colors.accent || 'white'};
-    background:linear-gradient(45deg,${({ theme }) => theme.colors.accent} 0%,#CB1C8D 100%);
+     background:linear-gradient(135deg,${({ theme }) => theme.colors.accent} 0%,${({ theme }) => theme.colors.accent2} 50%,${({ theme }) => theme.colors.accent} 100%);
     border-radius:${({ theme }) => theme.borders.button};
     padding:${({ p }) => p || ".3rem .75rem"};
     height:fit-content;

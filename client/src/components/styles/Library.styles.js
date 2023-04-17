@@ -13,15 +13,15 @@ export const ControlBar = styled.div`
 width:90%;
 margin:auto;
    
-background-color:${({ theme }) => theme.colors.primary};
+
 
 position:relative;
 display:flex;
 justify-content:space-between;
-justify-content:space-between;
+
 align-items:center;
 padding: 1.25rem 0rem;
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.secondary};
 grid-column:span 2;
 h3{
   font-weight:bold;
@@ -49,6 +49,7 @@ overflow:hidden;
 align-items:start;
 align-content: space-between;
 padding: 1em 1em 2em 1em;
+
 `
 export const Bucket = styled.section`
 display:grid;
@@ -60,16 +61,16 @@ align-items:center;
 row-gap:.5em;
 grid-column: span 12;
 color:${({ theme }) => theme.colors.textPrimary};
-background-color:${({ theme }) => theme.colors.secondary};
+background-color:${({ theme, spotlight }) => spotlight ? theme.colors.accent : theme.colors.accent2};
 border-radius: ${({ theme }) => theme.borders.outer};
-box-shadow:0 1em 1em  rgb(0,0,0,.2);
+box-shadow:0 0em 1em  rgb(0,0,0,.2);
 padding:1em;
 
 h3{
   grid-column: span 5;
   
   margin-bottom:0;
-  color:${({ theme }) => theme.colors.black};
+  color:${({ theme }) => theme.colors.primary};
 
   font-weight:bold;
   font-size:125%;

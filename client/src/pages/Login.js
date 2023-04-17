@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react'
 import { useTheme } from 'styled-components'
-import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
+import { AuthContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { useUserContext } from '../Utils/UserContext'
 import { AUTHENTICATE } from '../Utils/actions'
 import { login } from "../Utils/API"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const Login = () => {
    const navigate = useNavigate()
@@ -42,7 +42,7 @@ const Login = () => {
 
    }
    return (
-      <CenteredContainer>
+      <AuthContainer>
          <AuthenticationForm onSubmit={formHandler}>
             <h2>Login</h2>
 
@@ -79,9 +79,9 @@ const Login = () => {
             <Button bg={theme.colors.accent} color={theme.colors.cardBackground} type="submit" >
                Submit
             </Button>
-
+            <p>Don't have an Account? <Link to="/signup">Sign Up</Link></p>
          </AuthenticationForm >
-      </CenteredContainer >
+      </AuthContainer >
    )
 }
 

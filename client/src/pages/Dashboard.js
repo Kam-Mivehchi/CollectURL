@@ -38,8 +38,8 @@ const Dashboard = () => {
          <GridBox  >
 
             {/* bucket/collection rows  content rows pass in the card data props*/}
-            {buckets?.map((bucket) => {
-               return (<BucketRow lists={bucket.lists} bucket={bucket} key={bucket._id} />)
+            {buckets?.map((bucket, i) => {
+               return (<BucketRow lists={bucket.lists} bucket={bucket} key={bucket._id} index={i} />)
             })}
             {/* <BucketRow /> */}
 

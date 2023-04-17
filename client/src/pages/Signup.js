@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 
 import { useTheme } from 'styled-components'
-import { CenteredContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
+import { AuthContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { createUser } from "../Utils/API"
 import { useNavigate, Link } from "react-router-dom"
 import { useUserContext } from "../Utils/UserContext"
@@ -43,7 +43,7 @@ const Signup = () => {
 
 
    return (
-      <CenteredContainer>
+      <AuthContainer>
          <AuthenticationForm onSubmit={formHandler}>
             <h2>Sign Up</h2>
             <label>
@@ -100,7 +100,7 @@ const Signup = () => {
 
             <p>Already have an Account? <Link to="/login">Sign In</Link></p>
          </AuthenticationForm >
-      </CenteredContainer >
+      </AuthContainer >
    )
 }
 

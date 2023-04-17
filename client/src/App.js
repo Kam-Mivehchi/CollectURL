@@ -18,9 +18,8 @@ const light = {
   colors: {
     primary: "#F1F6F9",
     secondary: "#14274E",
-    bucketBg: "#CFD2CF",
-    accent: "#37306B",//'#8758FF',
-    accent2: '#9772fb',
+    accent: "#394867",
+    accent2: '#9BA4B4',
     cardText: '#252525',
     cardBackground: '#ffffff',
     light: '#ffffff',
