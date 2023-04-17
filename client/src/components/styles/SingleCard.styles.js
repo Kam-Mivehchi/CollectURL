@@ -9,6 +9,7 @@ padding:1.5em;
 // margin:3em auto;
 max-width:90%;
 
+margin:auto;
 position:relative;
 border-radius:${({ theme }) => theme.borders.inner};
 box-shadow:0 0 1em  rgb(0,0,0,.5);
@@ -26,11 +27,10 @@ form:first-child{
   >button{
     color:white;
     background-color:${({ theme }) => theme.colors.accent || 'white'};
-    background:linear-gradient(45deg,${({ theme }) => theme.colors.accent} 0%,#CB1C8D 100%);
+     background:linear-gradient(135deg,${({ theme }) => theme.colors.accent} 0%,${({ theme }) => theme.colors.accent2} 50%,${({ theme }) => theme.colors.accent} 100%);
     border-radius:${({ theme }) => theme.borders.button};
     padding:${({ p }) => p || ".3rem .75rem"};
     height:fit-content;
-    
   }
 }
 Input{
@@ -115,7 +115,7 @@ p{
 
 `
 export const ListContainer = styled.div`
-
+min-height:283px;
 max-height:70vh;
 overflow-y:scroll;
 padding:1em;

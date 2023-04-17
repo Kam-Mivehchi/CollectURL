@@ -149,7 +149,7 @@ const ListView = () => {
 
          {/* save button if user is not logged in */}
          <Card as={motion.div}
-            animate={{ opacity: [0, 1,] }}
+            animate={{ opacity: [0, 1,], x: [-100, 0] }}
             transition={{ ease: "easeOut", duration: 1 }}
             bg={theme.colors.secondary}
          >

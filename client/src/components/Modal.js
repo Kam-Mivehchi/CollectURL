@@ -69,7 +69,7 @@ const Modal = ({ toggle }) => {
    return (
       <>
          <Button
-            bg={`linear-gradient(45deg ,${theme.colors.accent} 0%, #CB1C8D 100%)`}
+            gradient={`linear-gradient(135deg, ${theme.colors.accent} 0%,${theme.colors.accent2} 50%, ${theme.colors.accent} 100%)`}
             color={theme.colors.primary}
             wt={"1em"}
             pad={"1.3em"}

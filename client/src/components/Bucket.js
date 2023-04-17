@@ -3,19 +3,18 @@ import Modal from './Modal'
 import { Bucket, ListRow, Card } from './styles/Library.styles'
 // import { deleteList } from '../Utils/API'
 // import { BiTrash } from "react-icons/bi"
+import { motion } from "framer-motion"
 
-const BucketRow = ({ bucket }) => {
+const BucketRow = ({ bucket, index }) => {
    // const [userBucket] = useState(bucket || { lists: [], bucketName: "Untitled" });
 
-
-
-
-
-
-
-
    return (
-      <Bucket className="" >
+      <Bucket className="" spotlight={index === 0}
+         as={motion.div}
+         animate={{ x: [-100, 0] }}
+         transition={{ ease: "easeOut", duration: 1, delay: index * .2 }}
+         viewport={{ once: true }}
+      >
          <h3>{bucket.bucketName}</h3>
          <ListRow >
 

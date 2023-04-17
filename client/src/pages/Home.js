@@ -12,10 +12,10 @@ justify-content:center;
 align-items:center;
 
  
-span{
-//  background:linear-gradient(90deg,${({ theme }) => theme.colors.dark} 40%,${({ theme }) => theme.colors.secondary}  40%);
-background:${({ theme }) => theme.colors.light} ;
- 
+section{
+
+background:${({ theme }) => theme.colors.secondary} ;
+ padding:2em 0;
  width:100%;
  display:grid;
  grid-template-columns:50% 50%;
@@ -24,20 +24,20 @@ background:${({ theme }) => theme.colors.light} ;
    
     justify-self:center;
     align-self:center;
-   //  color:${({ theme }) => theme.colors.secondary};
+   
     text-align:center;
    
     grid-column:span 2;
     display:flex;
     flex-direction:column;
     gap:2em;
-// align-items:start;
-// justify-content:space-evenly;
-padding:1rem 1.5rem;
-text-align:center;
+    
+    padding:1rem 1.5rem;
+    text-align:center;
+    color:${({ theme }) => theme.colors.accent2};
 }
 h2{
-       color:${({ theme }) => theme.colors.accent};
+       color:${({ theme }) => theme.colors.primary};
    font-size:min(8vw,2.75em);
    font-weight:900;
    text-shadow:0 .25em .7em black;
@@ -65,7 +65,7 @@ article{
 
       color:${({ theme }) => theme.colors.accent};
       filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.8));
-   background: -webkit-linear-gradient(45deg,${({ theme }) => theme.colors.accent}, #CB1C8D, ${({ theme }) => theme.colors.accent});
+   background: -webkit-linear-gradient(165deg,${({ theme }) => theme.colors.secondary},${({ theme }) => theme.colors.accent2}, ${({ theme }) => theme.colors.secondary}, ${({ theme }) => theme.colors.accent2},${({ theme }) => theme.colors.secondary});
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    line-height:150%;
@@ -80,7 +80,7 @@ article{
    button{
     font-size:120%;
     background-color:${({ theme }) => theme.colors.accent};
-    background:linear-gradient(135deg,${({ theme }) => theme.colors.accent} 0%,#CB1C8D 100%);
+    background:linear-gradient(135deg,${({ theme }) => theme.colors.accent} 0%,${({ theme }) => theme.colors.accent2} 50%,${({ theme }) => theme.colors.accent} 100%);
     padding:${({ p }) => p || ".5rem 1rem"};
    color:${({ theme }) => theme.colors.primary || 'white'};
     border-radius:${({ theme }) => theme.borders.button};
@@ -89,7 +89,7 @@ margin:.5em auto;
 
 }
 @media (min-width: 768px) {
- span ol{
+ section ol{
     margin-left:1em;
     grid-column:span 1; 
  }  
@@ -102,7 +102,7 @@ margin:.5em auto;
       margin:auto 0;
    }
 
-   span ol{
+   section ol{
       transform:translateX(-4em);
    }
 }
@@ -133,18 +133,18 @@ const Home = () => {
                   </Link>
                </motion.button>
             </article>
-            <span>
+            <section>
 
                <AnimatedList />
                <ol>
                   <h2>Simply Paste Your URL</h2>
 
-                  <li>Simply copy and paste the URLs you want to save, or type them in manually.Say goodbye to cluttered bookmarks and hello to a streamlined, organized way of saving your favorite URLs.</li>
+                  <li>Say goodbye to cluttered bookmarks and hello to a streamlined, organized way of saving your favorite URLs.Just copy and paste the URLs you want to save, or type them in manually.</li>
                   {/* {<li> Whether you're browsing the web or remembering a URL from memory, our app makes it simple to build your collection of favorite links.</li>} */}
                   <li></li>
 
                </ol>
-            </span>
+            </section>
 
          </Hero>
       </>

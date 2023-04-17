@@ -1,23 +1,27 @@
 import styled, { keyframes } from 'styled-components'
 import { IoHomeOutline, IoLogInOutline, IoCreateOutline } from "react-icons/io5";
 export const Background = styled.div`
-background:${({ theme }) => theme.colors.secondary};
+background:${({ theme }) => theme.colors.primary};
 
+`
+export const AuthContainer = styled.div`
+background:${({ theme }) => theme.colors.primary};
+min-width:100%;
+display:grid;
+place-items:start center;
+
+// min-height:${({ height }) => height || 'auto'};
+min-height:90vh;
 `
 export const CenteredContainer = styled.div`
 
-
-min-width:100%;
-
-
-
-display:grid;
-place-items:center;
-
-
-
-min-height:${({ height }) => height || 'auto'};
-
+padding:0;
+margin:0;
+position:relative;
+color:${({ theme }) => theme.colors.textPrimary};
+background-color:${({ theme }) => theme.colors.primary};
+min-height:90vh;
+// display:grid;
 
 `
 export const Container = styled.div`
@@ -80,7 +84,7 @@ border-radius:${({ theme }) => theme.borders.input};
 
 `
 export const Nav = styled.nav`
-color:${({ theme }) => theme.colors.accent};
+color:${({ theme }) => theme.colors.secondary};
 
 position:relative;
 display:flex;
@@ -90,9 +94,10 @@ align-items:center;
 items-center;
 padding:1rem .5rem;
 margin:0 1rem;
-// filter:drop-shadow(0 0em 1em  rgb(0,0,0,.8));
 img{
-   width:6em;
+   width:5em;
+   filter:drop-shadow(0 0 .5em  rgb(0,0,0,.1));
+   padding:.5em;
 }
 a{
    font-size: 1.25rem; 
@@ -106,6 +111,13 @@ a{
    margin:0;
    
    filter:drop-shadow(0 .25em 1em  rgb(0,0,0,.6));
+   &:hover{
+      opacity:.75;
+   }
+   &:active{
+      opacity:1;
+      transform:scale(.95);
+   }
 }
 Link{
    pointer:cursor;
@@ -115,17 +127,11 @@ Link{
    color: black;
    display:flex;
    outline:none;
-   
-   
-   color:${({ theme }) => theme.colors.black};
    &:focus{
       outline:none
    }
 }
-span{
-   
-   color:${({ theme }) => theme.colors.black};
-}
+
 @media (min-width: 768px) {
    width:66%;
    margin:auto;
@@ -134,6 +140,7 @@ span{
 `
 export const Button = styled.button`
 background:${({ bg }) => bg};
+background:${({ gradient }) => gradient};
 color:${({ color }) => color};
 
 box-shadow:0 0em 1em  rgb(0,0,0,.6);
@@ -197,7 +204,7 @@ color:${({ theme }) => theme.colors.black};
 `
 
 export const AuthenticationForm = styled.form`
-background-color: ${({ theme }) => theme.colors.secondary};
+background-color: ${({ theme }) => theme.colors.accent2};
 padding:1rem 2rem;
 border-radius:${({ theme }) => theme.borders.outer};
 border:2px solid ${({ theme }) => theme.colors.accent};

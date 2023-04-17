@@ -2,10 +2,10 @@
       xmlnsSvgjs="http://svgjs.dev/svgjs" width="1000" height="623" viewBox="0 0 1000 623">
       <defs>
             <linearGradient id="grad1" x1="0.15" y1="0.86" x2="0.85" y2="0.14">
-                  <stop offset="0%" stop-color="#cb1c8d" />
-                  <stop offset="25%" stop-color="#cb1aac" />
-                  <stop offset="50%" stop-color="#c816ce" />
-                  <stop offset="100%" stop-color="#37306B" />
+                  <stop offset="0%" stop-color="#14274E" />
+                  <stop offset="25%" stop-color="#394867" />
+                  <stop offset="50%" stop-color="#9BA4B4" />
+                  <stop offset="100%" stop-color="#14274E" />
             </linearGradient>
       </defs>
       <g transform="matrix(1,0,0,1,-0.6060518698645296,0.2522267206477409)"><svg viewBox="0 0 396 247"
