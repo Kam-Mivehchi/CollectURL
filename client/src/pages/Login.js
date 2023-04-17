@@ -5,6 +5,7 @@ import { useUserContext } from '../Utils/UserContext'
 import { AUTHENTICATE } from '../Utils/actions'
 import { login } from "../Utils/API"
 import { useNavigate, Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const Login = () => {
    const navigate = useNavigate()
@@ -42,7 +43,10 @@ const Login = () => {
 
    }
    return (
-      <AuthContainer>
+      <AuthContainer
+         as={motion.div}
+         animate={{ opacity: [0, 1,], x: [-100, 0] }}
+         transition={{ ease: "easeOut", duration: 1 }} >
          <AuthenticationForm onSubmit={formHandler}>
             <h2>Login</h2>
 

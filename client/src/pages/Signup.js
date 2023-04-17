@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-
+import { motion } from "framer-motion"
 import { useTheme } from 'styled-components'
 import { AuthContainer, AuthenticationForm, Button } from "../components/styles/Utilities.styles"
 import { createUser } from "../Utils/API"
@@ -43,7 +43,10 @@ const Signup = () => {
 
 
    return (
-      <AuthContainer>
+      <AuthContainer
+         as={motion.div}
+         animate={{ opacity: [0, 1,], x: [-100, 0] }}
+         transition={{ ease: "easeOut", duration: 1 }}>
          <AuthenticationForm onSubmit={formHandler}>
             <h2>Sign Up</h2>
             <label>

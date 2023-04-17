@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ModalWrapper = styled.div`
 display:grid;
-
+color:${({ theme }) => theme.colors.secondary};
 left:50%;
 top:50%;
 transform:translate(-50%,-50%);
