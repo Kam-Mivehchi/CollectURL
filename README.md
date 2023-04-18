@@ -3,7 +3,7 @@
 
 
 ## Description
-Designed to collect websites and group them together into a single buckets. Inspired by my journey as a software developer, which relies on learning concepts from various sources. This tool allows users to easily add websites via copy/paste. Does not currently support PWA url's.
+Designed to collect websites and group them together into a single buckets. Inspired by my journey as a software developer, which relies on learning concepts from various sources. This tool allows online learners to easily keep track of related websites and create lists to reference later. Does not currently support PWA url's.
 ## Deployment
 https://lovely-banoffee-8811b7.netlify.app/
 ## Screenshots
