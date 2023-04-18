@@ -7,9 +7,8 @@ Designed to collect websites and group them together into a single buckets. Insp
 ## Deployment
 https://lovely-banoffee-8811b7.netlify.app/
 ## Screenshots
-![image](https://user-images.githubusercontent.com/90432404/232635041-3d7fd9f2-e056-4b4e-88fa-25e6e594c18a.png)
-![image](https://user-images.githubusercontent.com/90432404/232635055-26fd2d78-caf9-4ebe-b2ef-5dfdd18fbaa9.png)
-![image](https://user-images.githubusercontent.com/90432404/232635060-3469819e-7692-42f9-aa21-75c694bb21d4.png)
+
+![CollectURL-walkthrough](https://user-images.githubusercontent.com/90432404/232636238-2372cc53-97c3-4192-aaf0-48429981336f.gif)
 
 ## User Story
 ```
