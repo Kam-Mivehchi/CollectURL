@@ -22,7 +22,7 @@ min-width:300px;
 // margin:1.5rem 0;
 
 h3{
-color:${({ theme }) => theme.colors.secondary || 'black'};
+color:${({ theme }) => theme.colors.secondary} !important;
    
 }
 
